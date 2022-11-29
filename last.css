@@ -1,0 +1,324 @@
+/*---------------------------------------------MENU-----------------------------------*/
+.menu
+{
+    position:fixed;
+    display:flex;
+    top:1px;
+    background-color: orange;
+    line-height:3em;
+    border-radius: 8px;
+    width:100%;
+}
+.menus
+{
+    margin:0 100px;
+    color:aliceblue;
+    
+}
+.menus:hover
+{
+    transform: scale(1.2);
+    color:greenyellow;
+}
+
+/*---------------------------------------------文首图-----------------------------------*/
+
+.boxw1
+{
+    position:relative;          /*将大的一张图片设为相对定位，z-index值设为复数，作为下层*/
+    z-index:-999;
+}
+.boxw2
+{
+    position:absolute;
+    z-index:1;                       /*将小的图片设为absolute，并用方位值使其处于顶部正中央，z-index=1，堆叠于上一张图片上方*/
+    top:100px;
+    left:30%;
+}
+
+/*------------------------------------INTRODUCE--------------------------------------------------------------*/
+.boxi0
+{
+    position:relative;
+}
+.pici0
+{
+    width:100%;
+    z-index:-999;
+}
+.boxi1
+{
+    position:absolute;
+    z-index:1;            /*设置层定位，实现图片叠加*/
+    font-size:50px;
+    color:darkblue;
+    text-align:center;      /*设置文字格式，字体大小颜色，并且使其剧中*/
+    top:100px;              /*用方位值定位*/
+    left:40%;
+}
+#trangle
+{
+   display:inline-block;
+    border-color: #000000 white white;
+    border-style: solid;                                   /*实现一个倒三角，利用的是下边框设置为0，*/
+    border-width:10px 6px 0;
+    width:1px;
+    height:10px;
+    
+}
+
+/*------------------------------------------------------------------------------------各个职业-------------------------*/
+.box0
+{
+    border:5px solid grey;
+    border-radius: 40px;        /*设置边框以及圆角*/
+    width:80%;
+   margin:100px  auto;                  /*让整个盒子宽度占80%，居中*/
+    display:flex;               /*布局模型：flex；方便图片与文本处于一行*/
+    background-color: aliceblue;        /*整一个背景颜色*/
+    transition: all 1.2s;              /*让变大的操作在0.6s内完成*/
+}
+.box1
+{
+    margin-left:100px;
+}
+.ti0
+{
+    font-style:italic;
+    font-family: "方正舒体";
+    font-size:45px;                     /*为第一个标题设置样式：字体，大小以及样式为斜体*/
+}
+.ti1
+{
+    font-family:broadway;
+    color:rgba(0, 140, 255, 0.425);         /*为第二个标题设置样式：字体，颜色*/
+    font-size: 30px;
+}
+.pa0
+{
+    word-spacing: 1em;                       /*设置段落文字样式：字体，行高，字距*/
+    line-height: 2em;
+    font-family: "黑体";
+    font-size:large;
+}
+.pic0
+{
+    float:right;
+    width:30%;            /*图片的设置：改为float模型，可使之与文本处于同一行，设置margin-left,是图片与文本分开*/
+    margin-right:5%;
+    margin-left:10%;
+}
+.pic0:hover
+{
+           /*使用伪类来实现鼠标hover图片旋转*/
+   -webkit-transform:skew(12.5deg);
+}
+.box0:hover
+{
+    transform: scale(1.05);                                         /*使用伪类放大*/
+}
+
+    
+
+
+/*-------------------------------------------------------ABOUT US------------------------------------------------------*/
+#boxa0
+{
+    border:5px solid grey;      /*最大的框架*/
+    border-radius:10px;
+    width:80%;                            /*设置好边框圆角大小*/
+    margin:100px auto;
+    background-color: antiquewhite;
+    
+}
+#tia0
+{
+    text-align: center;        /* 为“about us”大标题设置颜色且使其剧中*/
+    color: grey;
+    display:block;
+    font-size:4em;
+}
+.boxa1
+{
+    margin-top:100px;
+    display:flex;                            /*用一个弹性盒装三段话&图片*/
+    height:500px;
+}
+.boxa2
+{
+    margin:10px auto; /*每一个竖着的栏目都设置为特定大小*/
+    
+    
+}
+.pica0
+{
+    width:180px;                        /*三个小图片的大小设定*/
+    height:240px;
+    position:relative;                        /*使图片定位*/
+}
+.pica1
+{
+    width:160px;                                  /*设置蝴蝶的大小*/
+    height:194px;
+    position:relative;
+    z-index:2;
+    left:80%;
+}
+.pica1:hover
+{
+    transform: scale(1.2);                                  /*伪类使蝴蝶可以变大*/
+}
+.pica2
+{
+    width:200px;                  
+    height:63px;
+    float:left;
+    left:0px;
+}
+.pica3
+{
+    width:200px;                  
+    height:63px;                                                /*蝴蝶踩得地方设置大小*/
+    float:right;
+    right:50px;
+    position:absolute;
+    z-index:1;
+    top:90%;
+}
+
+.boxa2
+{
+    border:5px solid purple;
+    border-radius:20px;                         /*设置边框形式和大小*/
+    margin:120px;
+    margin-top: 20px;
+    width:180px;
+    height:400px;
+    line-height:1.5em;
+    transition: all 1s;
+}
+.paa0
+{
+    position:relative;
+    width:80%;                                      /*让文字居中*/
+    margin-left:10%;
+}
+.boxa2:hover
+{
+    transform:scale(1.2)    /*伪类实现缩放*/
+}
+/*=-----------------------------------CONTACT US-------------------------------------------------------------*/
+#boxc0
+{
+    border:8px solid rgba(0, 98, 128, 0.979);
+    border-radius:10px;
+    margin-left:80px;
+    margin-right:80px;
+    width:80%;
+    margin-left: 10%;
+    height:800px;
+}
+.ps
+{
+    font-size:small;
+    margin-left: 20%;
+    font-size: 1em;                     /*ps的提示*/
+    word-spacing: 5px;
+    line-height: 1.5em;
+
+}
+.boxc5
+{
+    background-color:whitesmoke;                          /*每个小盒子的设置*/
+    margin:auto; 
+    position:relative;
+    z-index:0;
+    border-radius: 8px;   
+}
+ul
+{
+    width:890px;
+    margin:0 auto;
+    line-height: 100px;
+    font-size:1.5em;
+    font-weight:800;                                       /*设置列表的参数*/
+    
+}
+#boxc4
+{
+    display:flex;
+    margin:10px auto;                       /*采用弹性和装三个方式*/
+    position:relative;
+    top:100px;
+}
+.boxc3
+{
+    margin-top:80px;
+}
+.boxc1{                                      /*右侧背景右浮动*/
+    float:right;
+}
+#picc0
+{                                                   
+    height:800px;              /*右侧背景大小*/
+}
+#boxc6
+{
+    float:left;
+    width:20%;              /*左背景盒子左浮动*/
+}
+#picc2
+{
+    height:800px;       /*为左侧背景图片设置宽高*/
+    width:80%;
+}
+.picc1
+{
+    width:25px;
+    height:25px;                /*QQ GITHUP EMILE设置大小*/
+}
+
+
+/*=-----------------------------------MORE QUESTION-------------------------------------------------------------*/
+.more
+{
+    width:80%;
+    position:relative;
+
+}
+.boxm0
+{
+    position:relative;
+    margin-left:10%;
+    width:100%;
+    margin-top: 100px;
+    z-index: -1;
+}
+.back
+{
+    width:100%;
+    height:1500px;
+}
+.boxm3
+{
+    position:absolute;
+    width:100%;
+    z-index:1;
+    top:10%;
+    left:40%;
+}
+.hello
+{
+    width:500px;
+}
+/*=-----------------------------------FOOTER-------------------------------------------------------------*/
+#footer
+{
+    height:80px;
+    width:100%;
+    border:2px solid white;
+    border-top-color: grey;
+    clear:both;
+    text-align: center;
+    font-size:small;
+}
