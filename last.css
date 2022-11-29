@@ -11,6 +11,8 @@
 }
 .menus
 {
+	font-size:1.2em;	/*设置可以设定margin的元素*/
+	display:inline-block;
     margin:0 100px;
     color:aliceblue;
     
