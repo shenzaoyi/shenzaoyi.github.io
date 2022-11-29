@@ -284,7 +284,8 @@ ul
 /*=-----------------------------------MORE QUESTION-------------------------------------------------------------*/
    .boxmm
     {
-        margin-top:200px;
+        margin-top:500px;
+	    margin-bottom:200px;
         position:relative;
         width:80%;
         margin-left:10%;            /*设置最外层盒子大小*/
@@ -300,7 +301,7 @@ ul
     }
     .boxm1
     {
-        position: absolute;     /*绝对定位再背景之上，设置居中*/
+        position: relative;     /*绝对定位再背景之上，设置居中*/
         z-index: 1;
         margin:10% 30%;
     }
