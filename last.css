@@ -294,6 +294,7 @@ ul
     }    
     .boxm0
     {
+	    top:10px;
         position:absolute;          
         z-index:-999;               /*绝对定位使之作为背景*/
     }
@@ -305,6 +306,7 @@ ul
         position: relative;     /*绝对定位再背景之上，设置居中*/
         z-index: 1;
         margin:10% 30%;
+	top:10px;    
     }
 
     .q
