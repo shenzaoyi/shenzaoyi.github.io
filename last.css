@@ -322,3 +322,25 @@ ul
     text-align: center;
     font-size:small;
 }
+
+
+/*伪类做二维码弹出*/
+
+
+.weixin img.qrcode {
+    position:absolute;
+    opacity: 0;
+    top:20px;
+    left:20px;
+
+}
+
+.weixin:hover img.qrcode {
+	transform: scale(1);
+	opacity: 1;
+
+}
+a
+{
+color:aliceblue;
+}
