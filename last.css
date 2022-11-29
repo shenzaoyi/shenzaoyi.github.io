@@ -284,6 +284,7 @@ ul
 /*=-----------------------------------MORE QUESTION-------------------------------------------------------------*/
    .boxmm
     {
+	    border:2px solid blue;
         margin-top:300px;
 	    margin-bottom:200px;
         position:relative;
