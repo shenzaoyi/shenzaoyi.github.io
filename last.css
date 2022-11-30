@@ -308,7 +308,7 @@ ul
     {
         position: relative;     /*绝对定位再背景之上，设置居中*/
         z-index: 1;
-        margin:20% auto;
+        margin:10px 20%;
 	top:10px; 
 	    word-spacing:2.5em;
 	    line-height:2.5em;
