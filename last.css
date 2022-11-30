@@ -297,6 +297,7 @@ ul
     .boxm0
     {
 	    top:10px;
+	    left:80px;
         position:absolute;          
         z-index:-999;               /*绝对定位使之作为背景*/
     }
