@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>神造诣的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="[toc] Flask创建虚拟环境官方文档 venv pip 的管理软件 pip list 查看全局包 创建 python -m venv FileName 激活 .\Activate.ps1  –启示：各个版本命令不同， 应该多看自己系统提示，来尝试解决问题 Flask概述web 框架作用 &amp; flask的框架特点web 框架 个人：模板 - 什么模板–web 知识 - 服务器端 - 响">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神造诣的个人博客">
+<meta property="og:url" content="http://example.com/2023/03/07/Flask/index.html">
+<meta property="og:site_name" content="神造诣的个人博客">
+<meta property="og:description" content="[toc] Flask创建虚拟环境官方文档 venv pip 的管理软件 pip list 查看全局包 创建 python -m venv FileName 激活 .\Activate.ps1  –启示：各个版本命令不同， 应该多看自己系统提示，来尝试解决问题 Flask概述web 框架作用 &amp; flask的框架特点web 框架 个人：模板 - 什么模板–web 知识 - 服务器端 - 响">
+<meta property="og:locale">
+<meta property="og:image" content="c:\Users\%E7%A5%9E%E9%80%A0%E8%AF%A3\AppData\Roaming\Typora\typora-user-images\image-20230307155519184.png">
+<meta property="og:image" content="c:\Users\%E7%A5%9E%E9%80%A0%E8%AF%A3\AppData\Roaming\Typora\typora-user-images\image-20230307155539882.png">
+<meta property="article:published_time" content="2023-03-07T14:19:48.254Z">
+<meta property="article:modified_time" content="2023-03-07T08:39:18.767Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\%E7%A5%9E%E9%80%A0%E8%AF%A3\AppData\Roaming\Typora\typora-user-images\image-20230307155519184.png">
+  
+    <link rel="alternate" href="/atom.xml" title="神造诣的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">神造诣的个人博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">变得 优秀</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Flask" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/07/Flask/" class="article-date">
+  <time class="dt-published" datetime="2023-03-07T14:19:48.254Z" itemprop="datePublished">2023-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h1 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h1><h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/venv.html">官方文档</a></p>
+<p>venv pip 的管理软件</p>
+<p>pip list 查看全局包</p>
+<p><strong>创建</strong> python -m venv FileName</p>
+<p><strong>激活</strong> .\Activate.ps1  –启示：各个版本命令不同， 应该多看自己系统提示，来尝试解决问题</p>
+<h2 id="Flask概述"><a href="#Flask概述" class="headerlink" title="Flask概述"></a>Flask概述</h2><h3 id="web-框架作用-amp-flask的框架特点"><a href="#web-框架作用-amp-flask的框架特点" class="headerlink" title="web 框架作用 &amp; flask的框架特点"></a>web 框架作用 &amp; flask的框架特点</h3><p><strong>web 框架</strong></p>
+<p>个人：模板 - 什么模板–web 知识 - 服务器端 - 响应请求，发送内容，管理数据，</p>
+<p>官方：一种抽象，将相同代码复用        <a target="_blank" rel="noopener" href="https://www.cnblogs.com/hazir/p/what_is_web_framework.html#top">web 框架</a>   <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/First_steps/Web_frameworks">web 框架作用</a></p>
+<ol>
+<li><p>直接处理 http 请求和响应</p>
+</li>
+<li><p>将请求路由到相关的 handler 中</p>
+</li>
+<li><p>使从请求中处理数据变得简单</p>
+</li>
+<li><p>抽象 &amp; 简化数据库接口</p>
+</li>
+<li><p>渲染数据</p>
+</li>
+</ol>
+<p><strong>大体框架</strong></p>
+<p>flask run 运行</p>
+<p>一个小坑：之前是在Scripts目录下创建虚拟环境，需要先退出到venv 才能执行flask run</p>
+<p>路由 url</p>
+<p>装饰器做莫斯的 – 注册路由的</p>
+<p>动态路由：</p>
+<p>动态路由的过滤：</p>
+<p>问题：使用动态路由之后原来的装饰器的路由失效？状态返回码为 500 ，但是url_for()仍然是dog，dog 不能认为是动态装饰器的一员吗</p>
+<p>状态返回码：500 - 服务器内部错误</p>
+<p><img src="C:\Users\神造诣\AppData\Roaming\Typora\typora-user-images\image-20230307155519184.png" alt="image-20230307155519184"></p>
+<p><img src="C:\Users\神造诣\AppData\Roaming\Typora\typora-user-images\image-20230307155539882.png" alt="image-20230307155539882"></p>
+<p><em>整个过程的描述</em></p>
+<p>键入地址 - 客户端发送请求 - 服务器解析请求 - 调用函数 - 获取返回值 - 发送到客户端 - 客户端显示在窗口</p>
+<p>程序发现机制 怎么知道调用哪个函数 </p>
+<p>flask 默认的函数为app.py or wsgi.py,如果使用其他文件名则需要配置环境变量</p>
+<p>ASK :如何发送请求 - 如何解析请求 - 怎么知道调用哪个函数 - 返回值的要求 - 怎么发送到客户端的 -</p>
+<p>url &amp; 视图函数 de 映射关系：url –&gt; 视图函数 ，那么，通过视图函数来找到url ，称为重定向</p>
+<p><strong>编写主页</strong></p>
+<p>模板：包含变量 &amp; 运算逻辑的HTML或者其他格式的文本</p>
+<p>宏 include 模板继承</p>
+<p>渲染：执行变量替换 &amp; 逻辑运算的步骤叫做渲染</p>
+<p>–jinja2 模板渲染引擎</p>
+<p>jinja2语法</p>
+<ul>
+<li><code>&#123;&#123; ... &#125;&#125;</code> 用来标记变量。</li>
+<li><code>&#123;% ... %&#125;</code> 用来标记语句，比如 if 语句，for 语句等。</li>
+<li>&#96;&#96; 用来写注释。</li>
+</ul>
+<p>过滤器是什么 -</p>
+<p>编写一个主页 - html 里面留有变量 &amp; 赋值 - 准备虚拟数据 - jinja2渲染 - output</p>
+<p>ASK：jinja2 的渲染过程 ，</p>
+<p><strong>静态文件</strong></p>
+<p>通过flask 的 url_for()来生成静态文件的URL，</p>
+<p>Favicon 标签页 &amp; 书签栏的图像 ，在head 内使用Link 来链接图片链接。css 文件</p>
+<blockquote>
+<p><strong>提示</strong> 当你把 CSS 写到单独的文件后，浏览器获取到这个文件后会对其进行缓存（其他静态文件同理，比如 JavaScript 文件）。Flask 从 2.0 版本开始支持自动重载静态文件的变化，如果你使用的仍然是旧版本的 Flask，那么每当你对 CSS 文件的内容进行更新后，都需要使用下面的快捷键清除缓存：</p>
+<ul>
+<li>Google Chrome（Mac）：Command + Shift + R</li>
+<li>Google Chrome（Windows &amp; Linux）：Ctrl + F5</li>
+<li>Firefox（Mac）：Command + Shift + R</li>
+<li>Firefox（Windows &amp; Linux）：Ctrl + F5</li>
+<li>Safari：Command + Option + R</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/07/Flask/" data-id="clf6rgn9z0000y4u6b8f5hxpd" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/13/ssh%E9%93%BE%E6%8E%A5github/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/06/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/13/ssh%E9%93%BE%E6%8E%A5github/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/07/Flask/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/06/test/">test</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
