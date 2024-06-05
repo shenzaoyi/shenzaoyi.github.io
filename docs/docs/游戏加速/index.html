@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="V2rayN#TCP &amp; UDP#UDP ![[Pasted image 20240602180630.png]] TCP ![[Pasted image 20240602180643.png]]
+![[Pasted image 20240602175518.png]]
+Why UDP-over-TCP#网络防火墙限制：有些网络环境会限制或屏蔽UDP流量，使用UDP-Over-TCP可以绕过这些限制。 提高数据传输的可靠性：TCP协议本身提供了错误检测和修正机制，这可以提高数据传输的可靠性。 NAT穿透：在某些网络配置中，UDP数据包可能无法正确地穿透NAT（网络地址转换），而TCP由于其连接的特性，通常可以更好地穿透NAT。 丢包率检测#References#知乎 详解 TCP 协议与 UDP 协议的区别
+udp over tcp , 其实增大包的体积了 udp over tcp 如何封装">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://github.com/shenzaoyi/shenzaoyi.github.io/docs/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/">
+  <meta property="og:site_name" content="shenzaoyi`s blog">
+  <meta property="og:title" content="shenzaoyi`s blog">
+  <meta property="og:description" content="V2rayN#TCP &amp; UDP#UDP ![[Pasted image 20240602180630.png]] TCP ![[Pasted image 20240602180643.png]]
+![[Pasted image 20240602175518.png]]
+Why UDP-over-TCP#网络防火墙限制：有些网络环境会限制或屏蔽UDP流量，使用UDP-Over-TCP可以绕过这些限制。 提高数据传输的可靠性：TCP协议本身提供了错误检测和修正机制，这可以提高数据传输的可靠性。 NAT穿透：在某些网络配置中，UDP数据包可能无法正确地穿透NAT（网络地址转换），而TCP由于其连接的特性，通常可以更好地穿透NAT。 丢包率检测#References#知乎 详解 TCP 协议与 UDP 协议的区别
+udp over tcp , 其实增大包的体积了 udp over tcp 如何封装">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:tag" content="Notes">
+<title>游戏加速 | shenzaoyi`s blog</title>
+<link rel="manifest" href="/shenzaoyi/shenzaoyi.github.io/manifest.json">
+<link rel="icon" href="/shenzaoyi/shenzaoyi.github.io/favicon.png" >
+<link rel="canonical" href="https://github.com/shenzaoyi/shenzaoyi.github.io/docs/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/">
+<link rel="stylesheet" href="/shenzaoyi/shenzaoyi.github.io/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/shenzaoyi/shenzaoyi.github.io/fuse.min.js"></script>
+  <script defer src="/shenzaoyi/shenzaoyi.github.io/en.search.min.ad8fb5ed3b9da0592bb266f7e92664f84e94fc402b3ab992a48ea2ca30d530b3.js" integrity="sha256-rY&#43;17TudoFkrsmb36SZk&#43;E6U/EArOrmSpI6iyjDVMLM=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/shenzaoyi/shenzaoyi.github.io/"><span>shenzaoyi`s blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/shenzaoyi/shenzaoyi.github.io/docs/ssrf/" class="">Ssrf</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/shenzaoyi/shenzaoyi.github.io/docs/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/" class="">内网穿透 &amp; DNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/shenzaoyi/shenzaoyi.github.io/docs/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/" class="active">游戏加速</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/shenzaoyi/shenzaoyi.github.io/docs/%E7%88%AC%E5%8F%96b%E7%AB%99%E8%AF%84%E8%AE%BA/" class="">爬取b站评论</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/shenzaoyi/shenzaoyi.github.io/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>游戏加速</strong>
+
+  <label for="toc-control">
+    
+    <img src="/shenzaoyi/shenzaoyi.github.io/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#v2raynhttpsgithubcom2dustv2raynreleases"><a href="https://github.com/2dust/v2rayN/releases">V2rayN</a></a></li>
+    <li><a href="#tcp--udp">TCP &amp; UDP</a>
+      <ul>
+        <li><a href="#why-udp-over-tcp">Why UDP-over-TCP</a></li>
+        <li><a href="#丢包率检测">丢包率检测</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h2 id="v2raynhttpsgithubcom2dustv2raynreleases">
+  <a href="https://github.com/2dust/v2rayN/releases">V2rayN</a>
+  <a class="anchor" href="#v2raynhttpsgithubcom2dustv2raynreleases">#</a>
+</h2>
+<h2 id="tcp--udp">
+  TCP &amp; UDP
+  <a class="anchor" href="#tcp--udp">#</a>
+</h2>
+<p>UDP
+![[Pasted image 20240602180630.png]]
+TCP
+![[Pasted image 20240602180643.png]]</p>
+<p>![[Pasted image 20240602175518.png]]</p>
+<h3 id="why-udp-over-tcp">
+  Why UDP-over-TCP
+  <a class="anchor" href="#why-udp-over-tcp">#</a>
+</h3>
+<ol>
+<li>网络防火墙限制：有些网络环境会限制或屏蔽UDP流量，使用UDP-Over-TCP可以绕过这些限制。</li>
+<li>提高数据传输的可靠性：TCP协议本身提供了错误检测和修正机制，这可以提高数据传输的可靠性。</li>
+<li>NAT穿透：在某些网络配置中，UDP数据包可能无法正确地穿透NAT（网络地址转换），而TCP由于其连接的特性，通常可以更好地穿透NAT。</li>
+</ol>
+<h3 id="丢包率检测">
+  丢包率检测
+  <a class="anchor" href="#%e4%b8%a2%e5%8c%85%e7%8e%87%e6%a3%80%e6%b5%8b">#</a>
+</h3>
+<h1 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/435932408">知乎</a>
+<a href="https://xie.infoq.cn/article/68048402396ca32e189474cf5">详解 TCP 协议与 UDP 协议的区别</a></p>
+<p>udp over tcp , 其实增大包的体积了
+udp over tcp 如何封装</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#v2raynhttpsgithubcom2dustv2raynreleases"><a href="https://github.com/2dust/v2rayN/releases">V2rayN</a></a></li>
+    <li><a href="#tcp--udp">TCP &amp; UDP</a>
+      <ul>
+        <li><a href="#why-udp-over-tcp">Why UDP-over-TCP</a></li>
+        <li><a href="#丢包率检测">丢包率检测</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
