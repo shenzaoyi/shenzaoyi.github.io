@@ -1,14 +1,14 @@
 {
   "name": "shenzaoyi`s blog",
   "short_name": "shenzaoyi`s blog",
-  "start_url": "/shenzaoyi/shenzaoyi.github.io/",
-  "scope": "/shenzaoyi/shenzaoyi.github.io/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/shenzaoyi/shenzaoyi.github.io/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]
