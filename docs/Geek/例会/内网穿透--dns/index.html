@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="远程连接#校园网的猫腻
+NAT#网络地址转换
+Nat的不同类型#P2P连接方案#组网 &amp; VPN 中继 &amp; 直连
+Tailscale 的终极目标是让两台处于网络上的任何位置的机器建立点对点连接（直连），但现实世界是复杂的，大部份情况下机器都位于 NAT 和防火墙后面，这时候就需要通过打洞来实现直连，也就是 NAT 穿透。
+如果能够直接打洞，就直接打洞连接，如果不能，则通过中继服务器和算法来设置最优路径。
+打洞#穿透防火墙 防火墙的策略 允许出向，禁止入向 有出包，则放回包 穿越防火墙 原则： 只需要发得出出包，就可以得回包 简单的，有一方可以被直接访问，防火墙后的机器先访问，为外部机器开洞 复杂的，双方都无法直接访问，使用 Side Channel, 保证双方都发送，同时(或紧随)为对方打洞 一方先发送数据到另一方，数据被对方防火墙挡掉，但是自己的防火墙记录了回包信息 对方此时发送就不会被防火墙挡掉 如何确保同时呢？ Side Channel 玩转NAT 新问题-发包才知道自己IP&#43;PORT（可控制同一个Socket）
+NAT转换，在包发出去的时候才会进行端口映射，因此，需要先知道对方的IP&#43;PORT,而此时也不知道对方使用哪一个Socket(NAT IP&#43;PORT)
+方案： STUN
+一个Peer A主动让辅助服务器来得到一次会话的端口映射，告知需要通信的Peer B,此Peer只需要根据这个IP&#43;PORT就可以发送到A
+没那么简单： Easy NAT and Hard NAT
+中继#中继协议
+TURN DREP 断网
+REFERENCES#自建 DERP 中继服务器，从此 Tailscale 畅通无阻-腾讯云开发者社区-腾讯云">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/">
+  <meta property="og:site_name" content="shenzaoyi`s blog">
+  <meta property="og:title" content="shenzaoyi`s blog">
+  <meta property="og:description" content="远程连接#校园网的猫腻
+NAT#网络地址转换
+Nat的不同类型#P2P连接方案#组网 &amp; VPN 中继 &amp; 直连
+Tailscale 的终极目标是让两台处于网络上的任何位置的机器建立点对点连接（直连），但现实世界是复杂的，大部份情况下机器都位于 NAT 和防火墙后面，这时候就需要通过打洞来实现直连，也就是 NAT 穿透。
+如果能够直接打洞，就直接打洞连接，如果不能，则通过中继服务器和算法来设置最优路径。
+打洞#穿透防火墙 防火墙的策略 允许出向，禁止入向 有出包，则放回包 穿越防火墙 原则： 只需要发得出出包，就可以得回包 简单的，有一方可以被直接访问，防火墙后的机器先访问，为外部机器开洞 复杂的，双方都无法直接访问，使用 Side Channel, 保证双方都发送，同时(或紧随)为对方打洞 一方先发送数据到另一方，数据被对方防火墙挡掉，但是自己的防火墙记录了回包信息 对方此时发送就不会被防火墙挡掉 如何确保同时呢？ Side Channel 玩转NAT 新问题-发包才知道自己IP&#43;PORT（可控制同一个Socket）
+NAT转换，在包发出去的时候才会进行端口映射，因此，需要先知道对方的IP&#43;PORT,而此时也不知道对方使用哪一个Socket(NAT IP&#43;PORT)
+方案： STUN
+一个Peer A主动让辅助服务器来得到一次会话的端口映射，告知需要通信的Peer B,此Peer只需要根据这个IP&#43;PORT就可以发送到A
+没那么简单： Easy NAT and Hard NAT
+中继#中继协议
+TURN DREP 断网
+REFERENCES#自建 DERP 中继服务器，从此 Tailscale 畅通无阻-腾讯云开发者社区-腾讯云">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>内网穿透 &amp; DNS | shenzaoyi`s blog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/">
+<link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.78c75cfb845156a128bc247030877ae44e3ee7c9b982664b461192e8da6e8e17.js" integrity="sha256-eMdc&#43;4RRVqEovCRwMId65E4&#43;58m5gmZLRhGS6Npujhc=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>shenzaoyi`s blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/ssrf/" class="">Ssrf</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/" class="active">内网穿透 &amp; DNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/" class="">游戏加速</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/%E7%88%AC%E5%8F%96b%E7%AB%99%E8%AF%84%E8%AE%BA/" class="">爬取b站评论</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/docker/" class="">Docker</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/java/" class="">Java</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/jzr/" class="">Jzr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/photoprism/" class="">Photoprism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/%E5%A4%87%E4%BB%BDsandisk-u/" class="">备份sandisk U</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/%E5%AD%A6%E5%88%B0%E5%A4%B4%E8%8C%82%E7%9B%9B/" class="">学到头茂盛</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>内网穿透 &amp; DNS</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#nat">NAT</a>
+      <ul>
+        <li><a href="#nat的不同类型">Nat的不同类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#p2p连接方案">P2P连接方案</a>
+      <ul>
+        <li><a href="#打洞">打洞</a></li>
+        <li><a href="#中继">中继</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">REFERENCES</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#bind-dns-server">BIND DNS SERVER</a>
+      <ul>
+        <li><a href="#nslookup">nslookup</a></li>
+        <li><a href="#dig">dig</a></li>
+      </ul>
+    </li>
+    <li><a href="#references-1">REFERENCES</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h1 id="远程连接">
+  远程连接
+  <a class="anchor" href="#%e8%bf%9c%e7%a8%8b%e8%bf%9e%e6%8e%a5">#</a>
+</h1>
+<p>校园网的猫腻</p>
+<h2 id="nat">
+  NAT
+  <a class="anchor" href="#nat">#</a>
+</h2>
+<p>网络地址转换</p>
+<h3 id="nat的不同类型">
+  Nat的不同类型
+  <a class="anchor" href="#nat%e7%9a%84%e4%b8%8d%e5%90%8c%e7%b1%bb%e5%9e%8b">#</a>
+</h3>
+<h2 id="p2p连接方案">
+  P2P连接方案
+  <a class="anchor" href="#p2p%e8%bf%9e%e6%8e%a5%e6%96%b9%e6%a1%88">#</a>
+</h2>
+<ul>
+<li>组网 &amp; VPN</li>
+</ul>
+<p>中继 &amp; 直连</p>
+<blockquote>
+<p>Tailscale 的终极目标是让两台<strong>处于网络上的任何位置</strong>的机器建立<strong>点对点连接</strong>（直连），但现实世界是复杂的，大部份情况下机器都位于 NAT 和防火墙后面，这时候就需要通过打洞来实现直连，也就是 NAT 穿透。</p>
+</blockquote>
+<p>如果能够直接打洞，就直接打洞连接，如果不能，则通过中继服务器和算法来设置最优路径。</p>
+<h3 id="打洞">
+  打洞
+  <a class="anchor" href="#%e6%89%93%e6%b4%9e">#</a>
+</h3>
+<ol>
+<li>穿透防火墙
+<ol>
+<li>防火墙的策略
+<ul>
+<li>允许出向，禁止入向</li>
+<li>有出包，则放回包</li>
+</ul>
+</li>
+<li>穿越防火墙
+<ul>
+<li>原则： 只需要发得出出包，就可以得回包</li>
+<li>简单的，有一方可以被直接访问，防火墙后的机器先访问，为外部机器开洞</li>
+<li>复杂的，双方都无法直接访问，使用 Side Channel, 保证双方都发送，同时(或紧随)为对方打洞
+<ul>
+<li>一方先发送数据到另一方，数据被对方防火墙挡掉，但是自己的防火墙记录了回包信息</li>
+<li>对方此时发送就不会被防火墙挡掉</li>
+<li>如何确保同时呢？ Side Channel</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>玩转NAT
+<ol>
+<li>
+<p>新问题-发包才知道自己IP+PORT（可控制同一个Socket）</p>
+<p>NAT转换，在包发出去的时候才会进行端口映射，因此，需要先知道对方的IP+PORT,而此时也不知道对方使用哪一个Socket(NAT IP+PORT)</p>
+</li>
+<li>
+<p>方案： STUN</p>
+<p>一个Peer A主动让辅助服务器来得到一次会话的端口映射，告知需要通信的Peer B,此Peer只需要根据这个IP+PORT就可以发送到A</p>
+</li>
+<li>
+<p>没那么简单： Easy NAT and Hard NAT</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="中继">
+  中继
+  <a class="anchor" href="#%e4%b8%ad%e7%bb%a7">#</a>
+</h3>
+<p><strong>中继协议</strong></p>
+<ol>
+<li>TURN</li>
+<li>DREP</li>
+</ol>
+<p>断网</p>
+<h2 id="references">
+  REFERENCES
+  <a class="anchor" href="#references">#</a>
+</h2>
+<p><a href="https://cloud.tencent.com/developer/article/1977129">自建 DERP 中继服务器，从此 Tailscale 畅通无阻-腾讯云开发者社区-腾讯云</a></p>
+<p><a href="https://arthurchiao.art/blog/how-nat-traversal-works-zh/#1-%E5%BC%95%E8%A8%80">[译] NAT 穿透是如何工作的：技术原理及企业级实践（Tailscale, 2020）</a></p>
+<p><a href="https://icloudnative.io/posts/custom-derp-servers/#%E4%BD%BF%E7%94%A8%E7%BA%AF-ip">Tailscale 基础教程：部署私有 DERP 中继服务器</a></p>
+<h1 id="dns服务器">
+  DNS服务器
+  <a class="anchor" href="#dns%e6%9c%8d%e5%8a%a1%e5%99%a8">#</a>
+</h1>
+<h2 id="bind-dns-server">
+  BIND DNS SERVER
+  <a class="anchor" href="#bind-dns-server">#</a>
+</h2>
+<p>Berkeley Intenet Name Domain Service</p>
+<h3 id="nslookup">
+  nslookup
+  <a class="anchor" href="#nslookup">#</a>
+</h3>
+<ol>
+<li>DNS</li>
+</ol>
+<p><strong>保存 RR(Resource Records)的分布式数据库</strong></p>
+<blockquote>
+<p>What is RR? Resouce Records, 资源记录，to be continue
+RR 格式: (name, value, type, ttl )
+type:</p>
+</blockquote>
+<ul>
+<li>A : 主机和IP地址的键值对</li>
+<li>CNAME : name为别名， value为规范名字</li>
+<li>NS : 域名和权威服务器的域名键值对</li>
+<li>MX : value 的值为name对应的邮件服务器的名字</li>
+</ul>
+<p>非权威应答（Non-authoritative answer）</p>
+<h3 id="dig">
+  dig
+  <a class="anchor" href="#dig">#</a>
+</h3>
+<p>also look this</p>
+<h2 id="references-1">
+  REFERENCES
+  <a class="anchor" href="#references-1">#</a>
+</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/361451835">nslookup 入门命令详解</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#nat">NAT</a>
+      <ul>
+        <li><a href="#nat的不同类型">Nat的不同类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#p2p连接方案">P2P连接方案</a>
+      <ul>
+        <li><a href="#打洞">打洞</a></li>
+        <li><a href="#中继">中继</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">REFERENCES</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#bind-dns-server">BIND DNS SERVER</a>
+      <ul>
+        <li><a href="#nslookup">nslookup</a></li>
+        <li><a href="#dig">dig</a></li>
+      </ul>
+    </li>
+    <li><a href="#references-1">REFERENCES</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on shenzaoyi`s blog</title>
-    <link>https://shenzaoyi.github.io/tags/notes/</link>
+    <link>http://localhost:1313/tags/notes/</link>
     <description>Recent content in Notes on shenzaoyi`s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://shenzaoyi.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://shenzaoyi.github.io/docs/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/</link>
+      <link>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://shenzaoyi.github.io/docs/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/</guid>
+      <guid>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/</guid>
       <description>V2rayN&#xD;#&#xD;TCP &amp;amp; UDP&#xD;#&#xD;UDP ![[Pasted image 20240602180630.png]] TCP ![[Pasted image 20240602180643.png]]&#xA;![[Pasted image 20240602175518.png]]&#xA;Why UDP-over-TCP&#xD;#&#xD;网络防火墙限制：有些网络环境会限制或屏蔽UDP流量，使用UDP-Over-TCP可以绕过这些限制。 提高数据传输的可靠性：TCP协议本身提供了错误检测和修正机制，这可以提高数据传输的可靠性。 NAT穿透：在某些网络配置中，UDP数据包可能无法正确地穿透NAT（网络地址转换），而TCP由于其连接的特性，通常可以更好地穿透NAT。 丢包率检测&#xD;#&#xD;References&#xD;#&#xD;知乎 详解 TCP 协议与 UDP 协议的区别&#xA;udp over tcp , 其实增大包的体积了 udp over tcp 如何封装</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/docs/notes/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/notes/nginx/</guid>
+      <description>References&#xD;#&#xD;Nginx 极简教程</description>
     </item>
   </channel>
 </rss>

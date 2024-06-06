@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="From gpt#备份U盘上的Ubuntu系统是一个明智的做法，以防U盘损坏或丢失。有几种方法可以备份你的U盘上的Ubuntu系统：
+使用dd命令创建镜像备份： dd 是一个在Linux中广泛使用的低级工具，可以用来创建磁盘或分区的完整镜像。你可以使用这个命令将U盘的整个内容复制到一个单独的文件中，这个文件可以存储在你的硬盘或其他存储设备上。使用以下命令：
+bash
+复制代码
+sudo dd if=/dev/sdx of=/path/to/backup.img bs=4M status=progress
+替换 /dev/sdx 为你的U盘设备标识（可以用 lsblk 或 fdisk -l 命令查看），并将 /path/to/backup.img 替换为你希望存储镜像的路径。
+使用Clonezilla进行备份： Clonezilla 是一个分区和磁盘成像/克隆工具，类似于 Norton Ghost。它允许你创建精确的磁盘镜像，包括完整的系统备份和恢复。你需要创建一个Clonezilla启动盘，然后从中启动，并按照指示将U盘系统克隆到另一个存储位置。
+使用rsync备份文件： 如果你只需要备份特定的文件而不是整个磁盘，rsync 是一个很好的工具。它可以让你定期同步文件到另一个目录或者磁盘上。例如：
+bash
+复制代码
+sudo rsync -aAXv --exclude={&quot;/dev/*&quot;,&quot;/proc/*&quot;,&quot;/sys/*&quot;,&quot;/tmp/*&quot;,&quot;/run/*&quot;,&quot;/mnt/*&quot;,&quot;/media/*&quot;,&quot;/lost&#43;found&quot;} /media/ubuntu/ /path/to/backup/
+替换 /media/ubuntu/ 为你挂载的U盘路径，/path/to/backup/ 为备份存储位置。
+创建一个可启动的U盘备份： 你也可以使用图形工具，如 Startup Disk Creator（Ubuntu自带）或 Balena Etcher 等来创建一个可启动的U盘备份。这些工具可以从现有的U盘制作一个完整的启动盘备份。
+选择合适的备份方法取决于你的具体需求和可用资源。如果你想要一个完整系统的镜像备份，使用 dd 或 Clonezilla 是最佳选择。如果你只想备份特定文件或文件夹，使用 rsync 可能更适合。
+在 Windows 命令行中备份启动U盘（例如，一个包含可启动系统的U盘）可以通过多种方法完成，其中一个简单而又有效的方法是使用 diskpart 工具和 dd for Windows。这里将详细说明如何使用这些工具进行备份。
+使用 DiskPart 和 dd for Windows 创建U盘镜像#步骤 1: 安装 dd for Windows#首先，你需要有 dd for Windows 的版本，它是一个在Unix和Linux中常用的命令行工具，也被移植到了Windows上。你可以从 这里 下载 dd for Windows。">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/notes/%E5%A4%87%E4%BB%BDsandisk-u/">
+  <meta property="og:site_name" content="shenzaoyi`s blog">
+  <meta property="og:title" content="shenzaoyi`s blog">
+  <meta property="og:description" content="From gpt#备份U盘上的Ubuntu系统是一个明智的做法，以防U盘损坏或丢失。有几种方法可以备份你的U盘上的Ubuntu系统：
+使用dd命令创建镜像备份： dd 是一个在Linux中广泛使用的低级工具，可以用来创建磁盘或分区的完整镜像。你可以使用这个命令将U盘的整个内容复制到一个单独的文件中，这个文件可以存储在你的硬盘或其他存储设备上。使用以下命令：
+bash
+复制代码
+sudo dd if=/dev/sdx of=/path/to/backup.img bs=4M status=progress
+替换 /dev/sdx 为你的U盘设备标识（可以用 lsblk 或 fdisk -l 命令查看），并将 /path/to/backup.img 替换为你希望存储镜像的路径。
+使用Clonezilla进行备份： Clonezilla 是一个分区和磁盘成像/克隆工具，类似于 Norton Ghost。它允许你创建精确的磁盘镜像，包括完整的系统备份和恢复。你需要创建一个Clonezilla启动盘，然后从中启动，并按照指示将U盘系统克隆到另一个存储位置。
+使用rsync备份文件： 如果你只需要备份特定的文件而不是整个磁盘，rsync 是一个很好的工具。它可以让你定期同步文件到另一个目录或者磁盘上。例如：
+bash
+复制代码
+sudo rsync -aAXv --exclude={&#34;/dev/*&#34;,&#34;/proc/*&#34;,&#34;/sys/*&#34;,&#34;/tmp/*&#34;,&#34;/run/*&#34;,&#34;/mnt/*&#34;,&#34;/media/*&#34;,&#34;/lost&#43;found&#34;} /media/ubuntu/ /path/to/backup/
+替换 /media/ubuntu/ 为你挂载的U盘路径，/path/to/backup/ 为备份存储位置。
+创建一个可启动的U盘备份： 你也可以使用图形工具，如 Startup Disk Creator（Ubuntu自带）或 Balena Etcher 等来创建一个可启动的U盘备份。这些工具可以从现有的U盘制作一个完整的启动盘备份。
+选择合适的备份方法取决于你的具体需求和可用资源。如果你想要一个完整系统的镜像备份，使用 dd 或 Clonezilla 是最佳选择。如果你只想备份特定文件或文件夹，使用 rsync 可能更适合。
+在 Windows 命令行中备份启动U盘（例如，一个包含可启动系统的U盘）可以通过多种方法完成，其中一个简单而又有效的方法是使用 diskpart 工具和 dd for Windows。这里将详细说明如何使用这些工具进行备份。
+使用 DiskPart 和 dd for Windows 创建U盘镜像#步骤 1: 安装 dd for Windows#首先，你需要有 dd for Windows 的版本，它是一个在Unix和Linux中常用的命令行工具，也被移植到了Windows上。你可以从 这里 下载 dd for Windows。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>备份sandisk U | shenzaoyi`s blog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="http://localhost:1313/docs/notes/%E5%A4%87%E4%BB%BDsandisk-u/">
+<link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.78c75cfb845156a128bc247030877ae44e3ee7c9b982664b461192e8da6e8e17.js" integrity="sha256-eMdc&#43;4RRVqEovCRwMId65E4&#43;58m5gmZLRhGS6Npujhc=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>shenzaoyi`s blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/ssrf/" class="">Ssrf</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/" class="">内网穿透 &amp; DNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/" class="">游戏加速</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/geek/%E4%BE%8B%E4%BC%9A/%E7%88%AC%E5%8F%96b%E7%AB%99%E8%AF%84%E8%AE%BA/" class="">爬取b站评论</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/docker/" class="">Docker</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/java/" class="">Java</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/jzr/" class="">Jzr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/photoprism/" class="">Photoprism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/%E5%A4%87%E4%BB%BDsandisk-u/" class="active">备份sandisk U</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/%E5%AD%A6%E5%88%B0%E5%A4%B4%E8%8C%82%E7%9B%9B/" class="">学到头茂盛</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/notes/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>备份sandisk U</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#from-gpt"><strong>From gpt</strong></a></li>
+        <li><a href="#使用-diskpart-和-dd-for-windows-创建u盘镜像">使用 DiskPart 和 dd for Windows 创建U盘镜像</a></li>
+        <li><a href="#只备份home目录">只备份/home目录</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h3 id="from-gpt">
+  <strong>From gpt</strong>
+  <a class="anchor" href="#from-gpt">#</a>
+</h3>
+<p>备份U盘上的Ubuntu系统是一个明智的做法，以防U盘损坏或丢失。有几种方法可以备份你的U盘上的Ubuntu系统：</p>
+<ol>
+<li>
+<p><strong>使用dd命令创建镜像备份：</strong> <code>dd</code> 是一个在Linux中广泛使用的低级工具，可以用来创建磁盘或分区的完整镜像。你可以使用这个命令将U盘的整个内容复制到一个单独的文件中，这个文件可以存储在你的硬盘或其他存储设备上。使用以下命令：</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>sudo dd if=/dev/sdx of=/path/to/backup.img bs=4M status=progress</code></p>
+<p>替换 <code>/dev/sdx</code> 为你的U盘设备标识（可以用 <code>lsblk</code> 或 <code>fdisk -l</code> 命令查看），并将 <code>/path/to/backup.img</code> 替换为你希望存储镜像的路径。</p>
+</li>
+<li>
+<p><strong>使用Clonezilla进行备份：</strong> Clonezilla 是一个分区和磁盘成像/克隆工具，类似于 Norton Ghost。它允许你创建精确的磁盘镜像，包括完整的系统备份和恢复。你需要创建一个Clonezilla启动盘，然后从中启动，并按照指示将U盘系统克隆到另一个存储位置。</p>
+</li>
+<li>
+<p><strong>使用rsync备份文件：</strong> 如果你只需要备份特定的文件而不是整个磁盘，<code>rsync</code> 是一个很好的工具。它可以让你定期同步文件到另一个目录或者磁盘上。例如：</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>sudo rsync -aAXv --exclude={&quot;/dev/*&quot;,&quot;/proc/*&quot;,&quot;/sys/*&quot;,&quot;/tmp/*&quot;,&quot;/run/*&quot;,&quot;/mnt/*&quot;,&quot;/media/*&quot;,&quot;/lost+found&quot;} /media/ubuntu/ /path/to/backup/</code></p>
+<p>替换 <code>/media/ubuntu/</code> 为你挂载的U盘路径，<code>/path/to/backup/</code> 为备份存储位置。</p>
+</li>
+<li>
+<p><strong>创建一个可启动的U盘备份：</strong> 你也可以使用图形工具，如 <code>Startup Disk Creator</code>（Ubuntu自带）或 <code>Balena Etcher</code> 等来创建一个可启动的U盘备份。这些工具可以从现有的U盘制作一个完整的启动盘备份。</p>
+</li>
+</ol>
+<p>选择合适的备份方法取决于你的具体需求和可用资源。如果你想要一个完整系统的镜像备份，使用 <code>dd</code> 或 Clonezilla 是最佳选择。如果你只想备份特定文件或文件夹，使用 <code>rsync</code> 可能更适合。</p>
+<p>在 Windows 命令行中备份启动U盘（例如，一个包含可启动系统的U盘）可以通过多种方法完成，其中一个简单而又有效的方法是使用 <code>diskpart</code> 工具和 <code>dd</code> for Windows。这里将详细说明如何使用这些工具进行备份。</p>
+<h3 id="使用-diskpart-和-dd-for-windows-创建u盘镜像">
+  使用 DiskPart 和 dd for Windows 创建U盘镜像
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8-diskpart-%e5%92%8c-dd-for-windows-%e5%88%9b%e5%bb%bau%e7%9b%98%e9%95%9c%e5%83%8f">#</a>
+</h3>
+<h4 id="步骤-1-安装-dd-for-windows">
+  步骤 1: 安装 dd for Windows
+  <a class="anchor" href="#%e6%ad%a5%e9%aa%a4-1-%e5%ae%89%e8%a3%85-dd-for-windows">#</a>
+</h4>
+<p>首先，你需要有 <code>dd</code> for Windows 的版本，它是一个在Unix和Linux中常用的命令行工具，也被移植到了Windows上。你可以从 这里 下载 <code>dd</code> for Windows。</p>
+<h4 id="步骤-2-使用-diskpart-确定-u盘的设备编号">
+  步骤 2: 使用 DiskPart 确定 U盘的设备编号
+  <a class="anchor" href="#%e6%ad%a5%e9%aa%a4-2-%e4%bd%bf%e7%94%a8-diskpart-%e7%a1%ae%e5%ae%9a-u%e7%9b%98%e7%9a%84%e8%ae%be%e5%a4%87%e7%bc%96%e5%8f%b7">#</a>
+</h4>
+<ol>
+<li>打开命令提示符（以管理员身份）。</li>
+<li>输入 <code>diskpart</code> 并按 Enter 进入 DiskPart 工具。</li>
+<li>在 DiskPart 提示符下，输入 <code>list disk</code> 并按 Enter。这将列出所有连接的磁盘设备。</li>
+<li>识别哪个磁盘是你的U盘。记下它的磁盘编号，例如 Disk 2。</li>
+</ol>
+<h4 id="步骤-3-使用-dd-命令备份u盘">
+  步骤 3: 使用 dd 命令备份U盘
+  <a class="anchor" href="#%e6%ad%a5%e9%aa%a4-3-%e4%bd%bf%e7%94%a8-dd-%e5%91%bd%e4%bb%a4%e5%a4%87%e4%bb%bdu%e7%9b%98">#</a>
+</h4>
+<p>假设你的U盘是 <code>Disk 2</code>，并且你已经下载并安装了 <code>dd</code> for Windows，现在你可以使用以下命令来创建U盘的镜像：</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>dd if=\\.\PhysicalDrive2 of=C:\path\to\backup\usb_backup.img bs=4M --progress</code></p>
+<ul>
+<li>替换 <code>\\.\PhysicalDrive2</code> 中的 <code>2</code> 为你的U盘的磁盘编号。</li>
+<li>将 <code>C:\path\to\backup\usb_backup.img</code> 替换为你希望存储镜像文件的实际路径。</li>
+</ul>
+<p>这个命令将会创建一个名为 <code>usb_backup.img</code> 的文件，这个文件是你U盘的完整镜像。</p>
+<h4 id="注意事项">
+  注意事项：
+  <a class="anchor" href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9">#</a>
+</h4>
+<ul>
+<li>确保在运行这些命令之前关闭所有访问U盘的程序。</li>
+<li>这个过程可能需要一些时间，具体取决于U盘的大小和速度。</li>
+<li>使用 <code>dd</code> 时要格外小心，因为错误的设备编号可能导致覆盖错误的驱动器。</li>
+</ul>
+<p>以上步骤应该能帮你在Windows命令行中成功备份你的启动U盘。确保你按照说明操作，并且在执行之前验证每一步，以避免数据丢失。</p>
+<hr>
+<p>使用windows上的工具：diskpart，查看u盘的磁盘编号
+然后使用dd for windows 每次将sandisk-u备份下来，到D:\backup-sandisk.img</p>
+<pre tabindex="0"><code>dd if=\\.\PhysicalDrive1 of=D:\backup-sandisk.img bs=4M --progress
+</code></pre><p>但是发现dd报错了，u盘128G，dd命令直接把它做成镜像，肯定装不下。</p>
+<h3 id="只备份home目录">
+  只备份/home目录
+  <a class="anchor" href="#%e5%8f%aa%e5%a4%87%e4%bb%bdhome%e7%9b%ae%e5%bd%95">#</a>
+</h3>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#from-gpt"><strong>From gpt</strong></a></li>
+        <li><a href="#使用-diskpart-和-dd-for-windows-创建u盘镜像">使用 DiskPart 和 dd for Windows 创建U盘镜像</a></li>
+        <li><a href="#只备份home目录">只备份/home目录</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
