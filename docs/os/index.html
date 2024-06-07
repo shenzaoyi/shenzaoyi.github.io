@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OS # Linux Syscall Implement # privilege - HardWare Design
+CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level
+check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL
+Interupt
+for Intel x86, INT INTERUPT
+#define __LIBRARY__ #include &lt;unistd.h&gt; _syscall3(int,write,int,fd,const char *,buf,off_t,count) Vsyscall &amp; Vdso # also look this
+Reference # Linux 核心設計: System call">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/os/">
+  <meta property="og:site_name" content="shenzaoyi`blog">
+  <meta property="og:title" content="shenzaoyi`blog">
+  <meta property="og:description" content="OS # Linux Syscall Implement # privilege - HardWare Design
+CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level
+check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL
+Interupt
+for Intel x86, INT INTERUPT
+#define __LIBRARY__ #include &lt;unistd.h&gt; _syscall3(int,write,int,fd,const char *,buf,off_t,count) Vsyscall &amp; Vdso # also look this
+Reference # Linux 核心設計: System call">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Os | shenzaoyi`blog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="https://shenzaoyi.github.io/docs/os/">
+<link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.bec8e065c8134517fcd53a196ea85a936dd839628e4cc51f19323d0b7cb43845.js" integrity="sha256-vsjgZcgTRRf81ToZbqhak23YOWKOTMUfGTI9C3y0OEU=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>shenzaoyi`blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/os/" class="active">Os</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/tools/" class="">Tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/word/" class="">Word</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Os</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#linux-syscall-implement">Linux Syscall Implement</a>
+      <ul>
+        <li><a href="#vsyscall--vdso">Vsyscall &amp; Vdso</a></li>
+        <li><a href="#reference">Reference</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="os">
+  OS
+  <a class="anchor" href="#os">#</a>
+</h1>
+<h2 id="linux-syscall-implement">
+  Linux Syscall Implement
+  <a class="anchor" href="#linux-syscall-implement">#</a>
+</h2>
+<p><strong>privilege</strong> - HardWare Design</p>
+<ol>
+<li>CS: code , last two bit, CPL</li>
+<li>DS: date, last two bit, RPL</li>
+</ol>
+<p>DPL : destination privilege level</p>
+<!-- raw HTML omitted -->
+<p>check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL</p>
+<p><strong>Interupt</strong></p>
+<p>for Intel x86, INT INTERUPT</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define __LIBRARY__
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">_syscall3</span>(<span style="color:#66d9ef">int</span>,write,<span style="color:#66d9ef">int</span>,fd,<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>,buf,<span style="color:#66d9ef">off_t</span>,count)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="vsyscall--vdso">
+  Vsyscall &amp; Vdso
+  <a class="anchor" href="#vsyscall--vdso">#</a>
+</h3>
+<p>also look this</p>
+<h3 id="reference">
+  Reference
+  <a class="anchor" href="#reference">#</a>
+</h3>
+<p><a href="https://hackmd.io/@RinHizakura/S1wfy6nQO">Linux 核心設計: System call</a><br>
+<a href="https://hackmd.io/@combo-tw/Linux-%E8%AE%80%E6%9B%B8%E6%9C%83/%2F%40combo-tw%2FBJPoAcqQS">System Call (系統呼叫)</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#linux-syscall-implement">Linux Syscall Implement</a>
+      <ul>
+        <li><a href="#vsyscall--vdso">Vsyscall &amp; Vdso</a></li>
+        <li><a href="#reference">Reference</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

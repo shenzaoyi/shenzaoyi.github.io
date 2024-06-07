@@ -1,95 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shenzaoyi`s blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on shenzaoyi`s blog</description>
+    <title>shenzaoyi`blog</title>
+    <link>https://shenzaoyi.github.io/</link>
+    <description>Recent content on shenzaoyi`blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shenzaoyi.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/ssrf/</link>
+      <link>https://shenzaoyi.github.io/docs/os/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/ssrf/</guid>
-      <description>回环地址&#xD;#&#xD;如何查看本机虚拟网口&#xA;127.0.0.1 localhost 0.0.0.0 只能本地访问的资源 localhost上跑的服务 Gopher References&#xD;#&#xD;回环地址那点破事 SSRF</description>
+      <guid>https://shenzaoyi.github.io/docs/os/</guid>
+      <description>OS # Linux Syscall Implement # privilege - HardWare Design&#xA;CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level&#xA;check : if CPL &amp;lt; DPL or CPL = DPL; RPL &amp;lt; DPL or RPL = DPL&#xA;Interupt&#xA;for Intel x86, INT INTERUPT&#xA;#define __LIBRARY__ #include &amp;lt;unistd.h&amp;gt; _syscall3(int,write,int,fd,const char *,buf,off_t,count) Vsyscall &amp;amp; Vdso # also look this&#xA;Reference # Linux 核心設計: System call</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/</link>
+      <link>https://shenzaoyi.github.io/docs/tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F--dns/</guid>
-      <description>远程连接&#xD;#&#xD;校园网的猫腻&#xA;NAT&#xD;#&#xD;网络地址转换&#xA;Nat的不同类型&#xD;#&#xD;P2P连接方案&#xD;#&#xD;组网 &amp;amp; VPN 中继 &amp;amp; 直连&#xA;Tailscale 的终极目标是让两台处于网络上的任何位置的机器建立点对点连接（直连），但现实世界是复杂的，大部份情况下机器都位于 NAT 和防火墙后面，这时候就需要通过打洞来实现直连，也就是 NAT 穿透。&#xA;如果能够直接打洞，就直接打洞连接，如果不能，则通过中继服务器和算法来设置最优路径。&#xA;打洞&#xD;#&#xD;穿透防火墙 防火墙的策略 允许出向，禁止入向 有出包，则放回包 穿越防火墙 原则： 只需要发得出出包，就可以得回包 简单的，有一方可以被直接访问，防火墙后的机器先访问，为外部机器开洞 复杂的，双方都无法直接访问，使用 Side Channel, 保证双方都发送，同时(或紧随)为对方打洞 一方先发送数据到另一方，数据被对方防火墙挡掉，但是自己的防火墙记录了回包信息 对方此时发送就不会被防火墙挡掉 如何确保同时呢？ Side Channel 玩转NAT 新问题-发包才知道自己IP+PORT（可控制同一个Socket）&#xA;NAT转换，在包发出去的时候才会进行端口映射，因此，需要先知道对方的IP+PORT,而此时也不知道对方使用哪一个Socket(NAT IP+PORT)&#xA;方案： STUN&#xA;一个Peer A主动让辅助服务器来得到一次会话的端口映射，告知需要通信的Peer B,此Peer只需要根据这个IP+PORT就可以发送到A&#xA;没那么简单： Easy NAT and Hard NAT&#xA;中继&#xD;#&#xD;中继协议&#xA;TURN DREP 断网&#xA;REFERENCES&#xD;#&#xD;自建 DERP 中继服务器，从此 Tailscale 畅通无阻-腾讯云开发者社区-腾讯云</description>
+      <guid>https://shenzaoyi.github.io/docs/tools/</guid>
+      <description> Tools # System # cscope # </description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/</link>
+      <link>https://shenzaoyi.github.io/docs/word/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E6%B8%B8%E6%88%8F%E5%8A%A0%E9%80%9F/</guid>
-      <description>V2rayN&#xD;#&#xD;TCP &amp;amp; UDP&#xD;#&#xD;UDP ![[Pasted image 20240602180630.png]] TCP ![[Pasted image 20240602180643.png]]&#xA;![[Pasted image 20240602175518.png]]&#xA;Why UDP-over-TCP&#xD;#&#xD;网络防火墙限制：有些网络环境会限制或屏蔽UDP流量，使用UDP-Over-TCP可以绕过这些限制。 提高数据传输的可靠性：TCP协议本身提供了错误检测和修正机制，这可以提高数据传输的可靠性。 NAT穿透：在某些网络配置中，UDP数据包可能无法正确地穿透NAT（网络地址转换），而TCP由于其连接的特性，通常可以更好地穿透NAT。 丢包率检测&#xD;#&#xD;References&#xD;#&#xD;知乎 详解 TCP 协议与 UDP 协议的区别&#xA;udp over tcp , 其实增大包的体积了 udp over tcp 如何封装</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E7%88%AC%E5%8F%96b%E7%AB%99%E8%AF%84%E8%AE%BA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/geek/%E4%BE%8B%E4%BC%9A/%E7%88%AC%E5%8F%96b%E7%AB%99%E8%AF%84%E8%AE%BA/</guid>
-      <description>url格式&#xA;https://api.bilibili.com/x/v2/reply/wbi/main?oid=1854855627&amp;amp;type=1&amp;amp;mode=3&amp;amp;pagination_str=%7B%22offset%22:%22%7B%5C%22type%5C%22:1,%5C%22direction%5C%22:1,%5C%22session_id%5C%22:%5C%221757918848522420%5C%22,%5C%22data%5C%22:%7B%7D%7D%22%7D&amp;amp;plat=1&amp;amp;web_location=1315875&amp;amp;w_rid=0f5773569c887a1c7bbe60be1a48f2a0&amp;amp;wts=1716717741 ![[Pasted image 20240526180336.png]] 参数： ![[Pasted image 20240526180518.png]]</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/docker/</guid>
-      <description>What is Docker&#xD;#&#xD;docker依赖于宿主内核，提供自己的根文件系统，对于宿主机来说就是一个根文件隔离的进程(chroot)，Docker镜像实际上就是一个分层文件系统(见REFERENCES). Base concept&#xD;#&#xD;Image&#xD;#&#xD;Docker image 相当于linux中的root文件系统;使用Union FS减小体积，层层构建&#xA;Container&#xD;#&#xD;Container 实质上是进程，一种运行于自己独立的运行空间的进程&#xA;docker compose&#xD;#&#xD;References&#xD;#&#xD;Docker — 从入门到实践 Docker 架构及工作原理 手撕docker文件结构</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/java/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/java/</guid>
-      <description>异常处理&#xD;#&#xD;![[Pasted image 20240605021907.png]]&#xA;message&#xD;#&#xD;异常处理的代价很高 references&#xD;#&#xD;Java提高篇——Java 异常处理 Java 编程中关于异常处理的 10 个最佳实践</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/jzr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/jzr/</guid>
-      <description>动态分区式内存管理 操作系统——内存管理，三种链接方式，三种装入方式</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/nginx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/nginx/</guid>
-      <description>References&#xD;#&#xD;Nginx 极简教程</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/photoprism/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/photoprism/</guid>
-      <description>References&#xD;#&#xD;Photoprism教程：建立你的私人云相册</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/%E5%A4%87%E4%BB%BDsandisk-u/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/%E5%A4%87%E4%BB%BDsandisk-u/</guid>
-      <description>From gpt&#xD;#&#xD;备份U盘上的Ubuntu系统是一个明智的做法，以防U盘损坏或丢失。有几种方法可以备份你的U盘上的Ubuntu系统：&#xA;使用dd命令创建镜像备份： dd 是一个在Linux中广泛使用的低级工具，可以用来创建磁盘或分区的完整镜像。你可以使用这个命令将U盘的整个内容复制到一个单独的文件中，这个文件可以存储在你的硬盘或其他存储设备上。使用以下命令：&#xA;bash&#xA;复制代码&#xA;sudo dd if=/dev/sdx of=/path/to/backup.img bs=4M status=progress&#xA;替换 /dev/sdx 为你的U盘设备标识（可以用 lsblk 或 fdisk -l 命令查看），并将 /path/to/backup.img 替换为你希望存储镜像的路径。&#xA;使用Clonezilla进行备份： Clonezilla 是一个分区和磁盘成像/克隆工具，类似于 Norton Ghost。它允许你创建精确的磁盘镜像，包括完整的系统备份和恢复。你需要创建一个Clonezilla启动盘，然后从中启动，并按照指示将U盘系统克隆到另一个存储位置。&#xA;使用rsync备份文件： 如果你只需要备份特定的文件而不是整个磁盘，rsync 是一个很好的工具。它可以让你定期同步文件到另一个目录或者磁盘上。例如：&#xA;bash&#xA;复制代码&#xA;sudo rsync -aAXv --exclude={&amp;quot;/dev/*&amp;quot;,&amp;quot;/proc/*&amp;quot;,&amp;quot;/sys/*&amp;quot;,&amp;quot;/tmp/*&amp;quot;,&amp;quot;/run/*&amp;quot;,&amp;quot;/mnt/*&amp;quot;,&amp;quot;/media/*&amp;quot;,&amp;quot;/lost+found&amp;quot;} /media/ubuntu/ /path/to/backup/&#xA;替换 /media/ubuntu/ 为你挂载的U盘路径，/path/to/backup/ 为备份存储位置。&#xA;创建一个可启动的U盘备份： 你也可以使用图形工具，如 Startup Disk Creator（Ubuntu自带）或 Balena Etcher 等来创建一个可启动的U盘备份。这些工具可以从现有的U盘制作一个完整的启动盘备份。&#xA;选择合适的备份方法取决于你的具体需求和可用资源。如果你想要一个完整系统的镜像备份，使用 dd 或 Clonezilla 是最佳选择。如果你只想备份特定文件或文件夹，使用 rsync 可能更适合。&#xA;在 Windows 命令行中备份启动U盘（例如，一个包含可启动系统的U盘）可以通过多种方法完成，其中一个简单而又有效的方法是使用 diskpart 工具和 dd for Windows。这里将详细说明如何使用这些工具进行备份。&#xA;使用 DiskPart 和 dd for Windows 创建U盘镜像&#xD;#&#xD;步骤 1: 安装 dd for Windows&#xD;#&#xD;首先，你需要有 dd for Windows 的版本，它是一个在Unix和Linux中常用的命令行工具，也被移植到了Windows上。你可以从 这里 下载 dd for Windows。</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/%E5%AD%A6%E5%88%B0%E5%A4%B4%E8%8C%82%E7%9B%9B/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/%E5%AD%A6%E5%88%B0%E5%A4%B4%E8%8C%82%E7%9B%9B/</guid>
-      <description>代码部分&#xD;#&#xD;系统架构设计&#xD;#&#xD;技术栈选择 后端编程语言： Python, flask 数据库： MySQL 前端编程语言： html,css,js + vue 编码规范： 注释： 类注明类的作用，方法注明方法的作用，参数说明 团队协作工具: 飞书 代码管理： git &amp;amp; github 接口设计工具： Apifox 数据库设计管理工具： Navicat 命名规范： 小驼峰 架构模式 CS架构 数据模型设计 软件架构设计 前端 设计原型图(产品) 后端 设计系统架构 MVC架构 设计业务流程 设计接口API 开发和设计 测试和部署 编写测试代码 3层体系结构，包图</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/docs/notes/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/notes/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
-      <description>类设计&#xD;#&#xD;每个类做好本职工作， error:&#xA;![[Pasted image 20240603135012.png]]</description>
+      <guid>https://shenzaoyi.github.io/docs/word/</guid>
+      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明</description>
     </item>
   </channel>
 </rss>

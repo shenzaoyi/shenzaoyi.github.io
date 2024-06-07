@@ -1,6 +1,6 @@
 {
-  "name": "shenzaoyi`s blog",
-  "short_name": "shenzaoyi`s blog",
+  "name": "shenzaoyi`blog",
+  "short_name": "shenzaoyi`blog",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
