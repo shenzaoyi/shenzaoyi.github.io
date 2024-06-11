@@ -12,7 +12,7 @@
       <link>https://shenzaoyi.github.io/docs/os/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/os/</guid>
-      <description>OS # Linux Syscall Implement # privilege - HardWare Design&#xA;CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level&#xA;check : if CPL &amp;lt; DPL or CPL = DPL; RPL &amp;lt; DPL or RPL = DPL&#xA;Interupt&#xA;for Intel x86, INT INTERUPT&#xA;#define __LIBRARY__ #include &amp;lt;unistd.h&amp;gt; _syscall3(int,write,int,fd,const char *,buf,off_t,count) Vsyscall &amp;amp; Vdso # also look this&#xA;Reference # Linux 核心設計: System call</description>
+      <description>OS # Linux Syscall Implement # privilege - HardWare Design&#xA;CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level check : if CPL &amp;lt; DPL or CPL = DPL; RPL &amp;lt; DPL or RPL = DPL ![[Pasted image 20240608174254.png]] Interupt for Intel x86, INT INTERUPT&#xA;// in lib/close.c _syscall1(int,close,int,fd) // in include/unistd.h #define _syscall1(type,name,atype,a) \ type name(atype a) \ { \ long __res; \ __asm__ volatile (&amp;#34;int $0x80&amp;#34; \ : &amp;#34;=a&amp;#34; (__res) \ : &amp;#34;0&amp;#34; (__NR_##name),&amp;#34;b&amp;#34; ((long)(a))); \ if (__res &amp;gt;= 0) \ return (type) __res; \ errno = -__res; \ return -1; \ } // personal open this micro _syscall(int,close,int fd)\ int close(int fd) \ { long_res; _asm_ volatile(&amp;#34;int $0x80&amp;#34; \ : &amp;#34;=fd&amp;#34; (_res) \ : &amp;#34;0&amp;#34; (__NR_##close), &amp;#34;b&amp;#34; ((long)(fd));\ if (__res &amp;gt;= 0) \ return (int) __res; \ errno = __res; \ return -1; \ ) } to find syscall # strace &amp;amp; itrace /proc/[pid]/syscall !</description>
     </item>
     <item>
       <title></title>
@@ -20,13 +20,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/readme/</guid>
       <description>Notes # save my notes</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://shenzaoyi.github.io/docs/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://shenzaoyi.github.io/docs/test/</guid>
-      <description>hello, this is a test</description>
     </item>
     <item>
       <title></title>
@@ -40,7 +33,7 @@
       <link>https://shenzaoyi.github.io/docs/word/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/word/</guid>
-      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明</description>
+      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明 be devoted to 致力于 this chapter will be devoted to the System call concept in the Linux kernel. invokes 调用 the syscall instruction invokes a handler of a given system call. appropriate 合适的 all of these functions call an appropriate system call. ubiquitous 无处不在的 system calls are ubiquitous</description>
     </item>
   </channel>
 </rss>

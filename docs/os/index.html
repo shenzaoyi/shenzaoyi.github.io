@@ -4,24 +4,16 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="OS # Linux Syscall Implement # privilege - HardWare Design
-CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level
-check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL
-Interupt
-for Intel x86, INT INTERUPT
-#define __LIBRARY__ #include &lt;unistd.h&gt; _syscall3(int,write,int,fd,const char *,buf,off_t,count) Vsyscall &amp; Vdso # also look this
-Reference # Linux 核心設計: System call">
+CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL ![[Pasted image 20240608174254.png]] Interupt for Intel x86, INT INTERUPT
+// in lib/close.c _syscall1(int,close,int,fd) // in include/unistd.h #define _syscall1(type,name,atype,a) \ type name(atype a) \ { \ long __res; \ __asm__ volatile (&#34;int $0x80&#34; \ : &#34;=a&#34; (__res) \ : &#34;0&#34; (__NR_##name),&#34;b&#34; ((long)(a))); \ if (__res &gt;= 0) \ return (type) __res; \ errno = -__res; \ return -1; \ } // personal open this micro _syscall(int,close,int fd)\ int close(int fd) \ { long_res; _asm_ volatile(&#34;int $0x80&#34; \ : &#34;=fd&#34; (_res) \ : &#34;0&#34; (__NR_##close), &#34;b&#34; ((long)(fd));\ if (__res &gt;= 0) \ return (int) __res; \ errno = __res; \ return -1; \ ) } to find syscall # strace &amp; itrace /proc/[pid]/syscall !">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
 <meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/os/">
   <meta property="og:site_name" content="shenzaoyi`blog">
   <meta property="og:title" content="shenzaoyi`blog">
   <meta property="og:description" content="OS # Linux Syscall Implement # privilege - HardWare Design
-CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level
-check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL
-Interupt
-for Intel x86, INT INTERUPT
-#define __LIBRARY__ #include &lt;unistd.h&gt; _syscall3(int,write,int,fd,const char *,buf,off_t,count) Vsyscall &amp; Vdso # also look this
-Reference # Linux 核心設計: System call">
+CS: code , last two bit, CPL DS: date, last two bit, RPL DPL : destination privilege level check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL ![[Pasted image 20240608174254.png]] Interupt for Intel x86, INT INTERUPT
+// in lib/close.c _syscall1(int,close,int,fd) // in include/unistd.h #define _syscall1(type,name,atype,a) \ type name(atype a) \ { \ long __res; \ __asm__ volatile (&#34;int $0x80&#34; \ : &#34;=a&#34; (__res) \ : &#34;0&#34; (__NR_##name),&#34;b&#34; ((long)(a))); \ if (__res &gt;= 0) \ return (type) __res; \ errno = -__res; \ return -1; \ } // personal open this micro _syscall(int,close,int fd)\ int close(int fd) \ { long_res; _asm_ volatile(&#34;int $0x80&#34; \ : &#34;=fd&#34; (_res) \ : &#34;0&#34; (__NR_##close), &#34;b&#34; ((long)(fd));\ if (__res &gt;= 0) \ return (int) __res; \ errno = __res; \ return -1; \ ) } to find syscall # strace &amp; itrace /proc/[pid]/syscall !">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -31,7 +23,7 @@ Reference # Linux 核心設計: System call">
 <link rel="canonical" href="https://shenzaoyi.github.io/docs/os/">
 <link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.aa57b5966e9dc75b1210c5075c48ae1e439e7edc019dc819f8a8590387bc384b.js" integrity="sha256-qle1lm6dx1sSEMUHXEiuHkOeftwBncgZ&#43;KhZA4e8OEs=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.6aa85c4236dd4c88c562cfe3f91bbd87d992df1f9a1ceb2ba6a577222f3b06f6.js" integrity="sha256-aqhcQjbdTIjFYs/j&#43;Ru9h9mS3x&#43;aHOsrpqV3Ii87BvY=" crossorigin="anonymous"></script>
 
   
 
@@ -101,19 +93,6 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/readme/" class="">Readme</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/test/" class="">Test</a>
   
 
         </li>
@@ -199,8 +178,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#linux-syscall-implement">Linux Syscall Implement</a>
       <ul>
+        <li><a href="#to-find-syscall">to find syscall</a></li>
         <li><a href="#vsyscall--vdso">Vsyscall &amp; Vdso</a></li>
-        <li><a href="#reference">Reference</a></li>
+        <li><a href="#syscall-and-interupt">Syscall and Interupt</a></li>
+        <li><a href="#preference">PReference</a></li>
       </ul>
     </li>
   </ul>
@@ -223,32 +204,79 @@ https://github.com/alex-shpak/hugo-book
   Linux Syscall Implement
   <a class="anchor" href="#linux-syscall-implement">#</a>
 </h2>
+<hr>
 <p><strong>privilege</strong> - HardWare Design</p>
 <ol>
 <li>CS: code , last two bit, CPL</li>
-<li>DS: date, last two bit, RPL</li>
+<li>DS: date, last two bit, RPL
+DPL : destination privilege level
+check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL
+![[Pasted image 20240608174254.png]]</li>
 </ol>
-<p>DPL : destination privilege level</p>
-<!-- raw HTML omitted -->
-<p>check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL</p>
-<p><strong>Interupt</strong></p>
-<p>for Intel x86, INT INTERUPT</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define __LIBRARY__
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">_syscall3</span>(<span style="color:#66d9ef">int</span>,write,<span style="color:#66d9ef">int</span>,fd,<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>,buf,<span style="color:#66d9ef">off_t</span>,count)
-</span></span></code></pre></div><!-- raw HTML omitted -->
+<hr>
+<p><strong>Interupt</strong>
+for Intel x86, INT INTERUPT</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// in lib/close.c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">_syscall1</span>(<span style="color:#66d9ef">int</span>,close,<span style="color:#66d9ef">int</span>,fd)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// in include/unistd.h
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define _syscall1(type,name,atype,a) \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">type name(atype a) \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">{ \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">long __res; \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">__asm__ volatile (&#34;int $0x80&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        : &#34;=a&#34; (__res) \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        : &#34;0&#34; (__NR_##name),&#34;b&#34; ((long)(a))); \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">if (__res &gt;= 0) \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        return (type) __res; \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">errno = -__res; \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">return -1; \
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">}
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// personal open this micro
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">_syscall</span>(<span style="color:#66d9ef">int</span>,close,<span style="color:#66d9ef">int</span> fd)\
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">close</span>(<span style="color:#66d9ef">int</span> fd) \
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>long_res;
+</span></span><span style="display:flex;"><span>_asm_ <span style="color:#a6e22e">volatile</span>(<span style="color:#e6db74">&#34;int $0x80&#34;</span> \
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;=fd&#34;</span> (_res) \
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0&#34;</span> (__NR_<span style="color:#960050;background-color:#1e0010">##</span>close), <span style="color:#e6db74">&#34;b&#34;</span> ((<span style="color:#66d9ef">long</span>)(fd));\
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (__res <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>) \
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">int</span>) __res; \
+</span></span><span style="display:flex;"><span>errno <span style="color:#f92672">=</span> __res; \
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; \
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h3 id="to-find-syscall">
+  to find syscall
+  <a class="anchor" href="#to-find-syscall">#</a>
+</h3>
+<ol>
+<li><a href="https://linuxtools-rst.readthedocs.io/zh-cn/latest/tool/strace.html">strace</a> &amp; <a href="https://man7.org/linux/man-pages/man1/ltrace.1.html">itrace</a></li>
+<li>/proc/[pid]/syscall</li>
+</ol>
+<hr>
+<p>![[image-1.png]]</p>
+<hr>
 <h3 id="vsyscall--vdso">
   Vsyscall &amp; Vdso
   <a class="anchor" href="#vsyscall--vdso">#</a>
 </h3>
 <p>also look this</p>
-<h3 id="reference">
-  Reference
-  <a class="anchor" href="#reference">#</a>
+<hr>
+<h3 id="syscall-and-interupt">
+  Syscall and Interupt
+  <a class="anchor" href="#syscall-and-interupt">#</a>
+</h3>
+<hr>
+<h3 id="preference">
+  PReference
+  <a class="anchor" href="#preference">#</a>
 </h3>
 <p><a href="https://hackmd.io/@RinHizakura/S1wfy6nQO">Linux 核心設計: System call</a><br>
-<a href="https://hackmd.io/@combo-tw/Linux-%E8%AE%80%E6%9B%B8%E6%9C%83/%2F%40combo-tw%2FBJPoAcqQS">System Call (系統呼叫)</a></p>
+<a href="https://hackmd.io/@combo-tw/Linux-%E8%AE%80%E6%9B%B8%E6%9C%83/%2F%40combo-tw%2FBJPoAcqQS">System Call (系統呼叫)</a>
+<a href="https://linux-kernel-labs.github.io/refs/heads/master/">linux</a>
+<a href="https://0xax.gitbooks.io/linux-insides/content/">linux-inside</a>
+<a href="https://github.com/0xAX/linux-insides/blob/master/SysCall/linux-syscall-1.md">linux-inside</a></p>
 </article>
  
       
@@ -292,8 +320,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#linux-syscall-implement">Linux Syscall Implement</a>
       <ul>
+        <li><a href="#to-find-syscall">to find syscall</a></li>
         <li><a href="#vsyscall--vdso">Vsyscall &amp; Vdso</a></li>
-        <li><a href="#reference">Reference</a></li>
+        <li><a href="#syscall-and-interupt">Syscall and Interupt</a></li>
+        <li><a href="#preference">PReference</a></li>
       </ul>
     </li>
   </ul>
