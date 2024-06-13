@@ -21,7 +21,7 @@ What is the syscall entry syscall_init syscall invoke chain #define __LIBRARY__ 
 <link rel="canonical" href="https://shenzaoyi.github.io/docs/os/">
 <link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.324461f3bd7346129b5ec607ddde3cd4dbeabeb2f00691c01e30da980919dfe9.js" integrity="sha256-MkRh871zRhKbXsYH3d481NvqvrLwBpHAHjDamAkZ3&#43;k=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.652984282fe43e6d6690bcb377062f3f6735317887e0b5de51cd06843ba6e65c.js" integrity="sha256-ZSmEKC/kPm1mkLyzdwYvP2c1MXiH4LXeUc0GhDum5lw=" crossorigin="anonymous"></script>
 
   
 
@@ -34,6 +34,12 @@ https://github.com/alex-shpak/hugo-book
 <body dir="ltr">
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <div class="header-load" style="width: 100%; display: grid;grid-template-columns: 50px 50px 50px 50px;">
+    <a href="http://39.107.61.65:2342">album</a>
+    <a href="http://shenzaoyi.github.io">blog</a>
+    <a href="http://my-email-is-shenzaoyi85@gmail.com">email</a>
+    <a href="https://github.com/shenzaoyi">github</a>
+  </div>
   <main class="container flex">
     <aside class="book-menu">
       <div class="book-menu-content">
@@ -94,6 +100,21 @@ https://github.com/alex-shpak/hugo-book
   
 
         </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/site-config/" class="">Site Config</a>
+  
+
+        </li>
+      
+    
       
     
       
@@ -248,23 +269,18 @@ syscall_init</li>
 </span></span><span style="display:flex;"><span>        errno <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>res;
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">```</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">**</span>privilege<span style="color:#f92672">**</span> <span style="color:#f92672">-</span> HardWare Design
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1.</span> CS: code , last two bit, CPL
-</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2.</span> DS: date, last two bit, RPL
-</span></span><span style="display:flex;"><span>DPL : destination privilege level 
-</span></span><span style="display:flex;"><span>check : <span style="color:#66d9ef">if</span> CPL <span style="color:#f92672">&lt;</span> DPL or CPL <span style="color:#f92672">=</span> DPL; RPL <span style="color:#f92672">&lt;</span> DPL or RPL <span style="color:#f92672">=</span> DPL
-</span></span><span style="display:flex;"><span><span style="color:#f92672">!</span>[[Pasted image <span style="color:#ae81ff">20240608174254.</span>png]]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">**</span>Interupt<span style="color:#f92672">**</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> Intel x86, INT INTERUPT
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span> c
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// in lib/close.c
+</span></span></code></pre></div><p><strong>privilege</strong> - HardWare Design</p>
+<ol>
+<li>CS: code , last two bit, CPL</li>
+<li>DS: date, last two bit, RPL
+DPL : destination privilege level
+check : if CPL &lt; DPL or CPL = DPL; RPL &lt; DPL or RPL = DPL
+![[Pasted image 20240608174254.png]]</li>
+</ol>
+<hr>
+<p><strong>Interupt</strong>
+for Intel x86, INT INTERUPT</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// in lib/close.c
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">_syscall1</span>(<span style="color:#66d9ef">int</span>,close,<span style="color:#66d9ef">int</span>,fd)
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// in include/unistd.h
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define _syscall1(type,name,atype,a) \
