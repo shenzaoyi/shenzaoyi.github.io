@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" How to fix the file name except xxx.md: ls algorithms.md Main.class Selection.class Test.java Comparable.class Main.java Selection.java Comparable.java selection Test.class I can get xxx.md by &quot;.*\.md&quot; ,use grep -v: ls | grep -v &#34;.*\.md&#34; Comparable.class Comparable.java Main.class Main.java selection Selection.class Selection.java Test.class Test.java I just want to use re language ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/the-art-of-command-line/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/re/">
   <meta property="og:site_name" content="shenzaoyi`blog">
   <meta property="og:title" content="shenzaoyi`blog">
+  <meta property="og:description" content=" How to fix the file name except xxx.md: ls algorithms.md Main.class Selection.class Test.java Comparable.class Main.java Selection.java Comparable.java selection Test.class I can get xxx.md by &#34;.*\.md&#34; ,use grep -v: ls | grep -v &#34;.*\.md&#34; Comparable.class Comparable.java Main.class Main.java selection Selection.class Selection.java Test.class Test.java I just want to use re language ">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-<title>The Art of Command Line | shenzaoyi`blog</title>
+<title>Re | shenzaoyi`blog</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
-<link rel="canonical" href="https://shenzaoyi.github.io/docs/the-art-of-command-line/">
+<link rel="canonical" href="https://shenzaoyi.github.io/docs/re/">
 <link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.bc81ccde5403371387fdd9dbfc8595540a041b8142d3591947be5f8e6af5f389.js" integrity="sha256-vIHM3lQDNxOH/dnb/IWVVAoEG4FC01kZR75fjmr184k=" crossorigin="anonymous"></script>
@@ -134,7 +135,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/re/" class="">Re</a>
+    <a href="/docs/re/" class="active">Re</a>
   
 
         </li>
@@ -230,7 +231,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>The Art of Command Line</strong>
+  <strong>Re</strong>
 
   <label for="toc-control">
     
@@ -255,7 +256,30 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"></article>
+  <article class="markdown book-article"><ol>
+<li>How to fix the file name except xxx.md:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  ls                    
+</span></span><span style="display:flex;"><span>algorithms.md     Main.class  Selection.class  Test.java
+</span></span><span style="display:flex;"><span>Comparable.class  Main.java   Selection.java
+</span></span><span style="display:flex;"><span>Comparable.java   selection   Test.class
+</span></span></code></pre></div><ol>
+<li>I can get xxx.md by <code>&quot;.*\.md&quot; </code>,use grep -v:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls | grep -v <span style="color:#e6db74">&#34;.*\.md&#34;</span>
+</span></span><span style="display:flex;"><span>Comparable.class
+</span></span><span style="display:flex;"><span>Comparable.java
+</span></span><span style="display:flex;"><span>Main.class
+</span></span><span style="display:flex;"><span>Main.java
+</span></span><span style="display:flex;"><span>selection
+</span></span><span style="display:flex;"><span>Selection.class
+</span></span><span style="display:flex;"><span>Selection.java
+</span></span><span style="display:flex;"><span>Test.class
+</span></span><span style="display:flex;"><span>Test.java
+</span></span></code></pre></div><ol start="2">
+<li>I just want to use re language</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"></code></pre></div></article>
  
       
 
@@ -279,6 +303,10 @@ https://github.com/alex-shpak/hugo-book
       </footer>
 
       
+  
+  <div class="book-comments">
+
+</div>
   
  
 

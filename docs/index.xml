@@ -9,10 +9,45 @@
     <atom:link href="https://shenzaoyi.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
+      <link>https://shenzaoyi.github.io/docs/algorithms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/algorithms/</guid>
+      <description>algorithms # [[#prepartion|prepartion]] [[#sort|sort]] [[#sort#selection sort|selection sort]] [[#sort#insertion sort|insertion sort]] [[#sort#shell sort|shell sort]] [[#Search|Search]] [[#Search#Symbol tables|Symbol tables]] [[#Symbol tables#implement|implement]] [[#Symbol tables#QUESTION|QUESTION]] [[#greedy algorithm|greedy algorithm]] prepartion # Algorithms = Datastructure + Thinking sort # callback&#xA;public interface Comparable&amp;lt;Item&amp;gt;{ public int compareTo(Item that); } two basic operation&#xA;// if v is less than w, return -1 public static boolean less(Comparable v, Comparable w){ return v.compareTo(w) &amp;lt; 0; } public static void exchange(Comparable[] a, int i, int j){ Comparable swap = a[i]; a[i] = a[j]; a[j] = swap; } selection sort # public class Selection { public static void sort(Comparable[] a){ int len = a.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/gdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/gdb/</guid>
+      <description> GDB remote debug # </description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/java/</guid>
+      <description> java swing # ![[Pasted image 20240617220252.png]]&#xA;java 泛型 # 泛型类 class Point&amp;lt;T&amp;gt;{ private T var ; public T getVar(){ return var ; } public void setVar(T var){ // 设置的类型也由外部决定 this.var = var ; } } public class GenericsDemo06{ public static void main(String args[]){ Point&amp;lt;String&amp;gt; p = new Point&amp;lt;String&amp;gt;() ; // 里面的var类型为String类型 p.setVar(&amp;#34;it&amp;#34;) ; // 设置字符串 System.out.println(p.getVar().length()) ; // 取得字符串的长度 } } 泛型接口 interface Info&amp;lt;T&amp;gt;{ public T get() ; } 泛型方法 </description>
+    </item>
+    <item>
+      <title></title>
       <link>https://shenzaoyi.github.io/docs/os/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/os/</guid>
       <description>![[Pasted image 20240612184118.png]] [[#Linux Syscall Implement|Linux Syscall Implement]] [[#Linux Syscall Implement#What is syscall|What is syscall]] [[#Linux Syscall Implement#to find syscall|to find syscall]] [[#Linux Syscall Implement#Vsyscall &amp;amp; Vdso|Vsyscall &amp;amp; Vdso]] [[#Linux Syscall Implement#Syscall and Interupt|Syscall and Interupt]] [[#Linux Syscall Implement#Reference|Reference]] Linux Syscall Implement # What is syscall # syscall behavior syscall and int 0x80 (1)将当前函数执行地址(rip寄存器的值)保存到rcx中； (2)将当前标志寄存器rflag的值保存到r11寄存器中； (3)通过修改rip跳转到MSR_LSTAR寄存器指向的内核函数入口； (4)根据MSR_SYSCALL_MASK寄存器修改rflag寄存器。 How to observe this?&#xA;What is the syscall entry syscall_init syscall invoke chain #define __LIBRARY__ #include &amp;lt;unistd.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/qemu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/qemu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/re/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/re/</guid>
+      <description> How to fix the file name except xxx.md: ls algorithms.md Main.class Selection.class Test.java Comparable.class Main.java Selection.java Comparable.java selection Test.class I can get xxx.md by &amp;quot;.*\.md&amp;quot; ,use grep -v: ls | grep -v &amp;#34;.*\.md&amp;#34; Comparable.class Comparable.java Main.class Main.java selection Selection.class Selection.java Test.class Test.java I just want to use re language </description>
     </item>
     <item>
       <title></title>
@@ -40,14 +75,14 @@
       <link>https://shenzaoyi.github.io/docs/tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/tools/</guid>
-      <description> Tools # System # cscope # modprobe # </description>
+      <description> Tools # System # cscope # modprobe # mathematica # </description>
     </item>
     <item>
       <title></title>
       <link>https://shenzaoyi.github.io/docs/word/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/word/</guid>
-      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明 be devoted to 致力于 this chapter will be devoted to the System call concept in the Linux kernel. invokes 调用 the syscall instruction invokes a handler of a given system call. appropriate 合适的 all of these functions call an appropriate system call. ubiquitous 无处不在的 system calls are ubiquitous</description>
+      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明 be devoted to 致力于 this chapter will be devoted to the System call concept in the Linux kernel. invokes 调用 the syscall instruction invokes a handler of a given system call. appropriate 合适的 all of these functions call an appropriate system call. ubiquitous 无处不在的 system calls are ubiquitous Hierarchy 等级制度 Association Inherirance</description>
     </item>
   </channel>
 </rss>

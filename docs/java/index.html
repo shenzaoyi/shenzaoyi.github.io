@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" java swing # ![[Pasted image 20240617220252.png]]
+java 泛型 # 泛型类 class Point&lt;T&gt;{ private T var ; public T getVar(){ return var ; } public void setVar(T var){ // 设置的类型也由外部决定 this.var = var ; } } public class GenericsDemo06{ public static void main(String args[]){ Point&lt;String&gt; p = new Point&lt;String&gt;() ; // 里面的var类型为String类型 p.setVar(&#34;it&#34;) ; // 设置字符串 System.out.println(p.getVar().length()) ; // 取得字符串的长度 } } 泛型接口 interface Info&lt;T&gt;{ public T get() ; } 泛型方法 ">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/java/">
+  <meta property="og:site_name" content="shenzaoyi`blog">
+  <meta property="og:title" content="shenzaoyi`blog">
+  <meta property="og:description" content=" java swing # ![[Pasted image 20240617220252.png]]
+java 泛型 # 泛型类 class Point&lt;T&gt;{ private T var ; public T getVar(){ return var ; } public void setVar(T var){ // 设置的类型也由外部决定 this.var = var ; } } public class GenericsDemo06{ public static void main(String args[]){ Point&lt;String&gt; p = new Point&lt;String&gt;() ; // 里面的var类型为String类型 p.setVar(&#34;it&#34;) ; // 设置字符串 System.out.println(p.getVar().length()) ; // 取得字符串的长度 } } 泛型接口 interface Info&lt;T&gt;{ public T get() ; } 泛型方法 ">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Java | shenzaoyi`blog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="https://shenzaoyi.github.io/docs/java/">
+<link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.bc81ccde5403371387fdd9dbfc8595540a041b8142d3591947be5f8e6af5f389.js" integrity="sha256-vIHM3lQDNxOH/dnb/IWVVAoEG4FC01kZR75fjmr184k=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <div class="header-load" style="width: 100%; display: grid;grid-template-columns: 50px 50px 50px 50px;">
+    <a href="http://39.107.61.65:2342">album</a>
+    <a href="http://shenzaoyi.github.io">blog</a>
+    <a href="http://my-email-is-shenzaoyi85@gmail.com">email</a>
+    <a href="https://github.com/shenzaoyi">github</a>
+  </div>
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>shenzaoyi`blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/algorithms/" class="">Algorithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/gdb/" class="">Gdb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/java/" class="active">Java</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/os/" class="">Os</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/re/" class="">Re</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/readme/" class="">Readme</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/site-config/" class="">Site Config</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/tools/" class="">Tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/word/" class="">Word</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Java</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#java-swing">java swing</a></li>
+    <li><a href="#java-泛型-httpspdaitechmdjavabasicjava-basic-x-generichtml"><a href="https://pdai.tech/md/java/basic/java-basic-x-generic.html">java 泛型 </a></a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h2 id="java-swing">
+  java swing
+  <a class="anchor" href="#java-swing">#</a>
+</h2>
+<p>![[Pasted image 20240617220252.png]]</p>
+<h2 id="java-泛型-httpspdaitechmdjavabasicjava-basic-x-generichtml">
+  <a href="https://pdai.tech/md/java/basic/java-basic-x-generic.html">java 泛型 </a>
+  <a class="anchor" href="#java-%e6%b3%9b%e5%9e%8b-httpspdaitechmdjavabasicjava-basic-x-generichtml">#</a>
+</h2>
+<ol>
+<li>泛型类</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> T <span style="color:#66d9ef">var</span> <span style="color:#960050;background-color:#1e0010">; </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">getVar</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">var</span> <span style="color:#960050;background-color:#1e0010">;  </span>
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setVar</span>(T var){  <span style="color:#75715e">// 设置的类型也由外部决定  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">var</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">var</span> <span style="color:#960050;background-color:#1e0010">;  </span>
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GenericsDemo06</span>{  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String args<span style="color:#f92672">[]</span>){  
+</span></span><span style="display:flex;"><span>        Point<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Point<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>() ;     <span style="color:#75715e">// 里面的var类型为String类型  </span>
+</span></span><span style="display:flex;"><span>        p.<span style="color:#a6e22e">setVar</span>(<span style="color:#e6db74">&#34;it&#34;</span>) ;                            <span style="color:#75715e">// 设置字符串  </span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(p.<span style="color:#a6e22e">getVar</span>().<span style="color:#a6e22e">length</span>()) ;   <span style="color:#75715e">// 取得字符串的长度  </span>
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="2">
+<li>泛型接口</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Info</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>{   
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">get</span>() ; 
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></div><ol start="3">
+<li>泛型方法</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#java-swing">java swing</a></li>
+    <li><a href="#java-泛型-httpspdaitechmdjavabasicjava-basic-x-generichtml"><a href="https://pdai.tech/md/java/basic/java-basic-x-generic.html">java 泛型 </a></a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
