@@ -31,6 +31,27 @@
     </item>
     <item>
       <title></title>
+      <link>https://shenzaoyi.github.io/docs/list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/list/</guid>
+      <description>Golang &amp;amp; net 小林 x 图解计算机基础</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/mysql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/mysql/</guid>
+      <description>Mysql install ALTER USER &amp;lsquo;root&amp;rsquo;@&amp;rsquo;localhost&amp;rsquo; IDENTIFIED WITH auth_socket;what is this? please answer me in chinese&#xA;from gpt3.5 这条命令是用来修改 MySQL 数据库中的用户认证方式的。具体来说，ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH auth_socket; 将指定用户 &#39;root&#39;@&#39;localhost&#39; 的认证方式改为使用 auth_socket 插件进行认证。&#xA;在 MySQL 中，通常有多种认证插件可用于验证用户身份，比如 mysql_native_password，caching_sha2_password 等。auth_socket 插件是一种特殊的认证插件，它允许 MySQL 使用操作系统的身份验证机制，例如基于操作系统用户和组的认证，而不是传统的密码验证方式。&#xA;使用 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH auth_socket; 命令后，MySQL 将不再使用密码来验证 &#39;root&#39;@&#39;localhost&#39; 用户，而是依赖于操作系统用户的身份信息。</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/netword-card/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/netword-card/</guid>
+      <description>网卡的功能主要有两个: 一是将电脑的数据封装为帧，并通过网线(对无线网络来说就是电磁波)将数据发送到网络上去; 二是接收网络上其它设备传过 来的帧，并将帧重新组合成数据，发送到所在的电脑中。网卡能接收所有在网络上传输的信号，但正常情况下只接受发送到该电脑的帧和广播帧，将其余的帧丢弃。 然后，传送到系统CPU做进一步处理。当电脑发送数据时，网卡等待合适的时间将分组插入到数据流中。接收系统通知电脑消息是否完整地到达，如果出现问题， 将要求对方重新发送。&#xA;网卡的驱动程序就是数据链路层与物理层的接口。通过调用驱动程序的发送例程向物理端口发送数据，调用驱动程序的接收例程从物理端口接收数据。&#xA;​ 虚拟网卡通过实现一个字符设备来支持物理层&#xA;ifconfig # ifconfig/ipconfig : ifconfig - configure a network interface ech, wlan, lo&#xA;route&#xA;为什么需要虚拟网卡 # 提高网络性能：虚拟网卡在实现虚拟机之间的通信时，可以通过虚拟交换机进行数据传输，减少了数据在物理网卡上的传输。 同时，虚拟网卡还支持硬件加速、多队列和RSS（Receive Side Scaling）等功能，提高了网络性能。 增强安全性：通过虚拟网卡，可以实现隔离不同虚拟机之间的网络流量，确保虚拟机之间的通信不受干扰&#xA;route -n , route table # traceroute # ip route # adb (shell) # cat /etc/bluetooth/bt_stack_log.conf /data/log/bt/btsnoop_hci.log others # 掩码 References # 理解Linux虚拟网卡设备tun/tap的一切 网络虚拟化 Linux 系统是如何收发网络包的？ introduction-linux-network-routing linux蓝牙传命令 常见虚拟化网卡有哪些 虚拟网卡实现原理 # Linux Tun/Tap 介绍 # OSI 和 TCP/IP 网络分层模型详解（基础） # 网卡发送数据过程 # 蓝牙通讯过程中的数据抓包</description>
+    </item>
+    <item>
+      <title></title>
       <link>https://shenzaoyi.github.io/docs/os/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/os/</guid>
@@ -59,10 +80,31 @@
     </item>
     <item>
       <title></title>
+      <link>https://shenzaoyi.github.io/docs/remember/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/remember/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
       <link>https://shenzaoyi.github.io/docs/site-config/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/site-config/</guid>
       <description> Site Config # site blog ubuntu, windows, pad and phone album http://39.107.61.65:2342 picture-bed </description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/software-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/software-list/</guid>
+      <description>software list in my linux&#xA;maven # /usr/local/apache-maven-3.9.8&#xA;tomcat # /usr/local/apache-tomcat-11.0.0</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/systemed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/systemed/</guid>
+      <description>Systemd 服务</description>
     </item>
     <item>
       <title></title>
@@ -83,7 +125,14 @@
       <link>https://shenzaoyi.github.io/docs/word/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://shenzaoyi.github.io/docs/word/</guid>
-      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明 be devoted to 致力于 this chapter will be devoted to the System call concept in the Linux kernel. invokes 调用 the syscall instruction invokes a handler of a given system call. appropriate 合适的 all of these functions call an appropriate system call. ubiquitous 无处不在的 system calls are ubiquitous Hierarchy 等级制度 Association Inherirance</description>
+      <description>resemble 类似 they resemble library APIs&#xA;demonstrate v. 证明 be devoted to 致力于 this chapter will be devoted to the System call concept in the Linux kernel. invokes 调用 the syscall instruction invokes a handler of a given system call. appropriate 合适的 all of these functions call an appropriate system call. ubiquitous 无处不在的 system calls are ubiquitous Hierarchy 等级制度 Association Inherirance assigns obsolete</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://shenzaoyi.github.io/docs/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%B5%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shenzaoyi.github.io/docs/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%B5%8B/</guid>
+      <description>from gpt&#xA;监控和报警系统：设置监控系统来实时监测你的服务。可以使用像Prometheus、Grafana这样的工具来收集指标并设置警报，以便在服务出现问题时及时通知你。&#xA;错误处理和日志记录：在代码中实现良好的错误处理机制，捕获可能的异常情况并记录详细的日志。这些日志不仅有助于你分析问题的原因，还可以帮助你快速定位和修复bug。&#xA;自动化重启和恢复：考虑实现自动化的重启机制，当服务宕机时能够自动重启。这可以通过监控系统的警报触发自动化脚本来实现。&#xA;容错设计：在设计服务时，考虑采用容错机制，例如使用负载均衡和备份服务实例来确保即使部分服务宕机，整体系统依然可用。&#xA;紧急响应计划：制定好紧急响应计划，包括联系人信息、操作步骤和恢复策略。这样可以在服务宕机时能够迅速、有序地进行响应和修复。&#xA;持续改进和测试：定期进行服务的性能测试和演练，发现潜在的问题并持续改进你的服务架构和部署流程。</description>
     </item>
   </channel>
 </rss>

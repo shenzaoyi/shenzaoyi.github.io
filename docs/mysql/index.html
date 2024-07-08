@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content="Mysql install ALTER USER &lsquo;root&rsquo;@&rsquo;localhost&rsquo; IDENTIFIED WITH auth_socket;what is this? please answer me in chinese
+from gpt3.5 这条命令是用来修改 MySQL 数据库中的用户认证方式的。具体来说，ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH auth_socket; 将指定用户 &#39;root&#39;@&#39;localhost&#39; 的认证方式改为使用 auth_socket 插件进行认证。
+在 MySQL 中，通常有多种认证插件可用于验证用户身份，比如 mysql_native_password，caching_sha2_password 等。auth_socket 插件是一种特殊的认证插件，它允许 MySQL 使用操作系统的身份验证机制，例如基于操作系统用户和组的认证，而不是传统的密码验证方式。
+使用 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH auth_socket; 命令后，MySQL 将不再使用密码来验证 &#39;root&#39;@&#39;localhost&#39; 用户，而是依赖于操作系统用户的身份信息。">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/qemu/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/mysql/">
   <meta property="og:site_name" content="shenzaoyi`blog">
   <meta property="og:title" content="shenzaoyi`blog">
+  <meta property="og:description" content="Mysql install ALTER USER ‘root’@’localhost’ IDENTIFIED WITH auth_socket;what is this? please answer me in chinese
+from gpt3.5 这条命令是用来修改 MySQL 数据库中的用户认证方式的。具体来说，ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH auth_socket; 将指定用户 &#39;root&#39;@&#39;localhost&#39; 的认证方式改为使用 auth_socket 插件进行认证。
+在 MySQL 中，通常有多种认证插件可用于验证用户身份，比如 mysql_native_password，caching_sha2_password 等。auth_socket 插件是一种特殊的认证插件，它允许 MySQL 使用操作系统的身份验证机制，例如基于操作系统用户和组的认证，而不是传统的密码验证方式。
+使用 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH auth_socket; 命令后，MySQL 将不再使用密码来验证 &#39;root&#39;@&#39;localhost&#39; 用户，而是依赖于操作系统用户的身份信息。">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-<title>Qemu | shenzaoyi`blog</title>
+<title>My SQL | shenzaoyi`blog</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
-<link rel="canonical" href="https://shenzaoyi.github.io/docs/qemu/">
+<link rel="canonical" href="https://shenzaoyi.github.io/docs/mysql/">
 <link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
   <script defer src="/en.search.min.bf3c748732a6dac7dd6bfc60b560758ff4e18c454c7d914a4e283e2845424b22.js" integrity="sha256-vzx0hzKm2sfda/xgtWB1j/ThjEVMfZFKTig&#43;KEVCSyI=" crossorigin="anonymous"></script>
@@ -132,7 +139,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/mysql/" class="">My SQL</a>
+    <a href="/docs/mysql/" class="active">My SQL</a>
   
 
         </li>
@@ -310,7 +317,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Qemu</strong>
+  <strong>My SQL</strong>
 
   <label for="toc-control">
     
@@ -335,7 +342,13 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"></article>
+  <article class="markdown book-article"><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04#step-1-installing-mysql">Mysql install</a>
+ALTER USER &lsquo;root&rsquo;@&rsquo;localhost&rsquo; IDENTIFIED WITH auth_socket;what is this? please answer me in chinese</p>
+<p>from gpt3.5
+这条命令是用来修改 MySQL 数据库中的用户认证方式的。具体来说，<code>ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;</code> 将指定用户 <code>'root'@'localhost'</code> 的认证方式改为使用 <code>auth_socket</code> 插件进行认证。</p>
+<p>在 MySQL 中，通常有多种认证插件可用于验证用户身份，比如 <code>mysql_native_password</code>，<code>caching_sha2_password</code> 等。<code>auth_socket</code> 插件是一种特殊的认证插件，它允许 MySQL 使用操作系统的身份验证机制，例如基于操作系统用户和组的认证，而不是传统的密码验证方式。</p>
+<p>使用 <code>ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;</code> 命令后，MySQL 将不再使用密码来验证 <code>'root'@'localhost'</code> 用户，而是依赖于操作系统用户的身份信息。</p>
+</article>
  
       
 
@@ -359,6 +372,10 @@ https://github.com/alex-shpak/hugo-book
       </footer>
 
       
+  
+  <div class="book-comments">
+
+</div>
   
  
 

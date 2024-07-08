@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="网卡的功能主要有两个: 一是将电脑的数据封装为帧，并通过网线(对无线网络来说就是电磁波)将数据发送到网络上去; 二是接收网络上其它设备传过 来的帧，并将帧重新组合成数据，发送到所在的电脑中。网卡能接收所有在网络上传输的信号，但正常情况下只接受发送到该电脑的帧和广播帧，将其余的帧丢弃。 然后，传送到系统CPU做进一步处理。当电脑发送数据时，网卡等待合适的时间将分组插入到数据流中。接收系统通知电脑消息是否完整地到达，如果出现问题， 将要求对方重新发送。
+网卡的驱动程序就是数据链路层与物理层的接口。通过调用驱动程序的发送例程向物理端口发送数据，调用驱动程序的接收例程从物理端口接收数据。
+​ 虚拟网卡通过实现一个字符设备来支持物理层
+ifconfig # ifconfig/ipconfig : ifconfig - configure a network interface ech, wlan, lo
+route
+为什么需要虚拟网卡 # 提高网络性能：虚拟网卡在实现虚拟机之间的通信时，可以通过虚拟交换机进行数据传输，减少了数据在物理网卡上的传输。 同时，虚拟网卡还支持硬件加速、多队列和RSS（Receive Side Scaling）等功能，提高了网络性能。 增强安全性：通过虚拟网卡，可以实现隔离不同虚拟机之间的网络流量，确保虚拟机之间的通信不受干扰
+route -n , route table # traceroute # ip route # adb (shell) # cat /etc/bluetooth/bt_stack_log.conf /data/log/bt/btsnoop_hci.log others # 掩码 References # 理解Linux虚拟网卡设备tun/tap的一切 网络虚拟化 Linux 系统是如何收发网络包的？ introduction-linux-network-routing linux蓝牙传命令 常见虚拟化网卡有哪些 虚拟网卡实现原理 # Linux Tun/Tap 介绍 # OSI 和 TCP/IP 网络分层模型详解（基础） # 网卡发送数据过程 # 蓝牙通讯过程中的数据抓包">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://shenzaoyi.github.io/docs/netword-card/">
+  <meta property="og:site_name" content="shenzaoyi`blog">
+  <meta property="og:title" content="shenzaoyi`blog">
+  <meta property="og:description" content="网卡的功能主要有两个: 一是将电脑的数据封装为帧，并通过网线(对无线网络来说就是电磁波)将数据发送到网络上去; 二是接收网络上其它设备传过 来的帧，并将帧重新组合成数据，发送到所在的电脑中。网卡能接收所有在网络上传输的信号，但正常情况下只接受发送到该电脑的帧和广播帧，将其余的帧丢弃。 然后，传送到系统CPU做进一步处理。当电脑发送数据时，网卡等待合适的时间将分组插入到数据流中。接收系统通知电脑消息是否完整地到达，如果出现问题， 将要求对方重新发送。
+网卡的驱动程序就是数据链路层与物理层的接口。通过调用驱动程序的发送例程向物理端口发送数据，调用驱动程序的接收例程从物理端口接收数据。
+​ 虚拟网卡通过实现一个字符设备来支持物理层
+ifconfig # ifconfig/ipconfig : ifconfig - configure a network interface ech, wlan, lo
+route
+为什么需要虚拟网卡 # 提高网络性能：虚拟网卡在实现虚拟机之间的通信时，可以通过虚拟交换机进行数据传输，减少了数据在物理网卡上的传输。 同时，虚拟网卡还支持硬件加速、多队列和RSS（Receive Side Scaling）等功能，提高了网络性能。 增强安全性：通过虚拟网卡，可以实现隔离不同虚拟机之间的网络流量，确保虚拟机之间的通信不受干扰
+route -n , route table # traceroute # ip route # adb (shell) # cat /etc/bluetooth/bt_stack_log.conf /data/log/bt/btsnoop_hci.log others # 掩码 References # 理解Linux虚拟网卡设备tun/tap的一切 网络虚拟化 Linux 系统是如何收发网络包的？ introduction-linux-network-routing linux蓝牙传命令 常见虚拟化网卡有哪些 虚拟网卡实现原理 # Linux Tun/Tap 介绍 # OSI 和 TCP/IP 网络分层模型详解（基础） # 网卡发送数据过程 # 蓝牙通讯过程中的数据抓包">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Netword Card | shenzaoyi`blog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="https://shenzaoyi.github.io/docs/netword-card/">
+<link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.bf3c748732a6dac7dd6bfc60b560758ff4e18c454c7d914a4e283e2845424b22.js" integrity="sha256-vzx0hzKm2sfda/xgtWB1j/ThjEVMfZFKTig&#43;KEVCSyI=" crossorigin="anonymous"></script>
+
+  
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <div class="header-load" style="width: 100%; display: grid;grid-template-columns: 50px 50px 50px 50px;">
+    <a href="http://39.107.61.65:2342">album</a>
+    <a href="http://shenzaoyi.github.io">blog</a>
+    <a href="http://my-email-is-shenzaoyi85@gmail.com">email</a>
+    <a href="https://github.com/shenzaoyi">github</a>
+  </div>
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>shenzaoyi`blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/algorithms/" class="">Algorithms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/gdb/" class="">Gdb</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/java/" class="">Java</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/list/" class="">List</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/mysql/" class="">My SQL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/netword-card/" class="active">Netword Card</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/os/" class="">Os</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/re/" class="">Re</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/readme/" class="">Readme</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/site-config/" class="">Site Config</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/software-list/" class="">Software List</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/systemed/" class="">Systemed</a>
+  
+
+        </li>
+      
+    
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/tools/" class="">Tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/word/" class="">Word</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%B5%8B/" class="">服务器监测</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Netword Card</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ifconfig">ifconfig</a></li>
+        <li><a href="#为什么需要虚拟网卡">为什么需要虚拟网卡</a></li>
+        <li><a href="#route--n--route-table">route -n , route table</a></li>
+        <li><a href="#traceroute">traceroute</a></li>
+        <li><a href="#ip-route">ip route</a></li>
+        <li><a href="#adb-shell">adb (shell)</a></li>
+        <li><a href="#others">others</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><p><strong>网卡的功能</strong>主要有两个:
+一是将电脑的数据封装为帧，并通过网线(对无线网络来说就是电磁波)将数据发送到网络上去;
+二是接收网络上其它设备传过  来的帧，并将帧重新组合成数据，发送到所在的电脑中。网卡能接收所有在网络上传输的信号，但正常情况下只接受发送到该电脑的帧和广播帧，将其余的帧丢弃。  然后，传送到系统CPU做进一步处理。当电脑发送数据时，网卡等待合适的时间将分组插入到数据流中。接收系统通知电脑消息是否完整地到达，如果出现问题，  将要求对方重新发送。</p>
+<p>网卡的驱动程序就是数据链路层与物理层的接口。通过调用驱动程序的发送例程向物理端口发送数据，调用驱动程序的接收例程从物理端口接收数据。</p>
+<p>​ 虚拟网卡通过实现一个字符设备来支持物理层</p>
+<h3 id="ifconfig">
+  ifconfig
+  <a class="anchor" href="#ifconfig">#</a>
+</h3>
+<p>ifconfig/ipconfig : ifconfig - configure a network interface
+ech, wlan, lo</p>
+<p><img src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main//img/202407071305382.png" alt="image.png" />
+<a href="https://man7.org/linux/man-pages/man8/route.8.html">route</a></p>
+<h3 id="为什么需要虚拟网卡">
+  为什么需要虚拟网卡
+  <a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e8%99%9a%e6%8b%9f%e7%bd%91%e5%8d%a1">#</a>
+</h3>
+<p><strong>提高网络性能</strong>：虚拟网卡在实现虚拟机之间的通信时，可以通过虚拟交换机进行数据传输，减少了数据在物理网卡上的传输。 同时，虚拟网卡还支持硬件加速、多队列和RSS（Receive Side Scaling）等功能，提高了网络性能。 增强安全性：通过虚拟网卡，可以实现隔离不同虚拟机之间的网络流量，确保虚拟机之间的通信不受干扰</p>
+<h3 id="route--n--route-table">
+  route -n , route table
+  <a class="anchor" href="#route--n--route-table">#</a>
+</h3>
+<h3 id="traceroute">
+  traceroute
+  <a class="anchor" href="#traceroute">#</a>
+</h3>
+<h3 id="ip-route">
+  ip route
+  <a class="anchor" href="#ip-route">#</a>
+</h3>
+<h3 id="adb-shell">
+  adb (shell)
+  <a class="anchor" href="#adb-shell">#</a>
+</h3>
+<pre><code> cat /etc/bluetooth/bt_stack_log.conf 
+ /data/log/bt/btsnoop_hci.log
+</code></pre>
+<h3 id="others">
+  others
+  <a class="anchor" href="#others">#</a>
+</h3>
+<ul>
+<li>掩码</li>
+</ul>
+<h3 id="references">
+  References
+  <a class="anchor" href="#references">#</a>
+</h3>
+<p><a href="https://www.junmajinlong.com/virtual/network/all_about_tun_tap/">理解Linux虚拟网卡设备tun/tap的一切</a>
+<a href="https://keenjin.github.io/2019/06/virtual-net/">网络虚拟化</a>
+<a href="https://xiaolincoding.com/network/1_base/how_os_deal_network_package.html#linux-%E5%8F%91%E9%80%81%E7%BD%91%E7%BB%9C%E5%8C%85%E7%9A%84%E6%B5%81%E7%A8%8B">Linux 系统是如何收发网络包的？</a>
+<a href="https://opensource.com/business/16/8/introduction-linux-network-routing">introduction-linux-network-routing</a>
+<a href="https://worktile.com/kb/ask/319088.html">linux蓝牙传命令</a>
+<a href="https://blog.51cto.com/u_13539/8528704">常见虚拟化网卡有哪些 虚拟网卡实现原理</a>
+<a href="https://www.zhaohuabing.com/post/2020-02-24-linux-taptun/"># Linux Tun/Tap 介绍</a>
+<a href="https://javaguide.cn/cs-basics/network/osi-and-tcp-ip-model.html"># OSI 和 TCP/IP 网络分层模型详解（基础）</a>
+<a href="http://m.blog.chinaunix.net/uid-21419530-id-5827656.html"># 网卡发送数据过程</a>
+<a href="https://blog.qdac.cc/?p=3376"># 蓝牙通讯过程中的数据抓包</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ifconfig">ifconfig</a></li>
+        <li><a href="#为什么需要虚拟网卡">为什么需要虚拟网卡</a></li>
+        <li><a href="#route--n--route-table">route -n , route table</a></li>
+        <li><a href="#traceroute">traceroute</a></li>
+        <li><a href="#ip-route">ip route</a></li>
+        <li><a href="#adb-shell">adb (shell)</a></li>
+        <li><a href="#others">others</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
