@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "d016e5f7f132b6f3",
+    "type": "split",
+    "children": [
+      {
+        "id": "2a41514a31b31548",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "13dd9986412f4ef3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "剪藏/Todo.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "85f98b33ddf935de",
+    "type": "split",
+    "children": [
+      {
+        "id": "bf48be48d61b86b2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ee9ed12a471c2a4b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5f7bb61986fee980",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f571b41019a17877",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "62ce51de39d4dbe0",
+    "type": "split",
+    "children": [
+      {
+        "id": "8df84f9da4eca3b1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "74c7464969a26b0a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "剪藏/Todo.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ce71aea87217526d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "剪藏/Todo.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d649cf517cc3fbac",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e899b7a02b7fd3fe",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "剪藏/Todo.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "random-note:开始漫游笔记": false
+    }
+  },
+  "active": "13dd9986412f4ef3",
+  "lastOpenFiles": [
+    "notes/企业微信接收消息机器人.md",
+    "剪藏/Todo.md",
+    "剪藏",
+    "notes/matplotlib.md",
+    "notes/wordpress建站.md",
+    "9ff586fa31ccd5a71ddaf07b40f4bbef.jpg",
+    "未命名.md",
+    "notes",
+    "utils/windows.md",
+    "language/Python.md",
+    "utils",
+    "language/Go.md",
+    "模板/blog.md",
+    "language/python.md",
+    "language/范德萨是.md",
+    "language/java.md",
+    "language",
+    "_index.md",
+    "模板/Blog模板.md",
+    "模板",
+    "莫van",
+    "新建文件夹",
+    "欢迎.md"
+  ]
+}

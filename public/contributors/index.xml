@@ -7,6 +7,14 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright (c) 2020-2024 Hyas</copyright>
+    <lastBuildDate>Thu, 12 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/contributors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shenzaoyi</title>
+      <link>http://localhost:1313/contributors/shenzaoyi/</link>
+      <pubDate>Thu, 12 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contributors/shenzaoyi/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

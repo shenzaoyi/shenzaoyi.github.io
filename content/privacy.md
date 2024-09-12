@@ -12,4 +12,6 @@ seo:
   canonical: "" # custom canonical URL (optional)
   noindex: false # false (default) or true
 ---
-有个锤子的标准
+个锤子的标准
+
+Brought to you by Hyas;
