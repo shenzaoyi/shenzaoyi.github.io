@@ -7,14 +7,14 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright (c) 2020-2024 Hyas</copyright>
-    <lastBuildDate>Thu, 12 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/contributors/shenzaoyi/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Todo</title>
+      <title>todo</title>
       <link>http://localhost:1313/blog/todo/</link>
-      <pubDate>Thu, 12 Sep 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/blog/todo/</guid>
-      <description> 中秋节回家 </description>
+      <description></description>
     </item>
     <item>
       <title>企业微信接收消息机器人</title>
@@ -35,7 +35,7 @@
       <link>http://localhost:1313/blog/go/</link>
       <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/blog/go/</guid>
-      <description>Gin </description>
+      <description>Gin go path 如何正确处理 Go 项目中关于文件路径的问题</description>
     </item>
     <item>
       <title>python</title>

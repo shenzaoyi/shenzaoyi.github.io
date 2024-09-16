@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "剪藏/Todo.md",
+                "file": "剪藏/todo.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "剪藏/Todo.md",
+                "file": "剪藏/todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "剪藏/Todo.md",
+                "file": "剪藏/todo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "剪藏/Todo.md"
+                "file": "剪藏/todo.md"
               }
             }
           }
@@ -149,8 +149,10 @@
   },
   "active": "13dd9986412f4ef3",
   "lastOpenFiles": [
-    "notes/企业微信接收消息机器人.md",
+    "language/Go.md",
+    "剪藏/todo.md",
     "剪藏/Todo.md",
+    "notes/企业微信接收消息机器人.md",
     "剪藏",
     "notes/matplotlib.md",
     "notes/wordpress建站.md",
@@ -160,7 +162,6 @@
     "utils/windows.md",
     "language/Python.md",
     "utils",
-    "language/Go.md",
     "模板/blog.md",
     "language/python.md",
     "language/范德萨是.md",
