@@ -42,6 +42,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/blog/url/</loc>
+    <lastmod>2024-09-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/blog/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
     <lastmod>2024-09-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
