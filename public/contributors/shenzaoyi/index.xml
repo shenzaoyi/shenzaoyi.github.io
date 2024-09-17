@@ -1,1 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shenzaoyi on My Docs</title><link>/contributors/shenzaoyi/</link><description>Recent content in Shenzaoyi on My Docs</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2020-2024 Hyas</copyright><lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="/contributors/shenzaoyi/index.xml" rel="self" type="application/rss+xml"/><item><title>todo</title><link>/blog/todo/</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/todo/</guid><description>todo list</description></item><item><title>URL</title><link>/blog/url/</link><pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/url/</guid><description>URL list 如何正确处理 Go 项目中关于文件路径的问题</description></item><item><title>企业微信接收消息机器人</title><link>/blog/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E6%9C%BA%E5%99%A8%E4%BA%BA/</link><pubDate>Thu, 12 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid><description> Go base64 URL解码的问题 Github workflow 使用 xml , yaml 配置语言 Github Action</description></item><item><title>matplotlib</title><link>/blog/matplotlib/</link><pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate><guid>/blog/matplotlib/</guid><description>核心内容和逻辑 Axis 单个数轴 Axes 坐标系 Figure 整个画面 Artist 画面中所有东西 ![[9ff586fa31ccd5a71ddaf07b40f4bbef.jpg]] matlab语法 seasons = [1,2,3,4,5] stock1 = [3,4,2,5,7] plt.figure(figsize=(9,3)) plt.subplot(211) plt.bar(seasons,stock1) plt.</description></item><item><title>Go</title><link>/blog/go/</link><pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><guid>/blog/go/</guid><description>Gin go path 如何正确处理 Go 项目中关于文件路径的问题</description></item><item><title>python</title><link>/blog/python/</link><pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><guid>/blog/python/</guid><description>爬虫</description></item><item><title>windows utils</title><link>/blog/windows-utils/</link><pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><guid>/blog/windows-utils/</guid><description>Scoop Scoop 上手指南</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shenzaoyi on My Docs</title>
+    <link>http://localhost:1313/contributors/shenzaoyi/</link>
+    <description>Recent content in Shenzaoyi on My Docs</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2020-2024 Hyas</copyright>
+    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/contributors/shenzaoyi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>todo</title>
+      <link>http://localhost:1313/blog/todo/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/todo/</guid>
+      <description>todo list </description>
+    </item>
+    <item>
+      <title>URL</title>
+      <link>http://localhost:1313/blog/url/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/url/</guid>
+      <description>URL list 如何正确处理 Go 项目中关于文件路径的问题 </description>
+    </item>
+    <item>
+      <title>企业微信接收消息机器人</title>
+      <link>http://localhost:1313/blog/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+      <pubDate>Thu, 12 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+      <description> Go base64 URL解码的问题 Github workflow 使用 xml , yaml 配置语言 Github Action </description>
+    </item>
+    <item>
+      <title>matplotlib</title>
+      <link>http://localhost:1313/blog/matplotlib/</link>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/matplotlib/</guid>
+      <description>核心内容和逻辑 Axis 单个数轴 Axes 坐标系 Figure 整个画面 Artist 画面中所有东西 ![[9ff586fa31ccd5a71ddaf07b40f4bbef.jpg]] matlab语法 seasons = [1,2,3,4,5] stock1 = [3,4,2,5,7] plt.figure(figsize=(9,3)) plt.subplot(211) plt.bar(seasons,stock1) plt.</description>
+    </item>
+    <item>
+      <title>Go</title>
+      <link>http://localhost:1313/blog/go/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/go/</guid>
+      <description>Gin go path 如何正确处理 Go 项目中关于文件路径的问题</description>
+    </item>
+    <item>
+      <title>python</title>
+      <link>http://localhost:1313/blog/python/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/python/</guid>
+      <description>爬虫 </description>
+    </item>
+    <item>
+      <title>windows utils</title>
+      <link>http://localhost:1313/blog/windows-utils/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/windows-utils/</guid>
+      <description>Scoop Scoop 上手指南</description>
+    </item>
+    <item>
+      <title>false</title>
+      <link>http://localhost:1313/blog/false/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/false/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
