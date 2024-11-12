@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  algorithm -    shenzaoyi</title>
+  <meta name="description" content="My blog.">
+  <!-- 标签页图标 -->
+  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/vs.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<div class="universal-outer">
+  
+<div class="menu-outer">
+    <div class="menu-inner">
+        <div class="menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="menu-group">
+            <ul class="menu-ul">
+                
+                <a href="/" class="nav-link">
+                    <li class="menu-li">
+                        首页
+                    </li>
+                </a>
+                
+                <a href="/page" class="nav-link">
+                    <li class="menu-li">
+                        页面
+                    </li>
+                </a>
+                
+                <li class="menu-li" id="mobile-menu">
+                    <i class="ri-menu-line"></i>
+                </li>
+<!--                <li class="menu-li" id="theme-change-btn">-->
+<!--                    默认-->
+<!--                </li>-->
+
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+<!--移动端-->
+<div id="mobile-main">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="mobile-menu-group" id="mobile-close">
+            <i class="ri-close-line"></i>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu-div">
+        
+        <a href="/" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>首页</span>
+            </div>
+        </a>
+        
+        <a href="/page" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>页面</span>
+            </div>
+        </a>
+        
+    </div>
+
+
+</div>
+
+  <div class="body-outer">
+    <div class="body-inner">
+      <article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      
+      <div class="post-title">
+        algorithm
+      </div>
+      <div class="post-meta">
+        <img src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/head.gif">
+        <div class="post-meta-name">shenzaoyi</div>
+        <div class="post-meta-date">发布于 2024/11/12</div>
+      </div>
+    </div>
+    <div class="post-content-inner common-typographic">
+      <div class="post-placeholder"></div>
+      <div class="post-content-main">
+        <div class="post-content">
+          <h1 id="algorithm"><a href="#algorithm" class="headerlink" title="algorithm"></a>algorithm</h1><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><ul>
+<li>base sort<ul>
+<li>Selection<ul>
+<li>Compare：$N^2$</li>
+<li>Exchange：$N$</li>
+<li>与初始状态无关</li>
+</ul>
+</li>
+<li>Insertion<ul>
+<li>Compare: 最好： $n-1$, 最坏: $1&#x2F;2 N^2$, 平均： $ 1&#x2F;4 N^2$</li>
+<li>Exchage:  最好： $0$, 最坏: $1&#x2F;2N^2$, 平均：  $ 1&#x2F;4 N^2$</li>
+<li>和初始状态有关，换较次数和倒置数量相等，比较次数大于倒置数量，小于等于倒置数量加数组长度减一</li>
+<li>部分有序的数组使用插入排序效率更高</li>
+</ul>
+</li>
+<li>Shell</li>
+</ul>
+</li>
+</ul>
+<h2 id="LPS"><a href="#LPS" class="headerlink" title="LPS"></a>LPS</h2><p> <a target="_blank" rel="noopener" href="https://oi-wiki.org/string/basic/">字符串的前后缀定义</a></p>
+<h3 id="前缀函数"><a href="#前缀函数" class="headerlink" title="前缀函数"></a>前缀函数</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>给定长度为 n 的字符串， 其前缀函数定义为长度为 n 的数组 $\pi$, $\pi[i]$ 定义如下：</p>
+<ol>
+<li>$\pi[0]$ &#x3D; 0；</li>
+<li>i &gt; 0, $\pi[i]$ ，字串 s[0,i]相等真前缀和真后缀中，最长的真前缀真后缀的长度, 如果没有，则等于0。</li>
+</ol>
+<p>即： $\pi[i] &#x3D; max_{k&#x3D;0…i} { k:  s[0,k-1] &#x3D; s[i-k+1,i] }$</p>
+<h4 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h4><ol>
+<li><p>朴素算法 - 根据定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pi[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> i; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[<span class="number">0</span>,k-<span class="number">1</span>] == s[i-k+<span class="number">1</span>,i])&#123;</span><br><span class="line">            pi[i] = k;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="https://easymath-wiki.org/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E6%89%A9%E5%B1%95%E7%9F%A5%E8%AF%86/%E9%80%86%E5%BA%8F%E6%95%B0%E4%B8%8E%E6%8E%92%E5%BA%8F/#_4">冒泡排序简介¶</a></p>
+
+        </div>
+      </div>
+      <div class="post-placeholder post-toc-container">
+        <!-- toc -->
+        
+          <!-- tocbot -->
+<nav class="post-toc toc"></nav>
+
+        
+      </div>
+   </div>
+
+    <!-- 评论 -->
+    
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner common-typographic">
+        <h2 class="comment-title">评论</h2>
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+
+    AV.init({
+        appId: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",  // 你的 LeanCloud 应用的 App ID
+        appKey: "I8QRH61p7r8DrZATvNFQNBnK"   // 你的 LeanCloud 应用的 App Key
+    });
+
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",
+        app_key: "I8QRH61p7r8DrZATvNFQNBnK",
+        placeholder: "留下你来过的痕迹~",
+        avatar: "robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.post-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+    });
+
+</script>
+<!-- tocbot end -->
+
+    </div>
+  </div>
+
+  <!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+  
+    <div class="footer-outer">
+    <div class="footer-inner">
+        <div class="footer-text">
+            <p>Power by shenzaoyi</p>
+
+        </div>
+        <div class="footer-contact">
+            <ul class="footer-ul">
+                
+                <li class="footer-li">
+                    <a href="https://github.com/shenzaoyi" target="_blank">
+                        <i class="ri-github-line"></i>
+                    </a>
+                </li>
+                
+                <li class="footer-li">
+                    <a href="mail.shenzaoyi85@gmail.com" target="_blank">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+  
+</div>
+
+
+
+
+<script src="/js/white.js"></script>
+
+<script>
+    hljs.highlightAll();
+</script>
+
+
+</body>
+</html>
