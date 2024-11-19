@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  android &amp; web RSS阅读器 -    shenzaoyi</title>
+  <meta name="description" content="My blog.">
+  <!-- 标签页图标 -->
+  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/vs.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<div class="universal-outer">
+  
+<div class="menu-outer">
+    <div class="menu-inner">
+        <div class="menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="menu-group">
+            <ul class="menu-ul">
+                
+                <a href="/" class="nav-link">
+                    <li class="menu-li">
+                        首页
+                    </li>
+                </a>
+                
+                <a href="/page" class="nav-link">
+                    <li class="menu-li">
+                        页面
+                    </li>
+                </a>
+                
+                <li class="menu-li" id="mobile-menu">
+                    <i class="ri-menu-line"></i>
+                </li>
+<!--                <li class="menu-li" id="theme-change-btn">-->
+<!--                    默认-->
+<!--                </li>-->
+
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+<!--移动端-->
+<div id="mobile-main">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="mobile-menu-group" id="mobile-close">
+            <i class="ri-close-line"></i>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu-div">
+        
+        <a href="/" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>首页</span>
+            </div>
+        </a>
+        
+        <a href="/page" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>页面</span>
+            </div>
+        </a>
+        
+    </div>
+
+
+</div>
+
+  <div class="body-outer">
+    <div class="body-inner">
+      <article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      
+      <div class="post-title">
+        android &amp; web RSS阅读器
+      </div>
+      <div class="post-meta">
+        <img src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/head.gif">
+        <div class="post-meta-name">shenzaoyi</div>
+        <div class="post-meta-date">发布于 2024/11/13</div>
+      </div>
+    </div>
+    <div class="post-content-inner common-typographic">
+      <div class="post-placeholder"></div>
+      <div class="post-content-main">
+        <div class="post-content">
+          <h1 id="android-web-RSS阅读器"><a href="#android-web-RSS阅读器" class="headerlink" title="android &amp; web RSS阅读器"></a>android &amp; web RSS阅读器</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><ul>
+<li>解析RSS<ul>
+<li>云解析</li>
+<li>本地解析</li>
+</ul>
+</li>
+<li>管理RSS源<ul>
+<li>增加 &amp; 删除 RSS源</li>
+<li>同步<ul>
+<li>自动同步</li>
+<li>手动同步</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>浏览内容<ul>
+<li>每天刷新</li>
+<li>离线查看</li>
+<li>删除某条记录</li>
+</ul>
+</li>
+<li>收藏内容<ul>
+<li>创建 &amp; 删除 收藏夹</li>
+<li>收藏 &amp; 取消收藏</li>
+</ul>
+</li>
+<li>云端订阅同步</li>
+<li>云端内容缓存</li>
+<li>多功能用户协作</li>
+<li>AI 整理</li>
+</ul>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h2 id="系统架构图"><a href="#系统架构图" class="headerlink" title="系统架构图"></a>系统架构图</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<h3 id="1-云端订阅同步"><a href="#1-云端订阅同步" class="headerlink" title="1. 云端订阅同步"></a><strong>1. 云端订阅同步</strong></h3><h4 id="功能描述："><a href="#功能描述：" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>用户的 RSS 订阅源列表、阅读进度、收藏等数据保存在云端，支持多设备同步。</li>
+</ul>
+<h4 id="技术要点："><a href="#技术要点：" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>后端 API</p>
+<p>：</p>
+<ul>
+<li>使用 Go 开发 RESTful 或 gRPC 接口。</li>
+<li>数据存储：MySQL 或 PostgreSQL（存储订阅源、阅读状态等）。</li>
+</ul>
+</li>
+<li><p>认证</p>
+<p>：</p>
+<ul>
+<li>支持用户注册&#x2F;登录（JWT 或 OAuth2）。</li>
+</ul>
+</li>
+<li><p>同步机制</p>
+<p>：</p>
+<ul>
+<li>前端定时同步本地数据到云端，或通过 WebSocket 实现实时同步。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-云端内容缓存"><a href="#2-云端内容缓存" class="headerlink" title="2. 云端内容缓存"></a><strong>2. 云端内容缓存</strong></h3><h4 id="功能描述：-1"><a href="#功能描述：-1" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>为用户提供更快的阅读体验，在云端抓取和缓存 RSS 内容，减少客户端直接访问源站的次数。</li>
+</ul>
+<h4 id="技术要点：-1"><a href="#技术要点：-1" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>RSS 抓取服务</p>
+<p>：</p>
+<ul>
+<li>使用 Go 定时抓取订阅源的内容。</li>
+<li>数据存储：MongoDB 或 Elasticsearch（适合存储和全文搜索）。</li>
+</ul>
+</li>
+<li><p>内容优化</p>
+<p>：</p>
+<ul>
+<li>提供清理后的文章内容（去广告、去掉无关信息）。</li>
+<li>支持图片等静态资源的压缩和存储（MinIO 或 S3）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-个性化推荐"><a href="#3-个性化推荐" class="headerlink" title="3. 个性化推荐"></a><strong>3. 个性化推荐</strong></h3><h4 id="功能描述：-2"><a href="#功能描述：-2" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>根据用户的阅读历史和订阅偏好，推荐可能感兴趣的 RSS 源或文章。</li>
+</ul>
+<h4 id="技术要点：-2"><a href="#技术要点：-2" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>推荐算法</p>
+<p>：</p>
+<ul>
+<li>基于协同过滤（用户-文章矩阵）或内容过滤（相似关键词）。</li>
+<li>使用 Python 的机器学习库（如 Scikit-learn 或 TensorFlow）进行模型训练，Go 作为服务调用推荐结果。</li>
+</ul>
+</li>
+<li><p>数据处理</p>
+<p>：</p>
+<ul>
+<li>日志分析：记录用户阅读行为（点击、收藏、点赞）。</li>
+<li>数据存储：MySQL 存储行为日志，Redis 缓存热门内容。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-多用户协作功能"><a href="#4-多用户协作功能" class="headerlink" title="4. 多用户协作功能"></a><strong>4. 多用户协作功能</strong></h3><h4 id="功能描述：-3"><a href="#功能描述：-3" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>用户可以分享订阅源列表或文章给其他用户，并能通过群组协作收集感兴趣的内容。</li>
+</ul>
+<h4 id="技术要点：-3"><a href="#技术要点：-3" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>群组功能</p>
+<p>：</p>
+<ul>
+<li>每个群组维护独立的订阅源列表。</li>
+<li>群组成员可以评论、点赞、添加新源。</li>
+</ul>
+</li>
+<li><p>消息通知</p>
+<p>：</p>
+<ul>
+<li>通过 WebSocket 实现实时更新。</li>
+<li>支持推送新文章提醒（基于 FCM 或其他推送服务）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-云端离线下载"><a href="#5-云端离线下载" class="headerlink" title="5. 云端离线下载"></a><strong>5. 云端离线下载</strong></h3><h4 id="功能描述：-4"><a href="#功能描述：-4" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>用户可选择某些订阅源内容，提前缓存到云端，支持离线阅读。</li>
+</ul>
+<h4 id="技术要点：-4"><a href="#技术要点：-4" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>离线任务队列</p>
+<p>：</p>
+<ul>
+<li>后端使用任务队列（如 Celery 或 Go 的 <code>asynq</code> 库）定时下载和处理文章内容。</li>
+</ul>
+</li>
+<li><p>存储优化</p>
+<p>：</p>
+<ul>
+<li>使用文件存储系统（如 MinIO）保存离线文章及多媒体内容。</li>
+</ul>
+</li>
+<li><p>客户端同步</p>
+<p>：</p>
+<ul>
+<li>安卓端定期拉取离线内容，支持断点续传。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="6-全文搜索功能"><a href="#6-全文搜索功能" class="headerlink" title="6. 全文搜索功能"></a><strong>6. 全文搜索功能</strong></h3><h4 id="功能描述：-5"><a href="#功能描述：-5" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>支持全文检索订阅内容，包括文章标题、正文、标签等。</li>
+</ul>
+<h4 id="技术要点：-5"><a href="#技术要点：-5" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>搜索引擎</p>
+<p>：</p>
+<ul>
+<li>使用 Elasticsearch 或 Meilisearch 提供高效的全文搜索功能。</li>
+</ul>
+</li>
+<li><p>索引构建</p>
+<p>：</p>
+<ul>
+<li>定时将抓取的文章内容导入搜索引擎。</li>
+</ul>
+</li>
+<li><p>API 支持</p>
+<p>：</p>
+<ul>
+<li>提供关键词查询接口，支持按时间、来源、类别等过滤。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="7-多格式订阅支持"><a href="#7-多格式订阅支持" class="headerlink" title="7. 多格式订阅支持"></a><strong>7. 多格式订阅支持</strong></h3><h4 id="功能描述：-6"><a href="#功能描述：-6" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>除标准的 RSS 外，支持 Atom、JSON Feed 等其他订阅格式，甚至集成公众号订阅功能。</li>
+</ul>
+<h4 id="技术要点：-6"><a href="#技术要点：-6" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>格式解析</p>
+<p>：</p>
+<ul>
+<li>使用 Go 处理不同订阅格式（<code>go-feed</code> 库）。</li>
+</ul>
+</li>
+<li><p>公众号订阅</p>
+<p>（扩展功能）：</p>
+<ul>
+<li>爬取微信公众号文章，存储到订阅源中。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="8-数据统计与可视化"><a href="#8-数据统计与可视化" class="headerlink" title="8. 数据统计与可视化"></a><strong>8. 数据统计与可视化</strong></h3><h4 id="功能描述：-7"><a href="#功能描述：-7" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>提供阅读习惯的统计和分析，例如阅读频率、偏好类型、日活跃时间等。</li>
+</ul>
+<h4 id="技术要点：-7"><a href="#技术要点：-7" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>数据分析</p>
+<p>：</p>
+<ul>
+<li>使用 Go 聚合用户行为数据。</li>
+</ul>
+</li>
+<li><p>可视化</p>
+<p>：</p>
+<ul>
+<li>后端生成统计数据，前端用图表库（如 MPAndroidChart 或 WebView 的 ECharts）展示。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="9-Web-管理后台"><a href="#9-Web-管理后台" class="headerlink" title="9. Web 管理后台"></a><strong>9. Web 管理后台</strong></h3><h4 id="功能描述：-8"><a href="#功能描述：-8" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>为高级用户提供一个 Web 界面，用于管理订阅源、查看推荐和文章抓取状态。</li>
+</ul>
+<h4 id="技术要点：-8"><a href="#技术要点：-8" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>后台框架</p>
+<p>：</p>
+<ul>
+<li>使用 <code>gin</code> + <code>React</code> 或 <code>Vue</code> 开发管理系统。</li>
+</ul>
+</li>
+<li><p>功能模块</p>
+<p>：</p>
+<ul>
+<li>订阅源管理：支持批量添加、更新。</li>
+<li>数据分析：查看订阅源抓取频率、失败原因。</li>
+<li>用户管理：管理用户数据、统计用户活跃度。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="10-云端开放-API"><a href="#10-云端开放-API" class="headerlink" title="10. 云端开放 API"></a><strong>10. 云端开放 API</strong></h3><h4 id="功能描述：-9"><a href="#功能描述：-9" class="headerlink" title="功能描述："></a>功能描述：</h4><ul>
+<li>为其他开发者提供开放 API，允许第三方应用接入你的服务。</li>
+</ul>
+<h4 id="技术要点：-9"><a href="#技术要点：-9" class="headerlink" title="技术要点："></a>技术要点：</h4><ul>
+<li><p>API 设计</p>
+<p>：</p>
+<ul>
+<li>RESTful 或 gRPC，支持多种客户端调用。</li>
+</ul>
+</li>
+<li><p>权限管理</p>
+<p>：</p>
+<ul>
+<li>使用 OAuth2 授权。</li>
+</ul>
+</li>
+<li><p>文档生成</p>
+<p>：</p>
+<ul>
+<li>自动生成 API 文档（Swagger 或 Postman）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="技术架构参考"><a href="#技术架构参考" class="headerlink" title="技术架构参考"></a>技术架构参考</h3><ol>
+<li><p>后端框架</p>
+<p>：</p>
+<ul>
+<li><code>gin</code> 或 <code>fiber</code>：快速构建 RESTful API。</li>
+<li>数据库：MySQL 或 PostgreSQL。</li>
+<li>缓存：Redis 用于存储用户会话、订阅源缓存。</li>
+</ul>
+</li>
+<li><p>云存储</p>
+<p>：</p>
+<ul>
+<li>使用阿里云 OSS 或 MinIO 保存文件和图片。</li>
+</ul>
+</li>
+<li><p>分布式任务处理</p>
+<p>：</p>
+<ul>
+<li><code>asynq</code> 或 <code>Redis Queue</code> 处理定时任务（如抓取文章）。</li>
+</ul>
+</li>
+<li><p>推送服务</p>
+<p>：</p>
+<ul>
+<li>Firebase Cloud Messaging (FCM) 或第三方服务（如 OneSignal）。</li>
+</ul>
+</li>
+<li><p>监控</p>
+<p>：</p>
+<ul>
+<li>使用 Prometheus 和 Grafana 监控后端性能。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+
+        </div>
+      </div>
+      <div class="post-placeholder post-toc-container">
+        <!-- toc -->
+        
+          <!-- tocbot -->
+<nav class="post-toc toc"></nav>
+
+        
+      </div>
+   </div>
+
+    <!-- 评论 -->
+    
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner common-typographic">
+        <h2 class="comment-title">评论</h2>
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+
+    AV.init({
+        appId: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",  // 你的 LeanCloud 应用的 App ID
+        appKey: "I8QRH61p7r8DrZATvNFQNBnK"   // 你的 LeanCloud 应用的 App Key
+    });
+
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",
+        app_key: "I8QRH61p7r8DrZATvNFQNBnK",
+        placeholder: "留下你来过的痕迹~",
+        avatar: "robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.post-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+    });
+
+</script>
+<!-- tocbot end -->
+
+    </div>
+  </div>
+
+  <!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+  
+    <div class="footer-outer">
+    <div class="footer-inner">
+        <div class="footer-text">
+            <p>Power by shenzaoyi</p>
+
+        </div>
+        <div class="footer-contact">
+            <ul class="footer-ul">
+                
+                <li class="footer-li">
+                    <a href="https://github.com/shenzaoyi" target="_blank">
+                        <i class="ri-github-line"></i>
+                    </a>
+                </li>
+                
+                <li class="footer-li">
+                    <a href="mail.shenzaoyi85@gmail.com" target="_blank">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+  
+</div>
+
+
+
+
+<script src="/js/white.js"></script>
+
+<script>
+    hljs.highlightAll();
+</script>
+
+
+</body>
+</html>

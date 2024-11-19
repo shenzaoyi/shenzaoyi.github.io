@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  leetcode -    shenzaoyi</title>
+  <meta name="description" content="My blog.">
+  <!-- 标签页图标 -->
+  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/vs.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<div class="universal-outer">
+  
+<div class="menu-outer">
+    <div class="menu-inner">
+        <div class="menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="menu-group">
+            <ul class="menu-ul">
+                
+                <a href="/" class="nav-link">
+                    <li class="menu-li">
+                        首页
+                    </li>
+                </a>
+                
+                <a href="/page" class="nav-link">
+                    <li class="menu-li">
+                        页面
+                    </li>
+                </a>
+                
+                <li class="menu-li" id="mobile-menu">
+                    <i class="ri-menu-line"></i>
+                </li>
+<!--                <li class="menu-li" id="theme-change-btn">-->
+<!--                    默认-->
+<!--                </li>-->
+
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+<!--移动端-->
+<div id="mobile-main">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="mobile-menu-group" id="mobile-close">
+            <i class="ri-close-line"></i>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu-div">
+        
+        <a href="/" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>首页</span>
+            </div>
+        </a>
+        
+        <a href="/page" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>页面</span>
+            </div>
+        </a>
+        
+    </div>
+
+
+</div>
+
+  <div class="body-outer">
+    <div class="body-inner">
+      <article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      
+      <div class="post-title">
+        leetcode
+      </div>
+      <div class="post-meta">
+        <img src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/head.gif">
+        <div class="post-meta-name">shenzaoyi</div>
+        <div class="post-meta-date">发布于 2024/11/14</div>
+      </div>
+    </div>
+    <div class="post-content-inner common-typographic">
+      <div class="post-placeholder"></div>
+      <div class="post-content-main">
+        <div class="post-content">
+          <h2 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/add-two-numbers/description/">两数相加</a></h2><p>O(n)<br>从头至尾，逐位相加，如果进位，就向前加1。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        ListNode* l3 = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        ListNode* head = l3;</span><br><span class="line"></span><br><span class="line">        ListNode* last = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> up = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> v1, v2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (;l1 !=<span class="literal">nullptr</span> || l2 != <span class="literal">nullptr</span>;) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (l1 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line"></span><br><span class="line">                v1 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                v1 = l1-&gt;val;</span><br><span class="line"></span><br><span class="line">                l1=l1-&gt;next;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (l2 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line"></span><br><span class="line">                v2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                v2 = l2-&gt;val;</span><br><span class="line"></span><br><span class="line">                l2=l2-&gt;next;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> temp = v1 + v2 + up;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (temp &gt;= <span class="number">10</span>) &#123;</span><br><span class="line"></span><br><span class="line">                up = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                l3-&gt;next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(temp - <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">                l3 = l3 -&gt; next;</span><br><span class="line"></span><br><span class="line">                last = l3;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                up = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">                l3-&gt;next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(temp);</span><br><span class="line"></span><br><span class="line">                l3 = l3 -&gt; next;</span><br><span class="line"></span><br><span class="line">                last = l3;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (up != <span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">            last-&gt;next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(up);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (head-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line"></span><br><span class="line">            head = head -&gt; next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>题解中，更精简的代码，使用 问好表达式，同时各种情况都融合到while中：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更精简</span></span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        ListNode* head = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        ListNode* first = head;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> carry = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> v1,v2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (l1 || l2 || carry) &#123;</span><br><span class="line"></span><br><span class="line">            v1 = l1 ? l1-&gt;val : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            v2 = l2 ? l2-&gt;val : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            l1 = l1 ? l1-&gt;next : <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">            l2 = l2 ? l2-&gt;next : <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">            carry = v1 + v2 + carry;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> val = carry%<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            carry = carry &gt;= <span class="number">10</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            head -&gt; next = <span class="keyword">new</span> <span class="built_in">ListNode</span>(val);</span><br><span class="line"></span><br><span class="line">            head = head -&gt; next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> first-&gt;next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a></h2><h3 id="利用kmp的思想"><a href="#利用kmp的思想" class="headerlink" title="利用kmp的思想"></a>利用kmp的思想</h3><p>每次搜索停止的时候，不需要重新开始查找。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> max = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> end = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> size = end - i;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j=end;j&lt;s.<span class="built_in">size</span>();j++) &#123;  </span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (i != j &amp;&amp; !(s.<span class="built_in">substr</span>(i,j-i).<span class="built_in">find</span>(s[j]) == string::npos)) &#123;</span><br><span class="line"></span><br><span class="line">                    end = j;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                size += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            max = max &gt; size ? max : size;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="comment">// up</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> List&lt;Comparable&gt; list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">exch</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">Comparable</span> <span class="variable">temp</span> <span class="operator">=</span> list.get(i);</span><br><span class="line">        list.set(i,list.get(j));</span><br><span class="line">        list.set(j,temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">less</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.get(i).compareTo(list.get(j)) &lt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">less</span><span class="params">(List&lt;Comparable&gt; a, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a.get(i).compareTo(a.get(j)) &lt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  <span class="type">boolean</span> <span class="title function_">isSorted</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size()-<span class="number">1</span>;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (less(i+<span class="number">1</span>, i))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.println(list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">(List&lt;Comparable&gt; a)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; a.size(); i++) &#123;</span><br><span class="line">            System.out.println(a.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// selection sort</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">selection</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i + <span class="number">1</span>; j &lt; list.size(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (less(j,min)) &#123;</span><br><span class="line">                    min = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            exch(i,min);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Insertion sort</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">insertion</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; less(j,j-<span class="number">1</span>)) &#123;</span><br><span class="line">                exch(j,j-<span class="number">1</span>);</span><br><span class="line">                j --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Shell sort</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">shell</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">13</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (h &lt; max)&#123;</span><br><span class="line">            h = <span class="number">3</span> * h + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (h &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> h; i &lt; list.size(); i += <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i;</span><br><span class="line">                <span class="keyword">while</span>(j &gt; h - <span class="number">1</span> &amp;&amp; less(j, j-h)) &#123;</span><br><span class="line">                    exch(j,j-h);</span><br><span class="line">                    j -= h;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            h = (h - <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Merge sort with space</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">merge</span><span class="params">(List&lt;Comparable&gt; a, <span class="type">int</span> lo, <span class="type">int</span> mid, <span class="type">int</span> hi)</span> &#123;</span><br><span class="line">        List&lt;Comparable&gt; temp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(a);</span><br><span class="line">        <span class="comment">// temp , a</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> lo;</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> lo; k &lt;= hi; k++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; mid) &#123;</span><br><span class="line">                a.set(k,temp.get(j++));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi) &#123;</span><br><span class="line">                a.set(k, temp.get(i++));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (less(temp,i,j)) &#123;</span><br><span class="line">                a.set(k,temp.get(i++));</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a.set(k,temp.get(j++));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">mergeSort</span><span class="params">(List&lt;Comparable&gt; a, <span class="type">int</span> lo, <span class="type">int</span> hi)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (lo &gt;= hi) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">        <span class="comment">// 0,5; 0,2; 3,5; 0,1; 1,2; 3,4;4,5;0,0; 0,1</span></span><br><span class="line">        mergeSort(a,lo,mid);</span><br><span class="line">        mergeSort(a,mid+<span class="number">1</span>,hi);</span><br><span class="line">        merge(a,lo,mid,hi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// quick sort</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">()</span> &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(<span class="number">100</span>);</span><br><span class="line">        <span class="type">Random</span> <span class="variable">rd</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            list.add(rd.nextInt(<span class="number">101</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        mergeSort(list,<span class="number">0</span>, list.size()-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// test merge function</span></span><br><span class="line"><span class="comment">//        selection();</span></span><br><span class="line"><span class="comment">//        insertion();</span></span><br><span class="line"><span class="comment">//        shell();</span></span><br><span class="line">        show();</span><br><span class="line">        <span class="keyword">if</span> (isSorted()) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Sorted!&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Not Sorted!!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/labuladong/p/15943579.html">归并排序详解及应用</a></p>
+<h2 id="LPS"><a href="#LPS" class="headerlink" title="LPS"></a>LPS</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">PI</span><span class="params">(std::string s)</span> </span>&#123;</span><br><span class="line">	<span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">pi</span><span class="params">(s.size())</span></span>;</span><br><span class="line">	pi[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">		<span class="type">int</span> j = pi[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; s[j] != s[i]) &#123;</span><br><span class="line">			j = pi[j<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s[j] == s[i]) j += <span class="number">1</span>;</span><br><span class="line">		pi[i] = j;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pi;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+      </div>
+      <div class="post-placeholder post-toc-container">
+        <!-- toc -->
+        
+          <!-- tocbot -->
+<nav class="post-toc toc"></nav>
+
+        
+      </div>
+   </div>
+
+    <!-- 评论 -->
+    
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner common-typographic">
+        <h2 class="comment-title">评论</h2>
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+
+    AV.init({
+        appId: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",  // 你的 LeanCloud 应用的 App ID
+        appKey: "I8QRH61p7r8DrZATvNFQNBnK"   // 你的 LeanCloud 应用的 App Key
+    });
+
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",
+        app_key: "I8QRH61p7r8DrZATvNFQNBnK",
+        placeholder: "留下你来过的痕迹~",
+        avatar: "robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.post-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+    });
+
+</script>
+<!-- tocbot end -->
+
+    </div>
+  </div>
+
+  <!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+  
+    <div class="footer-outer">
+    <div class="footer-inner">
+        <div class="footer-text">
+            <p>Power by shenzaoyi</p>
+
+        </div>
+        <div class="footer-contact">
+            <ul class="footer-ul">
+                
+                <li class="footer-li">
+                    <a href="https://github.com/shenzaoyi" target="_blank">
+                        <i class="ri-github-line"></i>
+                    </a>
+                </li>
+                
+                <li class="footer-li">
+                    <a href="mail.shenzaoyi85@gmail.com" target="_blank">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+  
+</div>
+
+
+
+
+<script src="/js/white.js"></script>
+
+<script>
+    hljs.highlightAll();
+</script>
+
+
+</body>
+</html>
