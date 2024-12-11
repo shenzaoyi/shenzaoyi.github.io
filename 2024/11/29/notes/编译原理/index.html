@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>  高效文件传输 -    shenzaoyi</title>
+  <title>  编译原理 -    shenzaoyi</title>
   <meta name="description" content="My blog.">
   <!-- 标签页图标 -->
   
@@ -106,77 +106,24 @@
     <div class="post-intro">
       
       <div class="post-title">
-        高效文件传输
+        编译原理
       </div>
       <div class="post-meta">
         <img src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/head.gif">
         <div class="post-meta-name">shenzaoyi</div>
-        <div class="post-meta-date">发布于 2024/11/13</div>
+        <div class="post-meta-date">发布于 2024/11/29</div>
       </div>
     </div>
     <div class="post-content-inner common-typographic">
       <div class="post-placeholder"></div>
       <div class="post-content-main">
         <div class="post-content">
-          <h1 id="高效文件传输"><a href="#高效文件传输" class="headerlink" title="高效文件传输"></a>高效文件传输</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul>
-<li>普通文件</li>
-<li>大文件</li>
-<li>视频</li>
-<li>图片</li>
-<li>文件夹</li>
-<li>文本</li>
-</ul>
-<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p>
+          <h1 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h1><h2 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h2><p>
         <span class="lazyload-img-span">
         <img   
-           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/568153-20210822213918957-258829400.png" class="lazyload-img">
+           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/image-20241129110233679.png" class="lazyload-img">
         </sapn>
       </p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>需要注意的问题：</p>
-<ol>
-<li>流式传输，避免内存占用率过高</li>
-<li>防止请求超时 （ TCP存在吗？）</li>
-<li>断点续传</li>
-<li>带宽</li>
-<li>安全问题</li>
-</ol>
-<h2 id="需要优化的瓶颈"><a href="#需要优化的瓶颈" class="headerlink" title="需要优化的瓶颈"></a>需要优化的瓶颈</h2><blockquote>
-<p>考虑各种情况，大文件，小文件，媒体文件等，各不相同。而把这些情况分离出来，就是个问题。</p>
-</blockquote>
-<ul>
-<li>文本</li>
-<li>文件<ul>
-<li>小文件</li>
-<li>大文件<ul>
-<li>可以压缩</li>
-<li>不可压缩</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>文件夹<ul>
-<li>打包，压缩 (example : .tar.gz)</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>何为小文件 &amp; 大文件</li>
-</ol>
-<blockquote>
-<p>文件的分块传输，流式传输</p>
-</blockquote>
-<blockquote>
-<p>大端序 &amp; 小端序</p>
-</blockquote>
-<h2 id="安全性，-自动接收"><a href="#安全性，-自动接收" class="headerlink" title="安全性， 自动接收"></a>安全性， 自动接收</h2><h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2311449">Go：使用TCP发送和接收大文件</a></p>
-<p><a target="_blank" rel="noopener" href="https://xandersu.com/posts/%E8%AF%91-%E5%9C%A8Linux%E4%B8%ADGo%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E5%A4%A7%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93-TCP%E5%92%8CSyscall%E6%8E%A2%E7%B4%A2/#%E7%BB%93%E8%AE%BA">[译]在Linux中Go如何优化大文件传输 – TCP和Syscall探索</a></p>
-<p><a target="_blank" rel="noopener" href="https://itnext.io/optimizing-large-file-transfers-in-linux-with-go-an-exploration-of-tcp-and-syscall-ebe1b93fb72f">Optimizing Large File Transfers in Linux with Go — An Exploration of TCP and Syscall</a></p>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6992975780883988516">从后端角度看大文件上传</a></p>
-<p><a target="_blank" rel="noopener" href="https://zq99299.github.io/note-book2/http-protocol/04/02.html#%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82"> 把大象装进冰箱：HTTP 传输大文件的方法</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/z-sm/p/15163921.html">从文件read&#x2F;write一个字节的过程和所发生的磁盘IO</a></p>
-<p><a target="_blank" rel="noopener" href="https://learnku.com/articles/23559/two-schemes-for-reading-golang-super-large-files">Golang 超大文件读取的两个方案</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zlcxbb/p/6411568.html">linux独有的sendfile系统调用–“零拷贝，高效”</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/bitepeng/b0pass">b0pass</a></p>
 
         </div>
       </div>
