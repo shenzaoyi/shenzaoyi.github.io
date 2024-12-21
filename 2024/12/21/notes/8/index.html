@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  叶正算法作业部分 -    shenzaoyi</title>
+  <meta name="description" content="My blog.">
+  <!-- 标签页图标 -->
+  
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+
+  <!-- 图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- css文件 -->
+  
+<link rel="stylesheet" href="/css/white.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/vs.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<div class="universal-outer">
+  
+<div class="menu-outer">
+    <div class="menu-inner">
+        <div class="menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="menu-group">
+            <ul class="menu-ul">
+                
+                <a href="/" class="nav-link">
+                    <li class="menu-li">
+                        首页
+                    </li>
+                </a>
+                
+                <a href="/page" class="nav-link">
+                    <li class="menu-li">
+                        页面
+                    </li>
+                </a>
+                
+                <li class="menu-li" id="mobile-menu">
+                    <i class="ri-menu-line"></i>
+                </li>
+<!--                <li class="menu-li" id="theme-change-btn">-->
+<!--                    默认-->
+<!--                </li>-->
+
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+<!--移动端-->
+<div id="mobile-main">
+    <div class="mobile-menu-inner">
+        <div class="mobile-menu-site-name">
+            <a href="/">
+                shenzaoyi
+            </a>
+        </div>
+        <div class="mobile-menu-group" id="mobile-close">
+            <i class="ri-close-line"></i>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu-div">
+        
+        <a href="/" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>首页</span>
+            </div>
+        </a>
+        
+        <a href="/page" class="mobile-nav-link">
+            <div class="mobile-menu-child">
+                <span>页面</span>
+            </div>
+        </a>
+        
+    </div>
+
+
+</div>
+
+  <div class="body-outer">
+    <div class="body-inner">
+      <article class="post-inner">
+  <div class="post-content-outer">
+    <div class="post-intro">
+      
+      <div class="post-title">
+        叶正算法作业部分
+      </div>
+      <div class="post-meta">
+        <img src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/head.gif">
+        <div class="post-meta-name">shenzaoyi</div>
+        <div class="post-meta-date">发布于 2024/12/21</div>
+      </div>
+    </div>
+    <div class="post-content-inner common-typographic">
+      <div class="post-placeholder"></div>
+      <div class="post-content-main">
+        <div class="post-content">
+          <h1 id="8"><a href="#8" class="headerlink" title="8"></a>8</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/RB26DETT/p/10982687.html">分支限界法解决01背包问题</a></p>
+<p>给定n&#x3D;4的0-1背包问题：背包容量为C&#x3D;10，各物品的相关信息如下表所示。</p>
+<p>搜索结点的优先级ub设置如下：把已经选择的物品
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/image-20241221223408956.png" class="lazyload-img">
+        </sapn>
+      要求：</p>
+<p>(1) 请阐述分支限界法的基本思想；</p>
+<p>(2) 用优先队列式分支限界法求该问题的最优解；</p>
+<p>(3) 画出解空间树的搜索过程。</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/image-20241221213652201.png" class="lazyload-img">
+        </sapn>
+      </p>
+<p>（1）分支限界法的思想：分支， 将问题划分为子问题，比如物品的选取与不选， 限界，计算某一状态的最优可能值，根据该状态的最优可能值和已知解的最优值比较，如果小于，则此分支舍弃</p>
+<p>（2）用优先队列</p>
+<p>背包容量  C&#x3D;10；</p>
+<ul>
+<li>物品信息为：<ul>
+<li>物品1：w&#x3D;4,v&#x3D;40,v&#x2F;w&#x3D;10</li>
+<li>物品2：w&#x3D;7,v&#x3D;42,v&#x2F;w&#x3D;6</li>
+<li>物品3：w&#x3D;5,v&#x3D;25,v&#x2F;w&#x3D;5</li>
+<li>物品4：w&#x3D;3,v&#x3D;12,v&#x2F;w&#x3D;4</li>
+</ul>
+</li>
+</ul>
+<p>​	
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/1.jpg" class="lazyload-img">
+        </sapn>
+      </p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/2.jpg" class="lazyload-img">
+        </sapn>
+      </p>
+<h1 id="10"><a href="#10" class="headerlink" title="10"></a>10</h1><p>给定物品集合 <em>I</em> &#x3D; {1, 2, …, <em>n</em>}，集合中的每个物品都有重量和价值（对1≤ <em>i</em> ≤ <em>n,</em> 物品<em>i</em>具有重量 <em>w**i</em>ÎZ+和价值<em>v**i</em>ÎZ+），以及一个容量为<em>C</em>ÎZ+的背包，0-1背包问题要求选择总价值最大且总重量不超过背包容量的物品子集。（1）根据贪心策略设计算法求解该问题，说明算法思路，给出伪代码，并举一个反例说明该算法不一定总能给出最优解；（2）根据动态规划策略，推导出该问题最优解值<em>V</em>[<em>i</em>, <em>j</em>]的递推公式，并针对给定的具体实例（如表1所示），填写动态规划表格<em>V</em>[ , ]，计算出最优解。（假设<em>V</em>[<em>i</em>, <em>j</em>]为0-1背包问题针对前<em>i</em>个物品、背包容量为<em>j</em>的子问题的最优解的总价值。）</p>
+<p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="https://raw.githubusercontent.com/shenzaoyi/phot0_bed/main/img/image-20241221212748391.png" class="lazyload-img">
+        </sapn>
+      </p>
+<h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><p>算法思路:</p>
+<ol>
+<li>将物品按单位重量价值(即价值&#x2F;重量)从高到低排序。</li>
+<li>依次将价值&#x2F;重量最高的物品添加到背包中,直到背包容量已满或所有物品都已添加完毕。</li>
+<li>返回背包中物品的总价值。</li>
+</ol>
+<p>伪代码： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function GreedyKnapsack(items, capacity):  </span><br><span class="line">    sort items by value/weight in descending order  </span><br><span class="line">    </span><br><span class="line">    totalValue = 0  </span><br><span class="line">    totalWeight = 0  </span><br><span class="line">    selectedItems = []  </span><br><span class="line">    </span><br><span class="line">    for each item in items:  </span><br><span class="line">        if totalWeight + item.weight &lt;= capacity:  </span><br><span class="line">            totalWeight += item.weight  </span><br><span class="line">            totalValue += item.value  </span><br><span class="line">            selectedItems.add(item)  </span><br><span class="line">        else:  </span><br><span class="line">            break  </span><br><span class="line">    </span><br><span class="line">    return (totalValue, selectedItems)</span><br></pre></td></tr></table></figure>
+
+<p>返利：</p>
+<p>只比较单位价值，可能会产生空间山的浪费，当空间为100， 当输入w1&#x3D;100, v1&#x3D;100, w2&#x3D;99, v2&#x3D;1; 此时贪心会选择2，但是有1的剩余空间，选择1其实更好</p>
+<h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><p>递推式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// j 表示当前背包容量， wi 物品重量, 第 i 个物体</span><br><span class="line">if j &lt; wi:  </span><br><span class="line">    V[i, j] = V[i-1, j]  </span><br><span class="line">else:  </span><br><span class="line">    V[i, j] = max(V[i-1, j], V[i-1, j-wi] + vi) </span><br></pre></td></tr></table></figure>
+
+<p>动态规划表</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>W&#x3D;3,V&#x3D;28</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>28</td>
+<td>28</td>
+<td>28</td>
+<td>28</td>
+<td>28</td>
+</tr>
+<tr>
+<td>W&#x3D;1,V&#x3D;12</td>
+<td>0</td>
+<td>12</td>
+<td>12</td>
+<td>28</td>
+<td>40</td>
+<td>40</td>
+<td>40</td>
+<td>40</td>
+</tr>
+<tr>
+<td>W&#x3D;2,V&#x3D;20</td>
+<td>0</td>
+<td>12</td>
+<td>20</td>
+<td>32</td>
+<td>40</td>
+<td>48</td>
+<td>60</td>
+<td>60</td>
+</tr>
+<tr>
+<td>W&#x3D;4,V&#x3D;40</td>
+<td>0</td>
+<td>12</td>
+<td>20</td>
+<td>32</td>
+<td>40</td>
+<td>52</td>
+<td>60</td>
+<td>72</td>
+</tr>
+</tbody></table>
+<p>最优解是，物品2， 物品3， 物品4</p>
+
+        </div>
+      </div>
+      <div class="post-placeholder post-toc-container">
+        <!-- toc -->
+        
+          <!-- tocbot -->
+<nav class="post-toc toc"></nav>
+
+        
+      </div>
+   </div>
+
+    <!-- 评论 -->
+    
+    <div class="bottom-comments-outer">
+      <div class="bottom-comments-inner common-typographic">
+        <h2 class="comment-title">评论</h2>
+        <!-- valine -->
+        
+          <section id="comments" class="comments" style="margin-top: 150px;">
+            <style>
+              .comments{background:#fff}
+              @media screen and (max-width:900px){.comments{margin:auto;padding:10px;background:#fff}}
+            </style>
+            <div id="vcomment" class="comment"></div>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'true' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+
+    AV.init({
+        appId: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",  // 你的 LeanCloud 应用的 App ID
+        appKey: "I8QRH61p7r8DrZATvNFQNBnK"   // 你的 LeanCloud 应用的 App Key
+    });
+
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "eKUDBFzBNYSFlGyAAwdUnkTm-MdYXbMMI",
+        app_key: "I8QRH61p7r8DrZATvNFQNBnK",
+        placeholder: "留下你来过的痕迹~",
+        avatar: "robohash",
+    });
+</script>
+
+          </section>
+        
+        <!-- Gitalk -->
+        
+        <!-- livere -->
+        
+        
+        </div>
+      </div>
+    
+  </div>
+</article>
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.post-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+    });
+
+</script>
+<!-- tocbot end -->
+
+    </div>
+  </div>
+
+  <!-- 如果是home模式的话，不在首页就显示footer，如果不是home模式的话 所有都显示footer -->
+  
+    <div class="footer-outer">
+    <div class="footer-inner">
+        <div class="footer-text">
+            <p>Power by shenzaoyi</p>
+
+        </div>
+        <div class="footer-contact">
+            <ul class="footer-ul">
+                
+                <li class="footer-li">
+                    <a href="https://github.com/shenzaoyi" target="_blank">
+                        <i class="ri-github-line"></i>
+                    </a>
+                </li>
+                
+                <li class="footer-li">
+                    <a href="mail.shenzaoyi85@gmail.com" target="_blank">
+                        <i class="ri-mail-line"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+  
+</div>
+
+
+
+
+<script src="/js/white.js"></script>
+
+<script>
+    hljs.highlightAll();
+</script>
+
+
+</body>
+</html>
