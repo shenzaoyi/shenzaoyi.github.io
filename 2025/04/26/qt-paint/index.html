@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="qt_paint" />
+    <meta name="hexo-theme-A4" content="v1.9.7" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>shenzaoyi`s blog</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+    
+    
+        <style>
+            .index-main{
+                max-width:  880px;
+            }
+        </style>
+
+    
+    
+
+
+
+    
+
+    
+    
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 50%; 
+            }
+            
+            .header-img:hover {
+                animation: rotateAnimation 2s linear infinite; /* 悬停旋转动画 */
+            }
+            @keyframes rotateAnimation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">shenzaoyi`s blog</a> 
+            <span class="description">0 error(s), 0 warning(s)</span> 
+        </div>
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    qt_paint
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-04-26</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：1.1k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：4分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#qt-print-from-gpt"><span class="post-toc-text">qt_print_from_gpt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#qt-paintEvent"><span class="post-toc-text">qt paintEvent</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%96%8C%EF%B8%8F-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%98%E5%88%B6%E7%9A%84%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4"><span class="post-toc-text">🖌️ 自定义绘制的核心步骤</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%8E%AF-%E8%AF%A6%E7%BB%86%E8%AE%B2%E8%A7%A3%E6%AF%8F%E4%B8%80%E6%AD%A5"><span class="post-toc-text">🎯 详细讲解每一步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E2%91%A0-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E6%8E%A7%E4%BB%B6%E7%B1%BB"><span class="post-toc-text">① 创建自己的控件类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E2%91%A1-%E5%AE%9E%E7%8E%B0-paintEvent"><span class="post-toc-text">② 实现 paintEvent</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E2%91%A2-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%B9%B6%E6%98%BE%E7%A4%BA"><span class="post-toc-text">③ 创建对象并显示</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%98%E5%88%B6%E8%83%BD%E7%94%BB%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-text">🛠️ 自定义绘制能画什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E2%9C%A8-%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="post-toc-text">✨ 总结一句话</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%82%B9%E5%87%BB%E7%94%BB%E5%B8%83%E7%94%9F%E6%88%90%E5%B0%8F%E5%9C%86%E5%9C%88%E2%80%9D%EF%BC%81%F0%9F%8C%88"><span class="post-toc-text">点击画布生成小圆圈”！🌈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87%EF%BC%9A"><span class="post-toc-text">🛠️ 项目目标：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%96%A5%EF%B8%8F-%E6%95%B4%E4%BD%93%E6%80%9D%E8%B7%AF"><span class="post-toc-text">🖥️ 整体思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E2%9C%8F%EF%B8%8F-%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81%EF%BC%88%E4%B8%80%E6%AD%A5%E6%AD%A5%E8%AE%B2%EF%BC%89"><span class="post-toc-text">✏️ 具体代码（一步步讲）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%A4%B4%E6%96%87%E4%BB%B6-bubblewidget-h"><span class="post-toc-text">1. 头文件 bubblewidget.h</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6-bubblewidget-cpp"><span class="post-toc-text">2. 实现文件 bubblewidget.cpp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E4%B8%BB%E5%87%BD%E6%95%B0-main-cpp"><span class="post-toc-text">3. 主函数 main.cpp</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%F0%9F%A7%A0-%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B"><span class="post-toc-text">🧠 总结一下</span></a></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="qt-print-from-gpt"><a href="#qt-print-from-gpt" class="headerlink" title="qt_print_from_gpt"></a>qt_print_from_gpt</h1><p>很有用的自学，把提供的示例代码用自己的话反问AI, 做到当场输出，能迅速理解。AI也给了其他有用的内容。</p>
+<h2 id="qt-paintEvent"><a href="#qt-paintEvent" class="headerlink" title="qt paintEvent"></a>qt paintEvent</h2><blockquote>
+<p><strong>所有继承自 <code>QWidget</code> 的类，都可以通过重写 <code>paintEvent()</code>，来自定义自己的绘制逻辑！</strong></p>
+</blockquote>
+<p>下面我详细系统地教你，<strong>一步步如何自定义绘制</strong>，而且讲得简单清楚！</p>
+<h3 id="🖌️-自定义绘制的核心步骤"><a href="#🖌️-自定义绘制的核心步骤" class="headerlink" title="🖌️ 自定义绘制的核心步骤"></a>🖌️ 自定义绘制的核心步骤</h3><p>✅ <strong>只要4步就搞定</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>内容</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>自己写一个类，继承自 <code>QWidget</code>（或子类）</td>
+<td>比如继承 QWidget &#x2F; QFrame</td>
+</tr>
+<tr>
+<td>2</td>
+<td>重写 <code>paintEvent(QPaintEvent* event)</code></td>
+<td>在这里自己写画图的逻辑</td>
+</tr>
+<tr>
+<td>3</td>
+<td>在 <code>paintEvent</code> 里创建 <code>QPainter</code>，在自己的窗口上画</td>
+<td>可以画文字、画线、画图形</td>
+</tr>
+<tr>
+<td>4</td>
+<td>需要重新刷新时，调用 <code>update()</code>，自动触发 <code>paintEvent</code></td>
+<td>让画面刷新</td>
+</tr>
+</tbody></table>
+<h3 id="🎯-详细讲解每一步"><a href="#🎯-详细讲解每一步" class="headerlink" title="🎯 详细讲解每一步"></a>🎯 详细讲解每一步</h3><h4 id="①-创建自己的控件类"><a href="#①-创建自己的控件类" class="headerlink" title="① 创建自己的控件类"></a>① 创建自己的控件类</h4><p>比如我建一个叫 <code>MyWidget</code> 的类，继承 <code>QWidget</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QWidget&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyWidget</span> : <span class="keyword">public</span> QWidget</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">MyWidget</span><span class="params">(QWidget *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">paintEvent</span><span class="params">(QPaintEvent* event)</span> <span class="keyword">override</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注意要加 <code>protected</code> 和 <code>override</code>，表明是<strong>重写</strong> Qt的 <code>paintEvent</code>。</p>
+<h4 id="②-实现-paintEvent"><a href="#②-实现-paintEvent" class="headerlink" title="② 实现 paintEvent"></a>② 实现 paintEvent</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mywidget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPainter&gt;</span></span></span><br><span class="line"></span><br><span class="line">MyWidget::<span class="built_in">MyWidget</span>(QWidget* parent) </span><br><span class="line">    : <span class="built_in">QWidget</span>(parent)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyWidget::paintEvent</span><span class="params">(QPaintEvent* <span class="comment">/*event*/</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(<span class="keyword">this</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 让绘图更平滑</span></span><br><span class="line">    painter.<span class="built_in">setRenderHint</span>(QPainter::Antialiasing);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 填充背景为白色</span></span><br><span class="line">    painter.<span class="built_in">fillRect</span>(<span class="built_in">rect</span>(), Qt::white);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置画笔颜色为红色</span></span><br><span class="line">    painter.<span class="built_in">setPen</span>(Qt::red);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 画一个矩形</span></span><br><span class="line">    painter.<span class="built_in">drawRect</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置字体</span></span><br><span class="line">    QFont font = painter.<span class="built_in">font</span>();</span><br><span class="line">    font.<span class="built_in">setPointSize</span>(<span class="number">18</span>);</span><br><span class="line">    painter.<span class="built_in">setFont</span>(font);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 画文字</span></span><br><span class="line">    painter.<span class="built_in">drawText</span>(<span class="number">60</span>, <span class="number">120</span>, <span class="string">&quot;Hello Qt!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🔔 <strong>注意</strong></p>
+<ul>
+<li><code>QPainter painter(this);</code> 代表要在自己的窗口上画东西。</li>
+<li><code>rect()</code> 是窗口的矩形大小。</li>
+<li>每次需要重绘，Qt都会自动调用 <code>paintEvent</code>。</li>
+</ul>
+<h4 id="③-创建对象并显示"><a href="#③-创建对象并显示" class="headerlink" title="③ 创建对象并显示"></a>③ 创建对象并显示</h4><p>在 <code>main.cpp</code> 中：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mywidget.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    MyWidget widget;</span><br><span class="line">    widget.<span class="built_in">resize</span>(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">    widget.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> app.<span class="built_in">exec</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>✨ 这样，你就能看到一个白色背景，红色矩形+文字的窗口了！</p>
+<h3 id="🛠️-自定义绘制能画什么？"><a href="#🛠️-自定义绘制能画什么？" class="headerlink" title="🛠️ 自定义绘制能画什么？"></a>🛠️ 自定义绘制能画什么？</h3><p>你可以在 <code>paintEvent</code> 里，<strong>几乎什么都可以画</strong>！比如：</p>
+<table>
+<thead>
+<tr>
+<th>想画什么</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>填充背景颜色</td>
+<td><code>painter.fillRect()</code></td>
+</tr>
+<tr>
+<td>画直线</td>
+<td><code>painter.drawLine(x1, y1, x2, y2)</code></td>
+</tr>
+<tr>
+<td>画矩形</td>
+<td><code>painter.drawRect(x, y, w, h)</code></td>
+</tr>
+<tr>
+<td>画圆</td>
+<td><code>painter.drawEllipse(x, y, w, h)</code></td>
+</tr>
+<tr>
+<td>画多边形</td>
+<td><code>painter.drawPolygon()</code></td>
+</tr>
+<tr>
+<td>写文字</td>
+<td><code>painter.drawText(x, y, &quot;文字&quot;)</code></td>
+</tr>
+<tr>
+<td>画图片</td>
+<td><code>painter.drawPixmap()</code></td>
+</tr>
+</tbody></table>
+<p><strong>甚至可以加载图片、渐变色、绘制复杂图形等等！</strong></p>
+<h3 id="✨-总结一句话"><a href="#✨-总结一句话" class="headerlink" title="✨ 总结一句话"></a>✨ 总结一句话</h3><blockquote>
+<p><strong>只要继承自 <code>QWidget</code>，重写 <code>paintEvent()</code>，用 <code>QPainter</code>，你就能随心所欲地在窗口上自由绘制任何内容。</strong></p>
+</blockquote>
+<p>Qt就像给你了一张白纸+画笔，你可以想画什么就画什么！</p>
+<h2 id="点击画布生成小圆圈”！🌈"><a href="#点击画布生成小圆圈”！🌈" class="headerlink" title="点击画布生成小圆圈”！🌈"></a><strong>点击画布生成小圆圈”</strong>！🌈</h2><h2 id="🛠️-项目目标："><a href="#🛠️-项目目标：" class="headerlink" title="🛠️ 项目目标："></a>🛠️ 项目目标：</h2><ul>
+<li>窗口打开是空白的。</li>
+<li>每次鼠标<strong>点击</strong>，在点击的位置画一个小圆圈。</li>
+<li>圆圈可以自己设置大小、颜色。</li>
+<li>点击越多，画的圈圈越多，窗口上留下“痕迹”。</li>
+</ul>
+<p>就像自己“种下”了一片小彩色泡泡一样！🍭</p>
+<h2 id="🖥️-整体思路"><a href="#🖥️-整体思路" class="headerlink" title="🖥️ 整体思路"></a>🖥️ 整体思路</h2><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>内容</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>自己写个类继承 <code>QWidget</code></td>
+<td>比如叫 <code>BubbleWidget</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>记录每次点击的位置</td>
+<td>存到一个 <code>QVector&lt;QPoint&gt;</code> 里</td>
+</tr>
+<tr>
+<td>3</td>
+<td>重写 <code>paintEvent()</code></td>
+<td>把所有记录的位置画成小圆圈</td>
+</tr>
+<tr>
+<td>4</td>
+<td>重写 <code>mousePressEvent()</code></td>
+<td>每次点击，保存新坐标并 <code>update()</code></td>
+</tr>
+</tbody></table>
+<p>（是不是感觉很清晰！🌟）</p>
+<h2 id="✏️-具体代码（一步步讲）"><a href="#✏️-具体代码（一步步讲）" class="headerlink" title="✏️ 具体代码（一步步讲）"></a>✏️ 具体代码（一步步讲）</h2><h3 id="1-头文件-bubblewidget-h"><a href="#1-头文件-bubblewidget-h" class="headerlink" title="1. 头文件 bubblewidget.h"></a>1. 头文件 bubblewidget.h</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cpp复制编辑#ifndef BUBBLEWIDGET_H</span><br><span class="line">#define BUBBLEWIDGET_H</span><br><span class="line"></span><br><span class="line">#include &lt;QWidget&gt;</span><br><span class="line">#include &lt;QVector&gt;</span><br><span class="line">#include &lt;QPoint&gt;</span><br><span class="line"></span><br><span class="line">class BubbleWidget : public QWidget</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit BubbleWidget(QWidget* parent = nullptr);</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">    void paintEvent(QPaintEvent* event) override;</span><br><span class="line">    void mousePressEvent(QMouseEvent* event) override;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    QVector&lt;QPoint&gt; bubbles; // 存放所有点击位置</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // BUBBLEWIDGET_H</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-实现文件-bubblewidget-cpp"><a href="#2-实现文件-bubblewidget-cpp" class="headerlink" title="2. 实现文件 bubblewidget.cpp"></a>2. 实现文件 bubblewidget.cpp</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">cpp复制编辑#include &quot;bubblewidget.h&quot;</span><br><span class="line">#include &lt;QPainter&gt;</span><br><span class="line">#include &lt;QMouseEvent&gt;</span><br><span class="line"></span><br><span class="line">BubbleWidget::BubbleWidget(QWidget* parent)</span><br><span class="line">    : QWidget(parent)</span><br><span class="line">&#123;</span><br><span class="line">    setStyleSheet(&quot;background-color: white;&quot;); // 设置背景色</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void BubbleWidget::paintEvent(QPaintEvent* /*event*/)</span><br><span class="line">&#123;</span><br><span class="line">    QPainter painter(this);</span><br><span class="line">    painter.setRenderHint(QPainter::Antialiasing);</span><br><span class="line"></span><br><span class="line">    painter.setPen(Qt::NoPen);</span><br><span class="line">    painter.setBrush(Qt::cyan); // 圆圈颜色</span><br><span class="line"></span><br><span class="line">    for (const QPoint&amp; point : bubbles) &#123;</span><br><span class="line">        painter.drawEllipse(point, 20, 20); // 在每个点画半径20的圆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void BubbleWidget::mousePressEvent(QMouseEvent* event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;button() == Qt::LeftButton) &#123;</span><br><span class="line">        bubbles.append(event-&gt;pos()); // 记录点击位置</span><br><span class="line">        update(); // 触发重绘，显示新的圆圈</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-主函数-main-cpp"><a href="#3-主函数-main-cpp" class="headerlink" title="3. 主函数 main.cpp"></a>3. 主函数 main.cpp</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cpp复制编辑#include &quot;bubblewidget.h&quot;</span><br><span class="line">#include &lt;QApplication&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QApplication app(argc, argv);</span><br><span class="line"></span><br><span class="line">    BubbleWidget widget;</span><br><span class="line">    widget.resize(600, 400);</span><br><span class="line">    widget.setWindowTitle(&quot;点击画小圆圈！&quot;);</span><br><span class="line">    widget.show();</span><br><span class="line"></span><br><span class="line">    return app.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="🧠-总结一下"><a href="#🧠-总结一下" class="headerlink" title="🧠 总结一下"></a>🧠 总结一下</h2><ul>
+<li><strong>paintEvent()</strong>：负责把所有点画出来。</li>
+<li><strong>mousePressEvent()</strong>：负责响应鼠标点击，记录新的点。</li>
+<li><strong>update()</strong>：让 Qt 自动调用 <code>paintEvent</code> 重新绘制。</li>
+</ul>
+<p>只要掌握了这三个，你就能做出属于自己的自绘控件了！🔮</p>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-04-26</span>
+            
+                <span>该篇文章被 shenzaoyi</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/qt/'>
+                            qt
+                        </a>
+                    
+                </span>
+             
+             
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+                    <span>上一篇：<a href='/2025/04/26/qt-calculate/'>qt_calculate</a></span>
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/04/23/jvm/">jvm</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2024 China 
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊月落乌啼霜满天🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: true, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+</html>

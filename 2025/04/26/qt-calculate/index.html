@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="qt_calculate" />
+    <meta name="hexo-theme-A4" content="v1.9.7" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>shenzaoyi`s blog</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+    
+    
+        <style>
+            .index-main{
+                max-width:  880px;
+            }
+        </style>
+
+    
+    
+
+
+
+    
+
+    
+    
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 50%; 
+            }
+            
+            .header-img:hover {
+                animation: rotateAnimation 2s linear infinite; /* 悬停旋转动画 */
+            }
+            @keyframes rotateAnimation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">shenzaoyi`s blog</a> 
+            <span class="description">0 error(s), 0 warning(s)</span> 
+        </div>
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    qt_calculate
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-04-26</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：965</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：4分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%F0%9F%8E%AF-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87%EF%BC%9A%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%99%A8"><span class="post-toc-text">🎯 项目目标：简单计算器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%96%8C%EF%B8%8F-%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8-Qt-Designer-%E8%AE%BE%E8%AE%A1%E7%95%8C%E9%9D%A2"><span class="post-toc-text">🖌️ 第一步：使用 Qt Designer 设计界面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%96%A5%EF%B8%8F-%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9AC-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E9%80%BB%E8%BE%91"><span class="post-toc-text">🖥️ 第二步：C++ 代码实现计算器逻辑</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-%E7%94%9F%E6%88%90-ui-calculator-h"><span class="post-toc-text">1. 生成 ui_calculator.h</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-%E5%9C%A8-mainwindow-h-%E4%B8%AD%E5%BC%95%E5%85%A5%E5%B9%B6%E8%AE%BE%E7%BD%AE%E6%8C%89%E9%92%AE%E9%80%BB%E8%BE%91"><span class="post-toc-text">2. 在 mainwindow.h 中引入并设置按钮逻辑</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-%E5%9C%A8-mainwindow-cpp-%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E9%80%BB%E8%BE%91"><span class="post-toc-text">3. 在 mainwindow.cpp 实现计算器逻辑</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="post-toc-text">4. 运行结果</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%F0%9F%8C%9F-%E5%B0%8F%E7%BB%93%EF%BC%9A"><span class="post-toc-text">🌟 小结：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%F0%9F%92%A1-%E6%83%B3%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%8B%93%E5%B1%95%EF%BC%9F"><span class="post-toc-text">💡 想进一步拓展？</span></a></li></ol></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="🎯-项目目标：简单计算器"><a href="#🎯-项目目标：简单计算器" class="headerlink" title="🎯 项目目标：简单计算器"></a>🎯 项目目标：<strong>简单计算器</strong></h1><p>我们将创建一个简单的 <strong>计算器界面</strong>，它有以下控件：</p>
+<ul>
+<li>一个 <strong>QLineEdit</strong> 来显示输入的数字和计算结果</li>
+<li>四个 <strong>QPushButton</strong> 按钮：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code></li>
+<li>一个 <strong>QPushButton</strong> 用来显示 <code>=</code>，即执行计算操作</li>
+<li>一个 <strong>QPushButton</strong> 清空显示内容</li>
+</ul>
+<hr>
+<h3 id="🖌️-第一步：使用-Qt-Designer-设计界面"><a href="#🖌️-第一步：使用-Qt-Designer-设计界面" class="headerlink" title="🖌️ 第一步：使用 Qt Designer 设计界面"></a>🖌️ 第一步：使用 Qt Designer 设计界面</h3><ol>
+<li><strong>打开 Qt Designer</strong>，选择 <strong>“Main Window”</strong> 模板。</li>
+<li>拖动控件：<ul>
+<li><strong>QLineEdit</strong>：用于显示输入的数字和计算结果。</li>
+<li><strong>QPushButton</strong>：用作计算器的数字键（可以用 <code>0-9</code>）、运算符键（<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>）和 <code>=</code>。</li>
+</ul>
+</li>
+<li><strong>设置控件名称</strong>：<ul>
+<li>为 <strong>QLineEdit</strong> 设置对象名称为 <code>lineEditDisplay</code>，方便在代码中引用。</li>
+<li>为四个运算符按钮设置对象名称，如 <code>pushButtonAdd</code>, <code>pushButtonSub</code>, <code>pushButtonMul</code>, <code>pushButtonDiv</code>。</li>
+<li>为 <strong><code>=</code> 按钮</strong> 设置对象名称为 <code>pushButtonEqual</code>，为清空按钮设置对象名称为 <code>pushButtonClear</code>。</li>
+</ul>
+</li>
+</ol>
+<p><strong>界面效果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>对象名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显示框</td>
+<td><code>lineEditDisplay</code></td>
+</tr>
+<tr>
+<td>加号按钮</td>
+<td><code>pushButtonAdd</code></td>
+</tr>
+<tr>
+<td>减号按钮</td>
+<td><code>pushButtonSub</code></td>
+</tr>
+<tr>
+<td>乘号按钮</td>
+<td><code>pushButtonMul</code></td>
+</tr>
+<tr>
+<td>除号按钮</td>
+<td><code>pushButtonDiv</code></td>
+</tr>
+<tr>
+<td>等号按钮</td>
+<td><code>pushButtonEqual</code></td>
+</tr>
+<tr>
+<td>清空按钮</td>
+<td><code>pushButtonClear</code></td>
+</tr>
+</tbody></table>
+<ol>
+<li>保存文件为 <code>calculator.ui</code>。</li>
+</ol>
+<hr>
+<h3 id="🖥️-第二步：C-代码实现计算器逻辑"><a href="#🖥️-第二步：C-代码实现计算器逻辑" class="headerlink" title="🖥️ 第二步：C++ 代码实现计算器逻辑"></a>🖥️ 第二步：C++ 代码实现计算器逻辑</h3><h4 id="1-生成-ui-calculator-h"><a href="#1-生成-ui-calculator-h" class="headerlink" title="1. 生成 ui_calculator.h"></a>1. <strong>生成 <code>ui_calculator.h</code></strong></h4><p>在你创建完 <code>.ui</code> 文件之后，CMake 会自动生成 <code>ui_calculator.h</code> 文件。你不需要手动去写这个文件，它会自动根据你在 Qt Designer 里设计的界面生成。</p>
+<h4 id="2-在-mainwindow-h-中引入并设置按钮逻辑"><a href="#2-在-mainwindow-h-中引入并设置按钮逻辑" class="headerlink" title="2. 在 mainwindow.h 中引入并设置按钮逻辑"></a>2. <strong>在 <code>mainwindow.h</code> 中引入并设置按钮逻辑</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">cpp复制编辑#ifndef MAINWINDOW_H</span><br><span class="line">#define MAINWINDOW_H</span><br><span class="line"></span><br><span class="line">#include &lt;QMainWindow&gt;</span><br><span class="line"></span><br><span class="line">namespace Ui &#123;</span><br><span class="line">class MainWindow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MainWindow : public QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    explicit MainWindow(QWidget *parent = nullptr);</span><br><span class="line">    ~MainWindow();</span><br><span class="line"></span><br><span class="line">private slots:</span><br><span class="line">    void on_pushButtonAdd_clicked();</span><br><span class="line">    void on_pushButtonSub_clicked();</span><br><span class="line">    void on_pushButtonMul_clicked();</span><br><span class="line">    void on_pushButtonDiv_clicked();</span><br><span class="line">    void on_pushButtonEqual_clicked();</span><br><span class="line">    void on_pushButtonClear_clicked();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    Ui::MainWindow *ui;  // ui指针，加载界面</span><br><span class="line">    double currentValue;  // 存储当前输入的值</span><br><span class="line">    double operand;       // 存储操作数</span><br><span class="line">    QString currentOperator;  // 存储当前操作符</span><br><span class="line">&#125;;</span><br><span class="line">#endif // MAINWINDOW_H</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-在-mainwindow-cpp-实现计算器逻辑"><a href="#3-在-mainwindow-cpp-实现计算器逻辑" class="headerlink" title="3. 在 mainwindow.cpp 实现计算器逻辑"></a>3. <strong>在 <code>mainwindow.cpp</code> 实现计算器逻辑</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">cpp复制编辑#include &quot;mainwindow.h&quot;</span><br><span class="line">#include &quot;ui_mainwindow.h&quot;</span><br><span class="line">#include &lt;QPushButton&gt;</span><br><span class="line">#include &lt;QLineEdit&gt;</span><br><span class="line">#include &lt;QDebug&gt;</span><br><span class="line"></span><br><span class="line">MainWindow::MainWindow(QWidget *parent)</span><br><span class="line">    : QMainWindow(parent), ui(new Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);  // 连接界面</span><br><span class="line"></span><br><span class="line">    currentValue = 0.0;</span><br><span class="line">    operand = 0.0;</span><br><span class="line"></span><br><span class="line">    // 连接信号槽</span><br><span class="line">    connect(ui-&gt;pushButtonAdd, &amp;QPushButton::clicked, this, &amp;MainWindow::on_pushButtonAdd_clicked);</span><br><span class="line">    connect(ui-&gt;pushButtonSub, &amp;QPushButton::clicked, this, &amp;MainWindow::on_pushButtonSub_clicked);</span><br><span class="line">    connect(ui-&gt;pushButtonMul, &amp;QPushButton::clicked, this, &amp;MainWindow::on_pushButtonMul_clicked);</span><br><span class="line">    connect(ui-&gt;pushButtonDiv, &amp;QPushButton::clicked, this, &amp;MainWindow::on_pushButtonDiv_clicked);</span><br><span class="line">    connect(ui-&gt;pushButtonEqual, &amp;QPushButton::clicked, this, &amp;MainWindow::on_pushButtonEqual_clicked);</span><br><span class="line">    connect(ui-&gt;pushButtonClear, &amp;QPushButton::clicked, this, &amp;MainWindow::on_pushButtonClear_clicked);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MainWindow::~MainWindow()</span><br><span class="line">&#123;</span><br><span class="line">    delete ui;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 运算符按钮逻辑</span><br><span class="line">void MainWindow::on_pushButtonAdd_clicked() &#123;</span><br><span class="line">    operand = currentValue;</span><br><span class="line">    currentValue = 0.0;</span><br><span class="line">    currentOperator = &quot;+&quot;;</span><br><span class="line">    ui-&gt;lineEditDisplay-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MainWindow::on_pushButtonSub_clicked() &#123;</span><br><span class="line">    operand = currentValue;</span><br><span class="line">    currentValue = 0.0;</span><br><span class="line">    currentOperator = &quot;-&quot;;</span><br><span class="line">    ui-&gt;lineEditDisplay-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MainWindow::on_pushButtonMul_clicked() &#123;</span><br><span class="line">    operand = currentValue;</span><br><span class="line">    currentValue = 0.0;</span><br><span class="line">    currentOperator = &quot;*&quot;;</span><br><span class="line">    ui-&gt;lineEditDisplay-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MainWindow::on_pushButtonDiv_clicked() &#123;</span><br><span class="line">    operand = currentValue;</span><br><span class="line">    currentValue = 0.0;</span><br><span class="line">    currentOperator = &quot;/&quot;;</span><br><span class="line">    ui-&gt;lineEditDisplay-&gt;clear();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 计算按钮逻辑</span><br><span class="line">void MainWindow::on_pushButtonEqual_clicked() &#123;</span><br><span class="line">    if (currentOperator == &quot;+&quot;) &#123;</span><br><span class="line">        currentValue = operand + currentValue;</span><br><span class="line">    &#125; else if (currentOperator == &quot;-&quot;) &#123;</span><br><span class="line">        currentValue = operand - currentValue;</span><br><span class="line">    &#125; else if (currentOperator == &quot;*&quot;) &#123;</span><br><span class="line">        currentValue = operand * currentValue;</span><br><span class="line">    &#125; else if (currentOperator == &quot;/&quot;) &#123;</span><br><span class="line">        if (currentValue != 0.0) &#123;</span><br><span class="line">            currentValue = operand / currentValue;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            ui-&gt;lineEditDisplay-&gt;setText(&quot;Error&quot;);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ui-&gt;lineEditDisplay-&gt;setText(QString::number(currentValue));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 清空按钮逻辑</span><br><span class="line">void MainWindow::on_pushButtonClear_clicked() &#123;</span><br><span class="line">    currentValue = 0.0;</span><br><span class="line">    operand = 0.0;</span><br><span class="line">    currentOperator.clear();</span><br><span class="line">    ui-&gt;lineEditDisplay-&gt;clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-运行结果"><a href="#4-运行结果" class="headerlink" title="4. 运行结果"></a>4. <strong>运行结果</strong></h3><ul>
+<li>你会看到一个简单的计算器界面，点击 <code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> 按钮选择操作符，点击数字按钮输入数值。</li>
+<li>点击 <code>=</code> 后会进行运算并显示结果。</li>
+<li>点击 <code>Clear</code> 按钮清空显示。</li>
+</ul>
+<hr>
+<h1 id="🌟-小结："><a href="#🌟-小结：" class="headerlink" title="🌟 小结："></a>🌟 小结：</h1><ol>
+<li><strong>通过 Qt Designer 设计界面</strong>：你用 Qt Designer 设计 <code>.ui</code> 文件，并通过 <code>setupUi()</code> 将它加载到你的窗口类中。</li>
+<li><strong>C++ 代码实现计算器逻辑</strong>：通过信号和槽机制，处理按钮点击事件，并实现计算功能。</li>
+<li><strong>运算符按钮、数字输入、清空功能</strong>：通过 <code>QPushButton</code> 和 <code>QLineEdit</code>，实现一个简单的计算器。</li>
+</ol>
+<hr>
+<h3 id="💡-想进一步拓展？"><a href="#💡-想进一步拓展？" class="headerlink" title="💡 想进一步拓展？"></a>💡 想进一步拓展？</h3><ul>
+<li>你可以让计算器支持更多的功能，比如 <strong>小数运算</strong>、<strong>括号运算</strong> 或者 <strong>历史记录</strong>。</li>
+<li>甚至可以用 Qt 的 <strong>自定义绘制</strong> 来做一个 <strong>画图计算器</strong>，通过鼠标点击位置来画一些图形。</li>
+</ul>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-04-26</span>
+            
+                <span>该篇文章被 shenzaoyi</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/qt/'>
+                            qt
+                        </a>
+                    
+                </span>
+             
+             
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/04/26/qt-paint/">qt_paint</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2024 China 
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊月落乌啼霜满天🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: true, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+</html>
