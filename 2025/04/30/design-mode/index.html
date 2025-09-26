@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="tools" />
+    <meta name="description" content="design_mode" />
     <meta name="hexo-theme-A4" content="v1.9.7" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
     <title>shenzaoyi`s blog</title>
@@ -175,7 +175,7 @@
         
             
                 <div class="post-main-title" style="text-align: center;">
-                    tools
+                    design_mode
                 </div>
             
         
@@ -188,13 +188,13 @@
             <div class="post-head-meta-center">
         
                 
-                    <span>最近更新：2025-08-30</span> 
+                    <span>最近更新：2025-04-30</span> 
                 
                 
                     
                         &nbsp; | &nbsp;
                     
-                     <span>字数总计：95</span>
+                     <span>字数总计：221</span>
                 
                 
                     
@@ -216,37 +216,36 @@
     <div class="post-md">
         
             
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tools"><span class="post-toc-text">tools</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Emojis-in-notes"><span class="post-toc-text">Emojis in notes</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E5%A4%8D%E5%88%B6%E7%AD%89%E9%97%AE%E9%A2%98"><span class="post-toc-text">浏览器无法复制等问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Windows-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%AA%E6%85%A2%E4%BA%86"><span class="post-toc-text">Windows 删除文件太慢了</span></a></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">设计模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">结构型模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F"><span class="post-toc-text">外观模式</span></a></li></ol></li></ol></li></ol>
             
         
-        <div class=".article-gallery"><h1 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h1><h2 id="Emojis-in-notes"><a href="#Emojis-in-notes" class="headerlink" title="Emojis in notes"></a>Emojis in notes</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/all-emojis-emoji-list-for-copy-and-paste/">All Emojis – Emoji List for Copy and Paste</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://gist.github.com/rxaviers/7360908">markdown emojis</a></p>
-</li>
-</ul>
-<h2 id="浏览器无法复制等问题"><a href="#浏览器无法复制等问题" class="headerlink" title="浏览器无法复制等问题"></a>浏览器无法复制等问题</h2><ol>
-<li><p>无法右键打开控制台</p>
-<ul>
-<li>刷新页面立即按F12</li>
-<li>在页面前面加 <code>view-source:</code> , 如：<code>view-source:https://wmovc.com/</code></li>
-</ul>
-</li>
-<li><p>无法复制</p>
-<ul>
-<li>在网页禁用js, 打开控制台， Ctrl + Shift + P, 输入Javascript， 禁用</li>
-</ul>
-</li>
+        <div class=".article-gallery"><h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><p>从不同角度组合类或对象</p>
+<p>常见的结构型模式有：</p>
+<ol>
+<li>适配器模式（Adapter）</li>
+<li>桥接模式（Bridge）</li>
+<li>组合模式（Composite）</li>
+<li>装饰器模式（Decorator）</li>
+<li>外观模式（Facade）</li>
+<li>享元模式（Flyweight）</li>
+<li>代理模式（Proxy）</li>
 </ol>
-<h2 id="Windows-删除文件太慢了"><a href="#Windows-删除文件太慢了" class="headerlink" title="Windows 删除文件太慢了"></a>Windows 删除文件太慢了</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Remove-Item</span> <span class="literal">-Path</span> <span class="string">&#x27;vcpkg&#x27;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span> | <span class="built_in">Out-Null</span></span><br></pre></td></tr></table></figure>
+<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p>外观模式的核心意图是“为一组接口提供一个一致的高层接口”，以简化客户端对复杂子系统的使用。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+---------+        calls       +----------------+</span><br><span class="line">| Client  | ---------------&gt;  |    Facade      |</span><br><span class="line">+---------+                   +----------------+</span><br><span class="line">                                  |    |    |</span><br><span class="line">                +-----------------+    |    +-----------------+</span><br><span class="line">                |                      |                      |</span><br><span class="line">         +-------------+        +-------------+        +-------------+</span><br><span class="line">         | Subsystem A |        | Subsystem B |        | Subsystem C |</span><br><span class="line">         +-------------+        +-------------+        +-------------+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+
+
+<p><strong>降低耦合</strong>：客户端与子系统解耦，只依赖 Facade 接口</p>
+<p><strong>简化调用</strong>：将多次调用封装到单一方法，调用者更容易使用</p>
+<p><strong>统一访问入口</strong>：集中管理子系统调用流程，便于维护和扩展</p>
+<p><strong>良好的扩展性</strong>：增加或移除子系统时，只需在 Facade 中做局部调整，客户端无须修改</p>
 </div>
     </div>
 
     <div class="post-meta">
         <i>
         
-            <span>2025-04-13</span>
+            <span>2025-04-30</span>
             
                 <span>该篇文章被 shenzaoyi</span>
             
@@ -254,8 +253,8 @@
                 <span>打上标签:
                     
                     
-                        <a href='/tags/tools/'>
-                            tools
+                        <a href='/tags/design-mode/'>
+                            design_mode
                         </a>
                     
                 </span>
@@ -272,9 +271,12 @@
     
             <div class="post-footer-pre-next">
                 
-                    <span>上一篇：<a href='/2025/04/13/bash/'>bash</a></span>
+                    <span>上一篇：<a href='/2025/05/09/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/'>信息系统分析与设计</a></span>
                 
 
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/04/26/qt-calculate/">qt_calculate</a>
+                    </span>
                 
             </div>
     

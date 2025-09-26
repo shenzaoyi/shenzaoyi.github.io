@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="compression_performance" />
+    <meta name="hexo-theme-A4" content="v1.9.7" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>shenzaoyi`s blog</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+    
+    
+        <style>
+            .index-main{
+                max-width:  880px;
+            }
+        </style>
+
+    
+    
+
+
+
+    
+
+    
+    
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 50%; 
+            }
+            
+            .header-img:hover {
+                animation: rotateAnimation 2s linear infinite; /* 悬停旋转动画 */
+            }
+            @keyframes rotateAnimation {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">shenzaoyi`s blog</a> 
+            <span class="description">0 error(s), 0 warning(s)</span> 
+        </div>
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+            
+                <li><a href="/about/">关于</a></li>
+            
+        
+            
+                <li><a href="/tags/">标签</a></li>
+            
+        
+            
+                <li><a href="/categories/">分类</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    compression_performance
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-05-17</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：1.1k</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：3分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95%E7%89%B9%E6%80%A7"><span class="post-toc-text">一、压缩算法特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E7%A7%B0-vs-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E7%AE%97%E6%B3%95"><span class="post-toc-text">对称 vs 非对称算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8E%8B%E7%BC%A9%E7%BA%A7%E5%88%AB%E4%B8%8E%E8%A7%A3%E5%8E%8B%E6%80%A7%E8%83%BD"><span class="post-toc-text">压缩级别与解压性能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%9D%A2%E5%90%91%E8%A7%A3%E5%8E%8B%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="post-toc-text">面向解压优化的算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E3%80%81CPU-%E4%B8%8E%E5%B9%B6%E8%A1%8C%E5%BA%A6"><span class="post-toc-text">二、CPU 与并行度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%93%B6%E9%A2%88"><span class="post-toc-text">单线程瓶颈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7"><span class="post-toc-text">多线程解压工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CPU-vs-%E7%A3%81%E7%9B%98-I-O"><span class="post-toc-text">CPU vs 磁盘 I&#x2F;O</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E3%80%81%E7%A3%81%E7%9B%98-I-O-%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="post-toc-text">三、磁盘 I&#x2F;O 与文件系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B0%8F%E6%96%87%E4%BB%B6%E4%B8%8E%E5%85%83%E6%95%B0%E6%8D%AE%E5%BC%80%E9%94%80"><span class="post-toc-text">小文件与元数据开销</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%A3%81%E7%9B%98%E7%A2%8E%E7%89%87%E5%8C%96"><span class="post-toc-text">磁盘碎片化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%E4%B8%8E%E9%A2%84%E5%88%86%E9%85%8D"><span class="post-toc-text">缓存与预分配</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E5%85%A8%E8%BD%AF%E4%BB%B6%E4%B8%8E%E5%8D%8F%E8%AE%AE%E5%BC%80%E9%94%80"><span class="post-toc-text">四、安全软件与协议开销</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9E%E6%97%B6%E6%9D%80%E6%AF%92%E6%89%AB%E6%8F%8F"><span class="post-toc-text">实时杀毒扫描</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%8E%E5%8D%8F%E8%AE%AE"><span class="post-toc-text">网络文件系统与协议</span></a></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h2 id="一、压缩算法特性"><a href="#一、压缩算法特性" class="headerlink" title="一、压缩算法特性"></a>一、压缩算法特性</h2><h3 id="对称-vs-非对称算法"><a href="#对称-vs-非对称算法" class="headerlink" title="对称 vs 非对称算法"></a>对称 vs 非对称算法</h3><p>多数压缩算法在压缩与解压间存在对称性差异：</p>
+<ul>
+<li><strong>非对称（Asymmetric）算法</strong>通常解压远快于压缩，例如 LZMA（7‑Zip）、Bzip2；其解压速度可达到每字节数十纳秒级，而压缩则耗时数倍<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data_compression_symmetry?utm_source=chatgpt.com">维基百科</a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bzip2?utm_source=chatgpt.com">维基百科</a>。</li>
+<li><strong>对称（Symmetric）算法</strong>压缩与解压耗时相近，如 PPMd 等，用于需要实时编解码的场景<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data_compression_symmetry?utm_source=chatgpt.com">维基百科</a>。</li>
+</ul>
+<h3 id="压缩级别与解压性能"><a href="#压缩级别与解压性能" class="headerlink" title="压缩级别与解压性能"></a>压缩级别与解压性能</h3><ul>
+<li>在多数算法中，<strong>压缩级别越高</strong>，压缩时算法需要搜索更深或更复杂的模式，解压却并不显著变慢，但极端高压缩可能占用更多内存与缓存，略微影响解压效率<a target="_blank" rel="noopener" href="https://learning.lpi.org/en/learning-materials/010-160/3/3.1/3.1_01/?utm_source=chatgpt.com">learning.lpi.org</a><a target="_blank" rel="noopener" href="https://gregoryszorc.com/blog/2017/03/07/better-compression-with-zstandard/?utm_source=chatgpt.com">gregoryszorc.com</a>。</li>
+<li>例如，gzip 在最高压缩级别（level 9）下，解压率竟略微提升约 0.9%（vs level 6），但差异极小<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28452429/does-gzip-compression-level-have-any-impact-on-decompression?utm_source=chatgpt.com">Stack Overflow</a>。</li>
+</ul>
+<h3 id="面向解压优化的算法"><a href="#面向解压优化的算法" class="headerlink" title="面向解压优化的算法"></a>面向解压优化的算法</h3><ul>
+<li><strong>Zstandard (zstd)</strong> 兼顾高压缩比与超快解压，可实现超 1000 MB&#x2F;s 的解压吞吐，并且解压速度对压缩级别几乎不敏感<a target="_blank" rel="noopener" href="https://gregoryszorc.com/blog/2017/03/07/better-compression-with-zstandard/?utm_source=chatgpt.com">gregoryszorc.com</a>。</li>
+<li><strong>LZO</strong> 系列算法设计重点即为极快解压，仅需源&#x2F;目的缓冲区，不额外占用内存；适合嵌入式和实时场景<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Oberhumer?utm_source=chatgpt.com">维基百科</a>。</li>
+</ul>
+<hr>
+<h2 id="二、CPU-与并行度"><a href="#二、CPU-与并行度" class="headerlink" title="二、CPU 与并行度"></a>二、CPU 与并行度</h2><h3 id="单线程瓶颈"><a href="#单线程瓶颈" class="headerlink" title="单线程瓶颈"></a>单线程瓶颈</h3><ul>
+<li>许多内置或经典工具（如 Windows Explorer 自带的 ZIP 解压、传统 <code>unzip</code>）仅用单线程处理，无法利用多核优势，导致 CPU 使用率仅 25% 左右（在四核系统上）<a target="_blank" rel="noopener" href="https://www.reddit.com/r/computers/comments/18g0jau/why_are_files_unzipping_so_slow/?utm_source=chatgpt.com">Reddit</a>。</li>
+<li>AES 加密压缩（使用 <code>-P</code>）还需在每文件解压前进行解密，进一步拖慢单线程速度<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Data_compression?utm_source=chatgpt.com">维基百科</a>。</li>
+</ul>
+<h3 id="多线程解压工具"><a href="#多线程解压工具" class="headerlink" title="多线程解压工具"></a>多线程解压工具</h3><ul>
+<li>现代压缩工具如 7‑Zip 对 XZ 格式支持多线程解码，或使用并行 gzip（pigz）、并行 zstd 可充分利用所有 CPU 核心，大幅缩短解压时间<a target="_blank" rel="noopener" href="https://sourceforge.net/p/sevenzip/discussion/45797/thread/a6ec5f7541/?utm_source=chatgpt.com">SourceForge</a>。</li>
+</ul>
+<h3 id="CPU-vs-磁盘-I-O"><a href="#CPU-vs-磁盘-I-O" class="headerlink" title="CPU vs 磁盘 I&#x2F;O"></a>CPU vs 磁盘 I&#x2F;O</h3><ul>
+<li>当数据可压缩时，<strong>在内存中解压</strong>往往比从磁盘读取未压缩数据更快；如 zlib 解压速度可超 HDD 顺序读写，而 LZ4 解压则远快于硬盘读速<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/13052043/which-is-faster-in-memory-decompression-or-accessing-uncompressed-data-in-hdd?utm_source=chatgpt.com">Stack Overflow</a>。</li>
+</ul>
+<hr>
+<h2 id="三、磁盘-I-O-与文件系统"><a href="#三、磁盘-I-O-与文件系统" class="headerlink" title="三、磁盘 I&#x2F;O 与文件系统"></a>三、磁盘 I&#x2F;O 与文件系统</h2><h3 id="小文件与元数据开销"><a href="#小文件与元数据开销" class="headerlink" title="小文件与元数据开销"></a>小文件与元数据开销</h3><ul>
+<li>数千个小文件的解压，文件系统需对每个文件进行创建、目录更新、权限检查、写入与关闭等操作，产生大量随机 I&#x2F;O 与系统调用，吞吐率骤降<a target="_blank" rel="noopener" href="https://superuser.com/questions/1564821/whats-the-bottleneck-in-transfer-of-a-large-number-of-small-files?utm_source=chatgpt.com">Super User</a>。</li>
+<li>现代磁盘（尤其 SSD）顺序读写极快，但随机写入大量小文件仍受限于 I&#x2F;O 延迟与写放大，写缓存耗尽后速度回落至闪存颗粒本身性能<a target="_blank" rel="noopener" href="https://serverfault.com/questions/61750/on-a-modern-system-will-using-disk-compression-give-me-better-overall-performan?utm_source=chatgpt.com">Server Fault</a>。</li>
+</ul>
+<h3 id="磁盘碎片化"><a href="#磁盘碎片化" class="headerlink" title="磁盘碎片化"></a>磁盘碎片化</h3><ul>
+<li>文件系统老化或碎片化严重时，大量非连续块写入带来额外寻址延迟，对机械硬盘影响尤为严重；SSD 虽无机械部件，但仍会因多写入位置增大内部管理开销<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/File_system_fragmentation?utm_source=chatgpt.com">维基百科</a>。</li>
+</ul>
+<h3 id="缓存与预分配"><a href="#缓存与预分配" class="headerlink" title="缓存与预分配"></a>缓存与预分配</h3><ul>
+<li>CPU 缓存（L2&#x2F;L3）和文件系统缓存大小会影响解压表现：例如 Bzip2 在解压时需约 4–8 MB 缓存，否则速度下降明显<a target="_blank" rel="noopener" href="https://sourceforge.net/p/sevenzip/discussion/45797/thread/a6ec5f7541/?utm_source=chatgpt.com">SourceForge</a>。</li>
+<li>预先调整目标文件系统为本地 ext4（WSL 用户）或将压缩包与解压目录放置于同一高性能分区，均有助于提升 I&#x2F;O 效率。</li>
+</ul>
+<hr>
+<h2 id="四、安全软件与协议开销"><a href="#四、安全软件与协议开销" class="headerlink" title="四、安全软件与协议开销"></a>四、安全软件与协议开销</h2><h3 id="实时杀毒扫描"><a href="#实时杀毒扫描" class="headerlink" title="实时杀毒扫描"></a>实时杀毒扫描</h3><ul>
+<li>Windows Defender、第三方杀毒软件对每个新文件进行实时扫描，往往在写入前后插入深度检查，显著拖慢大量文件写入速度<a target="_blank" rel="noopener" href="https://www.reddit.com/r/computers/comments/18g0jau/why_are_files_unzipping_so_slow/?utm_source=chatgpt.com">Reddit</a>。</li>
+<li>在业务允许的范围内，<strong>临时排除</strong>解压目录可免去扫描开销，带来几倍性能提升<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=33751266&utm_source=chatgpt.com">Hacker News</a>。</li>
+</ul>
+<h3 id="网络文件系统与协议"><a href="#网络文件系统与协议" class="headerlink" title="网络文件系统与协议"></a>网络文件系统与协议</h3><ul>
+<li>SMB、NFS 等网络文件系统在写入小文件时，每次写操作都需经过协议封包、网络传输、文件系统调用与确认，增加网络与文件系统延迟<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/slow-smb-file-transfer?utm_source=chatgpt.com">Microsoft Learn</a>。</li>
+<li>在 CI&#x2F;CD 环境下写入容器或虚拟化共享盘时，I&#x2F;O 常常成为瓶颈，解压最优策略是先将压缩包下载到本地再解压<a target="_blank" rel="noopener" href="https://depot.dev/blog/uncovering-disk-io-bottlenecks-github-actions-ci?utm_source=chatgpt.com">Depot</a>。</li>
+</ul>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-05-17</span>
+            
+                <span>该篇文章被 shenzaoyi</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/compression/'>
+                            compression
+                        </a>
+                    
+                </span>
+             
+             
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+                    <span>上一篇：<a href='/2025/06/10/sites/'>sites</a></span>
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/05/17/debug-weasel/">debug_weasel</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2024 China 
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊月落乌啼霜满天🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: true, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+</html>
