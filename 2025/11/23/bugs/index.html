@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <meta name="description" content="tags" />
+    <meta name="description" content="bugs" />
     <meta name="hexo-theme-A4" content="v1.9.7" />
     <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
     <title>shenzaoyi`s blog</title>
@@ -150,11 +150,7 @@
             
         
             
-                <li><i>
-                    
-                        <a style="color: #4e7dde;" href="/tags/">标签</a>
-                    
-                </i></li>
+                <li><a href="/tags/">标签</a></li>
             
         
             
@@ -165,76 +161,119 @@
 </div> 
         
                     
-                            <br>
-<span><span class="darkmode-ignore">📌</span><i>tags</i></span>
-<ul class="inline-ul" >
-
-  
-
-  
-
-  
-
-  
-  
-  
-  
-      
-        <li class="inline-li">
-            <a href="/tags/notes">notes</a>
-            <span><i>5</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/tools">tools</a>
-            <span><i>2</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/something">something</a>
-            <span><i>1</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/sites">sites</a>
-            <span><i>1</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/class">class</a>
-            <span><i>1</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/qt">qt</a>
-            <span><i>4</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/compression">compression</a>
-            <span><i>1</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/cpp">cpp</a>
-            <span><i>1</i></span>
-        </li>
-    
-        <li class="inline-li">
-            <a href="/tags/design_mode">design_mode</a>
-            <span><i>1</i></span>
-        </li>
-    
-    
-</ul>
-
-                    
                     
 
                     
                     
                     
                     <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    bugs
+                </div>
+            
+        
+      
+    
+
+    
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2025-11-24</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：191</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：1分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
+    
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#bugs"><span class="post-toc-text">bugs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WSL-%E6%B2%A1%E5%8F%8D%E5%BA%94%E4%BA%86%EF%BC%8C-%E9%87%8D%E5%90%AFWSL-Service"><span class="post-toc-text">WSL 没反应了， 重启WSL Service</span></a></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="bugs"><a href="#bugs" class="headerlink" title="bugs"></a>bugs</h1><h2 id="WSL-没反应了，-重启WSL-Service"><a href="#WSL-没反应了，-重启WSL-Service" class="headerlink" title="WSL 没反应了， 重启WSL Service"></a>WSL 没反应了， 重启WSL Service</h2><p>问题： 打开WSL 安装的系统没反应， wsl –list 也一直卡住不动。</p>
+<p>from : <a target="_blank" rel="noopener" href="https://www.cnblogs.com/luoshuitianyi/p/18199290">解决WSL无响应问题</a></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 管理员</span><br><span class="line">// 博客里面的服务是Lxss， 但是在我电脑找不到， 尝试搜索全部 Lxss &amp; wsl</span><br><span class="line"><span class="built_in">Get-Service</span> | <span class="built_in">Where-Object</span> &#123; <span class="variable">$_</span>.Name <span class="operator">-like</span> <span class="string">&quot;*Lxss*&quot;</span> <span class="operator">-or</span> <span class="variable">$_</span>.DisplayName <span class="operator">-like</span> <span class="string">&quot;*Lxss*&quot;</span> <span class="operator">-or</span> <span class="variable">$_</span>.Name <span class="operator">-like</span> <span class="string">&quot;*wsl*&quot;</span> <span class="operator">-or</span> <span class="variable">$_</span>.DisplayName <span class="operator">-like</span> <span class="string">&quot;*wsl*&quot;</span> &#125; | <span class="built_in">Format-Table</span> <span class="literal">-AutoSize</span></span><br><span class="line">// 然后 <span class="built_in">kill</span> 掉， 在 services.msc 里面重启失败了</span><br><span class="line">taskkill /PID <span class="number">250</span>(PID号) /F</span><br><span class="line">// 然后进入 services.msc 找到刚刚搜索到的服务， 启动即可</span><br><span class="line"></span><br><span class="line">// e.g: </span><br><span class="line">// <span class="built_in">Get-Service</span> | <span class="built_in">Where-Object</span> &#123; <span class="variable">$_</span>.Name <span class="operator">-like</span> <span class="string">&quot;*Lxss*&quot;</span> <span class="operator">-or</span> <span class="variable">$_</span>.DisplayName <span class="operator">-like</span> <span class="string">&quot;*Lxss*&quot;</span> <span class="operator">-or</span> <span class="variable">$_</span>.Name <span class="operator">-like</span> // <span class="string">&quot;*wsl*&quot;</span> <span class="operator">-or</span> <span class="variable">$_</span>.DisplayName <span class="operator">-like</span> <span class="string">&quot;*wsl*&quot;</span> &#125; | <span class="built_in">Format-Table</span> <span class="literal">-AutoSize</span></span><br><span class="line"></span><br><span class="line">// Status  Name       DisplayName</span><br><span class="line">// <span class="literal">------</span>  <span class="literal">----</span>       <span class="literal">-----------</span></span><br><span class="line">// Running WSLService WSL Service</span><br></pre></td></tr></table></figure>
+
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+            <span>2025-11-23</span>
+            
+                <span>该篇文章被 shenzaoyi</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/notes/'>
+                            notes
+                        </a>
+                    
+                </span>
+             
+             
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2025/11/09/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E5%92%8C%E9%80%86%E5%90%91/">前端代码混淆和逆向</a>
+                    </span>
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
                     
                     
                     <div class="footer">
